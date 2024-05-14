@@ -1,3 +1,16 @@
 body{
-  background color
+    background-color: rgb(216, 44, 44);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formucliente{
+    background-color: white;
+    width: 400px;
+    text-align: right;
+    padding-right: 200px;
+    border: groove 15px black;
+    border-radius: 10%;
+
 }
