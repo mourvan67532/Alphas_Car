@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Link rel="stylesheet" href="style.css">
     <title>Cadastro de Clientes</title>
 </head>
 <body>
-    <h2>Cadastro de Cliente</h2>
-    <form id="formularioCliente">
-        <label for="nomeCliente">Nome:</label>
-        <input type="text" id="nomeCliente" name="nomeCliente"><br><br>
-        <label for="cpfCliente">CPF:</label>
-        <input type="number" id="cpfCliente" name="cpfCliente"><br><br>
-        <button type="button" onclick="cadastroCliente()">Próximo</button>
-    </form>
-
+    
+    <div class="formucliente">
+        <h2>Cadastro de Cliente</h2>
+            <form id="formularioCliente">
+                <label for="nomeCliente">Nome:</label>
+                <input type="text" id="nomeCliente" name="nomeCliente"><br><br>
+                <label for="cpfCliente">CPF:</label>
+                <input type="number" id="cpfCliente" name="cpfCliente"><br><br>
+                <button type="button" onclick="cadastroCliente()">Próximo</button>
+            </form>
+        </div>
 </body>
 </html>
