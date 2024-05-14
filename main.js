@@ -1,12 +1,12 @@
-function adicionarProduto() {
+function cadastroCliente() {
     // Obtém os valores do formulário
-    let nomeProduto = document.getElementById("nomeProduto").value;
-    let precoProduto = document.getElementById("precoProduto").value;
+    let nomeCliente = document.getElementById("nomeCliente").value;
+    let cpfCliente = document.getElementById("cpfCliente").value;
 
     // Cria um objeto produto com os valores do formulário
-    let produto = {
-        nome: nomeProduto,
-        preco: precoProduto
+    let cadastro = {
+        nome: nomeCliente,
+        cpf: cpfCliente
     };
 
     // Envia a requisição POST para o servidor
