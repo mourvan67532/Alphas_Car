@@ -1,0 +1,24 @@
+.m_body{
+    margin: 0%;
+}
+
+.m_header_1{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+.m_header_1 img{
+    width: 5rem;
+}
+
+.m_header_2{
+    background-color: rgb(182, 0, 0);
+    display: flex;
+    justify-content: center;
+    height: 2rem;
+    align-items: center;
+}
+
+.m_header_2 h2{
+
+}
