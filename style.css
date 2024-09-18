@@ -176,20 +176,21 @@
     width: 5rem;
 }
 
-
-
 /* FORENCEDORES */
 
-
 #v_main{
-    color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-#v_fornecedores{
-    margin: auto;
+.v_fornecedores{
+    display:flex;
 }
 
 .v_cards_forn{
-    
+    width: 500px;
+    height: auto;
+    background-color: white;
+    border-radius: 15px solid;
+    color: black;
+
 }
