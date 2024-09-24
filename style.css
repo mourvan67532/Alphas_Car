@@ -112,7 +112,7 @@
     color: #292929;
 }
 
-/* footer */
+
 .m_footer{
     background-color: black;
     height: 5rem;
@@ -148,10 +148,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
     list-style: none;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    margin-top: 10rem;
-    margin-bottom: 10rem;
+
     padding: 6rem;
 }
 .m_inicio ul a{
@@ -172,6 +169,31 @@
     margin-bottom: 3rem;
 }
 .m_li_inicio:hover{
+    border: red 7px solid;
+    background-color: #e7e7e7;
+}
+
+
+
+
+
+/* PRECO */
+
+
+.k_li_preco{
+    background-color: aliceblue;
+    border: black 7px solid;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    width: 25rem;
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    font-size: 150%;
+    margin-bottom: 3rem;
+    flex-direction: column;
+}
+.k_li_preco:hover{
     border: red 7px solid;
     background-color: #e7e7e7;
 }
