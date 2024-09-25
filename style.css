@@ -34,8 +34,6 @@
      1px  1px 0 #fff;
 }
 
-
-
 /* INDEX */
 
 .m_body_index{
@@ -193,25 +191,29 @@
 
 .v_m_fornecedor {
     padding: 30px;
+    display: flex;
+    flex-direction: column; /* Coloca o título acima dos cartões */
+    align-items: center; /* Centraliza o título e os cartões */
 }
 
-.v_m_card_container {
-   display: flex;
-   flex-direction: column;
-   gap: 15px;
-   padding: 55px;
-}
-
-#v_title{
+#v_title {
     color: #fff;
     font-size: 50px;
     text-align: center;
-    justify-content: content;
+    margin-bottom: 30px;
+}
+
+.v_m_card_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cartões */
+    gap: 15px;
+    padding: 20px;
 }
 
 .v_m_card {
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: 5px solid black;
     border-radius: 8px;
     padding: 19px;
     width: 250px; 
