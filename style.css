@@ -197,3 +197,20 @@
     border: red 7px solid;
     background-color: #e7e7e7;
 }
+.inputBox {
+    position: relative;
+}
+    /*define a posiçao do inputbox*/
+
+.box {
+    color: beige;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 15px;
+    width: 20%;
+    /*definiçao da box*/
+}
