@@ -34,85 +34,6 @@
      1px  1px 0 #fff;
 }
 
-/* main */
-
-.m_titulo{
-    text-align: center;
-    color: aliceblue;
-}
-
-.m_pesquisa{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.m_pesquisa img{
-    width: 2rem;
-    padding: 5px;
-    filter: invert(100%);
-}
-#m_barra{
-    width: 40rem;
-    height: 2rem;
-    border-radius: 1rem;
-    border: 5px solid rgb(82, 0, 0);
-}
-
-.m_ul{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.m_ul .m_li_cliente{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #ffffff;
-    border: 3px solid black;
-    border-radius: 1rem;
-    padding: 0.4rem;
-    width: 80%;
-}
-.m_ul .m_li_cliente:hover{
-    border: red 3px solid;
-    background-color: #e7e7e7;
-}
-.m_li_nome{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-.m_li_nome img{
-    width: 5rem;
-}
-#m_seta{
-    width: 5rem;
-}
-
-.m_ul .m_tabela{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0.4rem;
-    width: 80%;
-    padding-left: 5rem;
-    background-color: #292929;
-    color: aliceblue;
-}
-.m_ul .m_tabela .m_tabela_cpf{
-    margin-left: 3rem;
-}
-.m_ul .m_tabela .m_tabela_fone{
-    margin-right: 3rem;
-}
-.m_ul .m_tabela .m_tabela_ponto{
-    color: #292929;
-}
-
-
 .m_footer{
     background-color: black;
     height: 5rem;
@@ -126,10 +47,7 @@
     width: 5rem;
 }
 
-
-
-
-/* INDEX */
+/* Index */
 
 .m_body_index{
     margin: 0%;
@@ -148,7 +66,10 @@
     justify-content: space-around;
     flex-wrap: wrap;
     list-style: none;
-
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
     padding: 6rem;
 }
 .m_inicio ul a{
@@ -173,44 +94,130 @@
     background-color: #e7e7e7;
 }
 
+/* Cadastro */
 
+.a_main{
+    display: flex;
+    justify-content: center;
+}
+#a_abner_vi{
+    border: 3px solid black;
+    text-align: center;
+    border-radius: 0.5rem;
+    margin-top: 0.9rem;
+    width: 10rem;
+    height: 2rem;
+    font-size: 110%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 15rem;
+}
 
+#a_abner_vi:hover{
+    border: 3px solid red;
+    background-color: rgb(105, 105, 105);
+    color: aliceblue;
+}
 
+#a_cadastro{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    width: 40rem;
+    background-color: aliceblue;
+    justify-content: left;
+    border: black 10px solid;
+    border-radius: 10%;
+    padding: 3rem;
+    
+}
 
-/* PRECO */
+.a_c2{
+    display: flex;
+    flex-direction: column;
+}
 
+.a_tabelinha label{
+    width: 10rem;
+    padding: 0.3rem;
+    color: white;
+    background-color: rgb(95, 95, 95);
+    left: 5rem;
+    border-bottom-left-radius: 1rem;
+    text-align: center;
+    padding-top: 0.7rem;
+    border: 3px solid black;
+}
+.a_tabelinha{
+    display: flex;
+    justify-content: center;
+    border-bottom-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+    margin-top: 0.5rem;
+    left: 50px;
+    margin-top: 1rem;
 
-.k_li_preco{
+}
+.a_tabelinha input{
+    width: 25rem;
+    border-top-right-radius: 1rem;
+    height: 2rem;
+    border: 3px solid black;
+    border-left: none;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    font-size: 110%;
+}
+.a_img img{
+    width: 7rem;
+}
+
+.a_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#a_aba{
+    height: 550px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+.a_sessao{
+    background-color: aliceblue;
+    border: 10px solid black;
+    height: 150px;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-right: 1rem;
+}
+
+#a_aba ul a{
+    text-decoration: none;
+    color: black;
+}
+
+.a_li_inicio{
     background-color: aliceblue;
     border: black 7px solid;
     border-top-right-radius: 2rem;
     border-bottom-left-radius: 2rem;
     width: 25rem;
-    height: 20rem;
+    height: 6rem;
     display: flex;
+    justify-content: center;
     align-items: center;
     font-size: 150%;
     margin-bottom: 3rem;
-    flex-direction: column;
 }
-.k_li_preco:hover{
+
+.a_li_inicio:hover{
     border: red 7px solid;
     background-color: #e7e7e7;
-}
-.inputBox {
-    position: relative;
-}
-    /*define a posiçao do inputbox*/
-
-.box {
-    color: beige;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    border-radius: 15px;
-    width: 20%;
-    /*definiçao da box*/
 }
