@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
-    <title>Cadastro fornecedor</title>
-    <link rel="stylesheet" href="../frontend/style/style.css">
+    <title>Cadastro veículo</title>
+    <link rel="stylesheet" href="style/style.css">
     <script src="../backend/script/script.js"></script>
 </head>
 <body class="m_body">
@@ -24,21 +24,22 @@
         <div id="a_cadastro">
             <div class="a_img">
                 <img src="../img/logo.png" alt="logo">
-                <h1>Cadastrar Fornecedor</h1>
+                <h1>Cadastrar Cliente</h1>
             </div>
+
             <div class="a_c2">
                 <div class="a_tabelinha">
-                    <label for="nome_cliente"><b>Nome Completo</b></label>
+                    <label for="nome_cliente"><b>Modelo</b></label>
                     <input type="text" id="nome_cliente">
                 </div>
                 <span id="nome_client"></span>
                 <div class="a_tabelinha">
-                    <label for="e-mail"><b>E-mail</b></label>
+                    <label for="e-mail"><b>Cor</b></label>
                     <input type="text" id="e-mail">
                 </div>
                 <span id="e-mai"></span>
                 <div class="a_tabelinha">
-                    <label for="celular"><b>Telefone</b></label>
+                    <label for="celular"><b>Ano</b></label>
                     <input type="text" id="celular">
                 </div>
                 <span id="celula"></span>
@@ -48,40 +49,39 @@
                 </div>
                 <span id="cp"></span>
                 <div class="a_tabelinha">
-                    <label for="uf"><b>UF</b></label>
+                    <label for="uf"><b>N° do chassi</b></label>
                     <input type="text" id="uf">
                 </div>
                 <span id="u"></span>
                 <div class="a_tabelinha">
-                    <label for="endereco_cep"><b>CEP</b></label>
+                    <label for="endereco_cep"><b>Placa</b></label>
                     <input type="text" id="endereco_cep">
                 </div>
                 <span id="endereco_ce"></span>
                 <div class="a_tabelinha">
-                    <label for="bairro"><b>Bairro</b></label>
+                    <label for="bairro"><b>Complemento 1:</b></label>
                     <input type="text" id="bairro">
                 </div>
                 <span id="bairr"></span>
                 <div class="a_tabelinha">
-                    <label for="rua"><b>Rua/Número</b></label>
+                    <label for="rua"><b>Complemento 2:</b></label>
                     <input type="text" id="rua">
                 </div>
                 <span id="ru"></span>
                 <div class="a_tabelinha">
-                    <label for="complemento"><b>Complemento</b></label>
+                    <label for="complemento"><b>Complemento 3:</b></label>
                     <input type="text" id="complemento">
                 </div>
                 <span id="complement"></span>
                 <br>
                 <br>
                 <button id="a_abner_vi" onclick="cadastro_cliente()"><b>Cadastrar</b></button>
-
             </div>
+
         </div>
     </main>
     <footer class="m_footer">
         <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
     </footer>
-       
 </body>
 </html>
