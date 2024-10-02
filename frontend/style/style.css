@@ -229,14 +229,6 @@
 
 /* FORENCEDORES */
 
-
-.m_body_index {
-    font-family: Arial, sans-serif;
-    background-color: #292929;
-    margin: 0;
-    padding: 0;
-}
-
 .v_m_header_1, .v_m_header_2 {
     text-align: center;
     padding: 20px;
@@ -432,7 +424,7 @@ b{
     position: relative;
 }
 
-/*define a posiçao do inputbox*/
+/*define a  do inputbox*/
 
 .k_box {
     color: beige;
@@ -531,3 +523,93 @@ button {
     left: 15rem;
 }
 
+/* INDEX */
+
+.m_body_index{
+    margin: 0%;
+    background: linear-gradient(45deg, rgba(41,41,41,1) 0%, rgba(89,89,97,1) 50%, rgba(153,169,172,1) 100%);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.m_body_index main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.m_inicio ul{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 7rem;
+    padding: 6rem;
+}
+.m_inicio ul a{
+    color: black;
+    text-decoration: none;
+}
+.m_li_inicio{
+    background-color: aliceblue;
+    border: black 7px solid;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    width: 30rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150%;
+    margin-bottom: 7rem;
+}
+.m_li_inicio:hover{
+    border: red 7px solid;
+    background-color: #e7e7e7;
+}
+/* INDEX */
+
+.m_body_index{
+    margin: 0%;
+    background: linear-gradient(45deg, rgba(41,41,41,1) 0%, rgba(89,89,97,1) 50%, rgba(153,169,172,1) 100%);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.m_body_index main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.m_inicio ul{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 7rem;
+    padding: 6rem;
+}
+.m_inicio ul a{
+    color: black;
+    text-decoration: none;
+}
+.m_li_inicio{
+    background-color: aliceblue;
+    border: black 7px solid;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    width: 30rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150%;
+    margin-bottom: 7rem;
+}
+.m_li_inicio:hover{
+    border: red 7px solid;
+    background-color: #e7e7e7;
+}
