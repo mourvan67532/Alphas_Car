@@ -1,71 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8">
-    <title>Cadastro de serviço</title>
-    <link rel="stylesheet" href="style.css">
+
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-        <title>Inicio</title>
+        <title>Cadastro de serviço</title>
         <link rel="stylesheet" href="style.css">
-    </head>
-<body class="m_body_index">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+            <title>Inicio</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
+
+    <body class="k_body">
         <header>
             <div class="m_header_1">
-                <img src="img/logo.png" alt="logo">
+                <figure>
+                    <img src="img/logo.png" alt="logo">
+                </figure>
             </div>
             <div class="m_header_2">
                 <h2>Alpha's Car</h2>
             </div>
         </header>
-  <main>
-    <div class="box">
-        <legend>Formulário</legend>
-        <br><br>
+            <main class="k_main">
+                <div id="k_cadservico">
+                    <div class="k_img">
+                        <h1>Cadastro de Serviço</h1>
+                    </div>
 
-        <div class="inputBox">
-           <label for="nome_cliente">Nome do serviço:</label>
-           <input type="text" name="nome_cliente" id="nome_cliente">
-        </div>
-        <br><br>
+                    <div class="k_c2">
+                        <div class="k_tabela">
+                            <label for="nome_servico">Nome do serviço:</label>
+                            <input type="text" name="nome_servico" id="nome_servico">
+                        </div>
+                    </div>
 
-        <div class="inputBox">
-           <label for="email_cliente">E-mail de contato do fornecedor:</label>
-           <input type="email" name="email_cliente" id="email_cliente">
-        </div>
-        <br><br>
+                    <div class="k_tabela">
+                        <label for="descricao">Descrição</label>
+                        <input type="text" name="descricao" id="descricao">
+                    </div>
 
-        <div class="inputBox">
-           <label for="telefone_cliente">Telefone de contato do fornecedor:</label>
-           <input type="tel" name="telefone_cliente" id="telefone_cliente">
-        </div>
-        <br><br>
+                    <div class="k_tabela">
+                        <label for="valor">Valor</label>
+                        <input type="number" name="valor" id="valor">
+                    </div>
 
-        <div class="inputBox">
-           <label for="senha_cliente">Senha:</label>
-           <input type="password" name="senha_cliente" id="senha_cliente">
-        </div>
-        <br><br>
+                    <br><br>
 
-        <label for="sua_regiao">Região:</label>
-        <select name="sua_regiao" id="sua_regiao">
-            <option selected disabled value="">Selecione</option>
-            <option>Norte</option>
-            <option>Nordeste</option>
-            <option>Centro-Oeste</option>
-            <option>Sudeste</option>
-            <option>Sul</option>
-        </select>
-        <br><br>
-        
-        <nav>
-            <button type="submit" name="submit" id="submit"><a href="index.html">Enviar</a></button>
-        </nav>
-      </form>
-    </div>
-  </main>
- </body>
+                    <button id="k_vi"><b>Cadastrar Serviço</b></button>
+                </div>
+            </div>
+        </main>
+        <footer class="m_footer">
+            <br><br>
+        </footer>
+    </body>
 </html>
