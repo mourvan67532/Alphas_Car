@@ -246,6 +246,7 @@
 .k_main {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 #k_vi {
