@@ -38,3 +38,39 @@ function agendamento(){
     document.getElementById("tim").innerHTML = hora;
 
 }
+
+
+// nav
+let m_var = 0;
+function m_cad(){
+    let m_nav = document.getElementsByClassName('m_nav3_a');
+
+    if (m_var == 1){
+        for (let i = 0; i < m_nav.length; i++) {
+            m_nav[i].style.cssText = 'display: none;';
+        }
+        m_var = 0;
+    }
+    else{
+        for (let i = 0; i < m_nav.length; i++) {
+            m_nav[i].style.cssText = 'display: flex;';
+        }
+        m_var = 1;
+    }
+}
+
+
+// clientes
+function m_lupa(){
+    const m_buscar = document.getElementById("m_barra").value;
+    document.getElementById("m_pesq").innerHTML = m_buscar;
+};
+
+
+
+
+document.getElementById("m_barra").addEventListener("keydown", function(m_enter) {
+    if (m_enter.key === "Enter") {
+      m_lupa();
+}
+});

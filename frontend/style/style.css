@@ -442,6 +442,7 @@ b{
 .k_main {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 #k_vi {
@@ -522,6 +523,32 @@ button {
     position: relative;
     left: 15rem;
 }
+.k_inicio ul{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    padding: 6rem;
+}
+.k_inicio ul a{
+    color: black;
+    text-decoration: none;
+}
+.k_li_inicio{
+    background-color: aliceblue;
+    border: black 7px solid;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    width: 30rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150%;
+    margin-bottom: 7rem;
+}
 
 /* INDEX */
 
@@ -612,4 +639,88 @@ button {
 .m_li_inicio:hover{
     border: red 7px solid;
     background-color: #e7e7e7;
+}
+/* ******************** NAV ************************* */
+
+.m_nav_ul{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 2rem;
+}
+
+.m_nav_ul li{
+    text-decoration: none;
+    list-style: none;
+    font-size: x-large;
+    color: aliceblue;
+    background-color: #830d0d;
+    padding: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    font-family: "Shrikhand", serif;
+    text-shadow: 
+    -2px -2px 0 #000000,  
+     2px -2px 0 #000000,
+    -2px  2px 0 #000000,
+     2px  2px 0 #000000;
+}
+
+.m_nav_ul a{
+    text-decoration: none;
+}
+
+.m_nav_ul li:hover{
+    cursor: pointer;
+    background-color: #882323;
+}
+
+.m_nav{
+    background-color: #830d0d;
+    margin-top: -1rem;
+}
+
+.a_nav_2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.m_nav2_a{
+    text-decoration: none;
+    color: aliceblue;
+    font-family: "Shrikhand", serif;
+    text-shadow: 
+    -2px -2px 0 #000000,  
+     2px -2px 0 #000000,
+    -2px  2px 0 #000000,
+     2px  2px 0 #000000;
+}
+
+.a_nav_2 li:hover{
+    background-color: #882323;
+}
+
+.a_li_inicio{
+    font-size: medium;
+}
+.m_nav3_a{
+    font-size: large;
+    text-decoration: none;
+    color: aliceblue;
+    font-family: "Shrikhand", serif;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    margin-top: 0.3rem;
+    display: none;
+}
+.m_nav3_a:hover{
+    background-color: #bf7373;
+    color: #000000;
+}
+
+.m_nav_3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
