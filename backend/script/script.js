@@ -1,10 +1,10 @@
-function cadastro_cliente(){
+//cadastro
+function cadastro_cliente(){ // função do cadastro do cliente, recebe e envia de volta os dados até o momento //
     
     const nome = document.getElementById("nome_cliente").value;
     const email = document.getElementById("e-mail").value;
     const telefone = document.getElementById("celular").value;
     const cpf = document.getElementById("cpf").value;
-    const uf = document.getElementById("uf").value;
     const cep = document.getElementById("endereco_cep").value;
     const bairro = document.getElementById("bairro").value;
     const rua = document.getElementById("rua").value;
@@ -14,7 +14,6 @@ function cadastro_cliente(){
     document.getElementById("e-mai").innerText = email;
     document.getElementById("celula").innerText = telefone;
     document.getElementById("cp").innerText = cpf;
-    document.getElementById("u").innerText = uf;
     document.getElementById("endereco_ce").innerText = cep;
     document.getElementById("bairr").innerText = bairro;
     document.getElementById("ru").innerText = rua;
@@ -22,8 +21,41 @@ function cadastro_cliente(){
 
 };
 
+function cadastro_veiculo(){ // função do cadastro do veiculo, recebe e envia de volta os dados até o momento //
 
-function agendamento(){
+    const modelo = document.getElementById("modelo").value;
+    const cor = document.getElementById("cor").value;
+    const ano = document.getElementById("ano").value;
+    const cpf = document.getElementById("cpf").value;
+    const n_chassi = document.getElementById("n_chas").value;
+    const placa = document.getElementById("placa").value;
+
+    document.getElementById("model").innerText = modelo;
+    document.getElementById("color").innerText = cor;
+    document.getElementById("car_ano").innerText = ano;
+    document.getElementById("cp").innerText = cpf;
+    document.getElementById("chassi").innerText = n_chassi;
+    document.getElementById("plac").innerText = placa;
+
+}
+
+function cadastro_fornecedor(){ // função do cadastro do fornecedor, recebe e envia de volta os dados até o momento //
+
+    const nome_fornecedor = document.getElementById("nome_fornecedor").value;
+    const email = document.getElementById("e-mail").value;
+    const telefone = document.getElementById("celular").value;
+    const cnpj = document.getElementById("cnpj").value;
+    const cep = document.getElementById("endereco_cep").value;
+
+    document.getElementById("nome_forn").innerText = nome_fornecedor;
+    document.getElementById("e-mai").innerText = email;
+    document.getElementById("celula").innerText = telefone;
+    document.getElementById("cnp").innerText = cnpj;
+    document.getElementById("endereco_ce").innerText = cep;
+
+}
+
+function orcamento(){ // função do orcamento, recebe e os dados necessários para preencher o orçamento //
 
     const nome = document.getElementById("name").value;
     const email = document.getElementById("email").value;
