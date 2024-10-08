@@ -76,7 +76,6 @@ function orcamento(){ // função do orcamento, recebe e os dados necessários p
 let m_var = 0;
 function m_cad(){
     let m_nav = document.getElementsByClassName('m_nav3_a');
-
     if (m_var == 1){
         for (let i = 0; i < m_nav.length; i++) {
             m_nav[i].style.cssText = 'display: none;';
@@ -90,7 +89,22 @@ function m_cad(){
         m_var = 1;
     }
 }
-
+let m_var_p = 0;
+function m_cad_p(){
+    let m_nav_p = document.getElementsByClassName('m_nav3_a_p');
+    if (m_var_p == 1){
+        for (let i = 0; i < m_nav_p.length; i++) {
+            m_nav_p[i].style.cssText = 'display: none;';
+        }
+        m_var_p = 0;
+    }
+    else{
+        for (let i = 0; i < m_nav_p.length; i++) {
+            m_nav_p[i].style.cssText = 'display: flex;';
+        }
+        m_var_p = 1;
+    }
+}
 
 // clientes
 function m_lupa(){

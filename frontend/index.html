@@ -19,9 +19,9 @@
         </div>
         <div class="m_nav">
             <ul class="m_nav_ul">
-                <a href="orcamento.html" class="m_nav2_a"><li>Orçamento</li></a>
+                <a href="orcamento.html" ><li>Orçamento</li></a>
                 <div class="a_nav_2">
-                    <a href="#" onclick="m_cad()"><li>Cadastrar</li></a>
+                    <div onclick="m_cad()" class="m_nav2_a"><li>Cadastrar</li></div>
                     <div class="m_nav_3">
                                 <a href="cliente_cadastrar.html" class="m_nav3_a">Clientes</a>
                                 <a href="fornecedor_cadastrar.html" class="m_nav3_a">Fornecedores</a>
@@ -29,7 +29,13 @@
                                 <a href="cadastrar_serv.html" class="m_nav3_a">Serviço</a>
                     </div>
                 </div>
-                <a href="precos.html"><li>Preços</li></a>
+                <div class="a_nav_2">
+                    <div onclick="m_cad_p()" class="m_nav2_a"><li>Preços</li></div>
+                    <div class="m_nav_3_p">
+                                <a href="precos.html" class="m_nav3_a_p">Peças</a>
+                                <a href="precos.html" class="m_nav3_a_p">Serviços</a>
+                    </div>
+                </div>
                 <a href="fornecedores_cadastrados.html"><li>Fornecedores</li></a>
                 <a href="clientes.html"><li>Clientes</li></a>
                 <a href="#"><li>Serviço</li></a>
