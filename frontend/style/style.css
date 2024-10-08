@@ -731,6 +731,7 @@ button {
     background-color: #830d0d ;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    padding-bottom: 0.3rem;
 }
 .m_nav_3_p{
     display: flex;
@@ -741,6 +742,7 @@ button {
     background-color: #830d0d ;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    padding-bottom: 0.3rem;
 }
 
 .m_nav3_a_p{
