@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +10,9 @@
     <link rel="stylesheet" href="../frontend/style/style.css">
     <script src="../backend/script/script.js"></script>
 </head>
+
 <body class="m_body">
-    <header >
+    <header>
         <div class="m_header_1">
             <figure>
                 <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
@@ -54,16 +56,35 @@
                 </div>
                 <span id="tim"></span>
 
-                <br>
-                <br>
+                <div class="a_tabelinha">
+                    <label for="sua_regiao">Região:</label>
+                    <select name="sua_regiao" id="sua_regiao">
+                        <option selected disabled value="">Selecione</option>
+                        <option>Alinhamento e Balanceamento</option>
+                        <option>Carga de Gás</option>
+                        <option>Higienização por Ozônio</option>
+                        <option>Limpeza de Bicos Injetores</option>
+                        <option>Limpeza do Arrefecimento</option>
+                        <option>Manutenção de Embreagem</option>
+                        <option>Revisão de Freios</option>
+                        <option>Sistema de Arrefecimento</option>
+                        <option>Troca de Filtros</option>
+                        <option>Troca de Lâmpada</option>
+                        <option>Troca de Óleo do Motor</option>
+                        <option>Troca de Pastilhas de Freio</option>
+                    </select>
+                </div>
+
+                <br><br>
+                
                 <button id="a_abner_vi" onclick="agendamento()"><b>Agendar</b></button>
             </div>
-
         </div>
     </main>
     <footer class="m_footer">
         <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
     </footer>
-       
+
 </body>
+
 </html>
