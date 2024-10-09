@@ -1,4 +1,5 @@
-//cadastro
+//      CADASTRAR       //
+
 function cadastro_cliente(){ // função do cadastro do cliente, recebe e envia de volta os dados até o momento //
     
     const nome = document.getElementById("nome_cliente").value;
@@ -55,6 +56,36 @@ function cadastro_fornecedor(){ // função do cadastro do fornecedor, recebe e 
 
 }
 
+function cadastro_pecas(){ // função do cadastro das peças, recebe e envia de volta os dados até o momento //
+
+    const nome_peca = document.getElementById("nome_peca")
+    const preco_pe = document.getElementById("preco_pe")
+    const modelo_pe = document.getElementById("modelo_pe")
+    const ano_pe = document.getElementById("ano_pe")
+
+    document.getElementById("peca_peca").innerText = nome_peca;
+    document.getElementById("preco_pe").innerText = preco_pe;
+    document.getElementById("modelo_pe").innerText = modelo_pe;
+    document.getElementById("pe_ano").innerText = ano_pe;
+    
+}
+
+function cadastro_mecanico(){ // função do cadastro de mecanicos, recebe e envia de volta os dados até o momento //
+
+    const nome_mecanico = document.getElementById("nome_mecanico")
+    const tel_me = document.getElementById("tel_me")
+    const cpf_me = document.getElementById("cpf_me")
+    const cep_me = document.getElementById("cep_me")
+    const especial = document.getElementById("especialidade")
+
+    document.getElementById("mecanico_nome").innerText = nome_mecanico;
+    document.getElementById("me_tel").innerText = tel_me;
+    document.getElementById("me_cpf").innerText = cpf_me;
+    document.getElementById("me_cep").innerText = cep_me;
+    document.getElementById("special").innerText = especial;
+
+}
+
 function orcamento(){ // função do orcamento, recebe e os dados necessários para preencher o orçamento //
 
     const nome = document.getElementById("name").value;
@@ -72,7 +103,8 @@ function orcamento(){ // função do orcamento, recebe e os dados necessários p
 }
 
 
-// nav
+//      NAV       //
+
 let m_var = 0;
 function m_cad(){
     let m_nav = document.getElementsByClassName('m_nav3_a');
