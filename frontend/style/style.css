@@ -8,7 +8,7 @@
 }
 
 .m_header_1{
-    background-color: black;
+    background-color: var(--cor_3);
     display: flex;
     justify-content: center;
 }
@@ -17,7 +17,7 @@
 }
 
 .m_header_2{
-    background-color: #b21111;
+    background-color: var(--cor_2);
     display: flex;
     justify-content: center;
     height: 2rem;
@@ -120,9 +120,9 @@
 
 
 .m_footer{
-    background-color: black;
+    background-color: var(--cor_3);
     height: 5rem;
-    border-top: 2rem solid #b21111;
+    border-top: 2rem solid var(--cor_2);
     display: flex;
     justify-content: center;
     padding: 0.4rem;
@@ -214,19 +214,6 @@
 }
 
 
-.m_footer{
-    background-color: black;
-    height: 5rem;
-    border-top: 2rem solid #b21111;
-    display: flex;
-    justify-content: center;
-    padding: 0.4rem;
-}
-
-.m_footer img{
-    width: 5rem;
-}
-
 /* FORENCEDORES */
 
 .v_m_header_1, .v_m_header_2 {
@@ -280,7 +267,7 @@
     color: #fff;
 }
 
-/* cadastrar */
+/******************************** cadastrar **********************************/
 
 .a_main{
     display: flex;
@@ -290,6 +277,8 @@
     border: 3px solid black;
     text-align: center;
     border-radius: 0.5rem;
+    background-color: #b42727;
+    color: white;
 }
 #a_abner_vi:hover{
     border: 3px solid red;
@@ -328,16 +317,17 @@
     color: white;
     background-color: rgb(95, 95, 95);
     left: 5rem;
-    border-bottom-left-radius: 1rem;
+    border-bottom-left-radius: 0.5rem;
     text-align: center;
     padding-top: 0.7rem;
     border: 3px solid black;
+    
 }
 .a_tabelinha{
     display: flex;
     justify-content: center;
-    border-bottom-left-radius: 0.3rem;
-    border-top-right-radius: 0.3rem;
+    border-bottom-left-radius: 0.1rem;
+    border-top-right-radius: 0.1rem;
     margin-top: 0.5rem;
     left: 50px;
     margin-top: 1rem;
@@ -345,9 +335,9 @@
 }
 .a_tabelinha input{
     width: 25rem;
-    border-top-right-radius: 1rem;
+    border-top-right-radius: 0.5rem;
     height: 2rem;
-    border: 3px solid black;
+    border: 3px solid black;   
 }
 .a_img img{
     width: 7rem;
@@ -398,7 +388,7 @@ b{
     text-decoration: none;
 }
 
-/* Preço */
+/***************************************** Preço ********************************************/
 
 .k_li_preco {
     background-color: aliceblue;
@@ -568,7 +558,8 @@ button {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    list-style: none;
+    
+/* INDEX */list-style: none;
     margin-left: 5rem;
     margin-right: 5rem;
     margin-top: 7rem;
@@ -595,7 +586,7 @@ button {
     border: red 7px solid;
     background-color: #e7e7e7;
 }
-/* INDEX */
+/******************************************** INDEX ************************************************/
 
 .m_body_index{
     margin: 0%;
@@ -653,7 +644,7 @@ button {
     list-style: none;
     font-size: x-large;
     color: aliceblue;
-    background-color: #830d0d;
+    background-color: var(--cor_1);
     padding: 1rem;
     padding-left: 5rem;
     padding-right: 5rem;
@@ -675,7 +666,7 @@ button {
 }
 
 .m_nav{
-    background-color: #830d0d;
+    background-color: var(--cor_1);
     margin-top: -1rem;
 }
 
@@ -727,7 +718,7 @@ button {
     align-items: center;
     position: fixed;
     margin-top: 13.8rem;
-    background-color: #830d0d ;
+    background-color: var(--cor_1);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding-bottom: 0.3rem;
@@ -738,7 +729,7 @@ button {
     align-items: center;
     position: fixed;
     margin-top: 8rem;
-    background-color: #830d0d ;
+    background-color: var(--cor_1);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding-bottom: 0.3rem;
@@ -758,5 +749,45 @@ button {
     background-color: #bf7373;
     color: #000000;
 }
+/* *********************ARRUMANDO O KAUAN***************************************** */
+.m_tabela{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
+.m_coluna1{
+    width: 40rem;
+    border: 3px solid black;
+    border-left: 5px solid black;
+}
+.m_coluna2{
+    width: 40rem;
+    border: 3px solid black;
+    border-right: 5px solid black;
+}
+.m_linha2{
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+    border-right: none;
+    background-color: aliceblue;
+}
+.m_linha1{
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+    border-right: none;
+    background-color: #bf7373;
+}
+/* ***************************ROOT********************** */
+/*Não mexam nessa parte para baixo, Kauan fique longe*/
+:root{
+    --cor_1: #d8010f; 
+    --cor_2: #EA202E;
+    --cor_3: black;
+}
