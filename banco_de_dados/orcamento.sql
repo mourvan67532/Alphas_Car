@@ -1,5 +1,6 @@
 -- TABLE
 CREATE TABLE orcamento(
+  ID_orcamento INTEGER PRIMARY key AUTOINCREMENT NOT NULL UNIQUE  
   nome_cliente varchar(50),
   Email varchar(100),
   Modelo_Carro varchar(10),

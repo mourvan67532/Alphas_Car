@@ -1,6 +1,6 @@
 -- TABLE
 CREATE TABLE cliente(
-  ID_cliente integer Primary key AUTOINCREMENT,
+  ID_cliente INTEGER PRIMARY key AUTOINCREMENT NOT NULL UNIQUE,
   Nome varchar(100),
   CPF integer unique not null,
   Fone integer not null,

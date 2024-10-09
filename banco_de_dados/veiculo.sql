@@ -1,5 +1,6 @@
 -- TABLE
 CREATE TABLE veiculo(
+  ID_veiculo INTEGER PRIMARY key AUTOINCREMENT NOT NULL UNIQUE
   Placa PRIMARY key not NULL,
   Modelo varchar(10),
   Cor varchar(10),
