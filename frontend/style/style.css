@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@1,200&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 .m_body{
     margin: 0%;
     background-color: #292929;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Poppins';
 }
 
 .m_header_1{
@@ -545,7 +546,7 @@ button {
 .m_body_index{
     margin: 0%;
     background: linear-gradient(45deg, rgba(41,41,41,1) 0%, rgba(89,89,97,1) 50%, rgba(153,169,172,1) 100%);
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Poppins';
 
 }
 .m_body_index main{
@@ -559,7 +560,9 @@ button {
     justify-content: space-around;
     flex-wrap: wrap;
     
-/* INDEX */list-style: none;
+/* INDEX */
+    
+    list-style: none;
     margin-left: 5rem;
     margin-right: 5rem;
     margin-top: 7rem;
@@ -590,8 +593,8 @@ button {
 
 .m_body_index{
     margin: 0%;
-    background: linear-gradient(45deg, rgba(41,41,41,1) 0%, rgba(89,89,97,1) 50%, rgba(153,169,172,1) 100%);
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(45deg, rgb(29, 28, 28) 0%, rgb(52, 52, 56) 50%, rgb(172, 177, 179) 100%);
+    font-family:'poppins';
 
 }
 .m_body_index main{
@@ -701,14 +704,17 @@ button {
 .m_nav3_a{
     font-size: large;
     text-decoration: none;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     font-family: "Shrikhand", serif;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 2px;
     display: none;
 }
 .m_nav3_a:hover{
     background-color: #bf7373;
+    padding-left: 4rem;
+    padding-right: 4rem;
     color: #000000;
 }
 
@@ -738,15 +744,18 @@ button {
 .m_nav3_a_p{
     font-size: large;
     text-decoration: none;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     font-family: "Shrikhand", serif;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 2px;
     margin-top: 0.3rem;
     display: none;
 }
 .m_nav3_a_p:hover{
     background-color: #bf7373;
+    padding-left: 4rem;
+    padding-right: 4rem;
     color: #000000;
 }
 /* *********************ARRUMANDO O KAUAN***************************************** */
