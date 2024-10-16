@@ -446,10 +446,12 @@ b{
     /*definiçao da box*/
 }
 
+
 .k_main {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    filter: invert(100%) contrast(100%) saturate(200%);
 }
 
 #k_vi {
@@ -738,19 +740,20 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed;
-    margin-top: 13.8rem;
+    position: absolute;
+    margin-top: 15rem;
     background-color: var(--cor_1);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding-bottom: 0.3rem;
+    z-index: 10;
 }
 .m_nav_3_p{
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed;
-    margin-top: 8rem;
+    position: absolute;
+    margin-top: 9.9rem;
     background-color: var(--cor_1);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -767,6 +770,7 @@ button {
     padding-bottom: 2px;
     margin-top: 0.3rem;
     display: none;
+    margin: 0.5rem;
 }
 .m_nav3_a_p:hover{
     background-color: #bf7373;
