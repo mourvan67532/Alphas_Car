@@ -280,23 +280,36 @@
     border-radius: 0.5rem;
     background-color: #b42727;
     color: white;
+    margin-top: 0.9rem;
+    width: 15rem;
+    height: 4rem;
+    font-size: 110%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 23rem;
 }
+
 #a_abner_vi:hover{
     border: 3px solid red;
     background-color: rgb(105, 105, 105);
     color: aliceblue;
 }
+
 #a_cadastro{
     margin-top: 5rem;
     margin-bottom: 5rem;
-    width: 40rem;
+    width: 60rem;
     background-color: aliceblue;
-    justify-content: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border: black 10px solid;
-    border-radius: 10%;
+    border-radius: 5%;
     padding: 3rem;
     
 }
+
 .a_c2{
     display: flex;
     flex-direction: column;
@@ -313,17 +326,19 @@
 }
 
 .a_tabelinha label{
-    width: 10rem;
+    width: 13rem;
     padding: 0.3rem;
     color: white;
     background-color: rgb(95, 95, 95);
     left: 5rem;
-    border-bottom-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.3rem;
+    border-top-left-radius: 0.3rem;
     text-align: center;
     padding-top: 0.7rem;
     border: 3px solid black;
     
 }
+
 .a_tabelinha{
     display: flex;
     justify-content: center;
@@ -334,21 +349,22 @@
     margin-top: 1rem;
 
 }
+
 .a_tabelinha input{
-    width: 25rem;
-    border-top-right-radius: 0.5rem;
-    height: 2rem;
+    width: 35rem;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    height: 3rem;
     border: 3px solid black;   
 }
-.a_img img{
-    width: 7rem;
-}
-.a_img{
+
+.a_titulo{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
 button{
     margin-top: 0.9rem;
     width: 10rem;
