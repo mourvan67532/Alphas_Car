@@ -451,7 +451,6 @@ b{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    filter: invert(100%) contrast(100%) saturate(200%);
 }
 
 #k_vi {
@@ -652,6 +651,65 @@ button {
     border: red 7px solid;
     background-color: #e7e7e7;
 }
+
+/********************* ORDEM DE SERVICO *********************/
+
+.a_tabelona{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.a_coluna1{
+    width: 40rem;
+    border: 3px solid black;
+    border-left: 5px solid black;
+}
+
+.a_coluna2{
+    width: 40rem;
+    border: 3px solid black;
+    border-right: 5px solid black;
+}
+
+.a_coluna3{
+    width: 40rem;
+    border: 3px solid black;
+    border-left: 5px solid black;
+}
+
+.a_coluna4{
+    width: 40rem;
+    border: 3px solid black;
+    border-right: 5px solid black;
+}
+
+.a_linhapri{
+    border: 3px solid black;
+    display: flex;
+    color: aliceblue;
+    text-shadow: 
+    -2px -2px 0 #000000,  
+     2px -2px 0 #000000,
+    -2px  2px 0 #000000,
+     2px  2px 0 #000000;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+    border-right: none;
+    background-color: #ac0d0d;
+}
+
+.a_linhasec{
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+    border-right: none;
+    background-color: aliceblue;
+}
+
 /* ******************** NAV ************************* */
 
 .m_nav_ul{
