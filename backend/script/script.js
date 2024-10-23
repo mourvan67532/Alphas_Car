@@ -1,5 +1,5 @@
 //cadastro
-function cadastro_cliente(){ // função do cadastro do cliente, recebe e envia de volta os dados até o momento //
+async function cadastro_cliente(){ // função do cadastro do cliente, recebe e envia de volta os dados até o momento //
     
     const nome = document.getElementById("nome_cliente").value;
     const email = document.getElementById("e-mail").value;
@@ -10,18 +10,27 @@ function cadastro_cliente(){ // função do cadastro do cliente, recebe e envia 
     const rua = document.getElementById("rua").value;
     const complemento = document.getElementById("complemento").value;
 
-    document.getElementById("nome_client").innerText = nome;
-    document.getElementById("e-mai").innerText = email;
-    document.getElementById("celula").innerText = telefone;
-    document.getElementById("cp").innerText = cpf;
-    document.getElementById("endereco_ce").innerText = cep;
-    document.getElementById("bairr").innerText = bairro;
-    document.getElementById("ru").innerText = rua;
-    document.getElementById("complement").innerText = complemento;
+    await fetch('/cadastar-cliente',{
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({nome, email, telefone, cpfm cpf, cep, bairro, rua, complemento})
+
+    });
+
+
+
+    // document.getElementById("nome_client").innerText = nome;
+    // document.getElementById("e-mai").innerText = email;
+    // document.getElementById("celula").innerText = telefone;
+    // document.getElementById("cp").innerText = cpf;
+    // document.getElementById("endereco_ce").innerText = cep;
+    // document.getElementById("bairr").innerText = bairro;
+    // document.getElementById("ru").innerText = rua;
+    // document.getElementById("complement").innerText = complemento;
 
 };
 
-function cadastro_veiculo(){ // função do cadastro do veiculo, recebe e envia de volta os dados até o momento //
+async function cadastro_veiculo(){ // função do cadastro do veiculo, recebe e envia de volta os dados até o momento //
 
     const modelo = document.getElementById("modelo").value;
     const cor = document.getElementById("cor").value;
@@ -30,16 +39,23 @@ function cadastro_veiculo(){ // função do cadastro do veiculo, recebe e envia 
     const n_chassi = document.getElementById("n_chas").value;
     const placa = document.getElementById("placa").value;
 
-    document.getElementById("model").innerText = modelo;
-    document.getElementById("color").innerText = cor;
-    document.getElementById("car_ano").innerText = ano;
-    document.getElementById("cp").innerText = cpf;
-    document.getElementById("chassi").innerText = n_chassi;
-    document.getElementById("plac").innerText = placa;
+    await fetch('/cadastrar-veiculo',{
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({modelo, cor, ano, cpf, n_chassi, placa })
+    });
+
+
+    // document.getElementById("model").innerText = modelo;
+    // document.getElementById("color").innerText = cor;
+    // document.getElementById("car_ano").innerText = ano;
+    // document.getElementById("cp").innerText = cpf;
+    // document.getElementById("chassi").innerText = n_chassi;
+    // document.getElementById("plac").innerText = placa;
 
 }
 
-function cadastro_fornecedor(){ // função do cadastro do fornecedor, recebe e envia de volta os dados até o momento //
+async function cadastro_fornecedor(){ // função do cadastro do fornecedor, recebe e envia de volta os dados até o momento //
 
     const nome_fornecedor = document.getElementById("nome_fornecedor").value;
     const email = document.getElementById("e-mail").value;
@@ -47,15 +63,22 @@ function cadastro_fornecedor(){ // função do cadastro do fornecedor, recebe e 
     const cnpj = document.getElementById("cnpj").value;
     const cep = document.getElementById("endereco_cep").value;
 
-    document.getElementById("nome_forn").innerText = nome_fornecedor;
-    document.getElementById("e-mai").innerText = email;
-    document.getElementById("celula").innerText = telefone;
-    document.getElementById("cnp").innerText = cnpj;
-    document.getElementById("endereco_ce").innerText = cep;
+
+
+    await fetch('/cadastrar-fornecedor',{
+        method:'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({nome_fornecedor, email, telefone, cnpj, cep })       
+    });
+    // document.getElementById("nome_forn").innerText = nome_fornecedor;
+    // document.getElementById("e-mai").innerText = email;
+    // document.getElementById("celula").innerText = telefone;
+    // document.getElementById("cnp").innerText = cnpj;
+    // document.getElementById("endereco_ce").innerText = cep;
 
 }
 
-function orcamento(){ // função do orcamento, recebe e os dados necessários para preencher o orçamento //
+async function orcamento(){ // função do orcamento, recebe e os dados necessários para preencher o orçamento //
 
     const nome = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -63,13 +86,23 @@ function orcamento(){ // função do orcamento, recebe e os dados necessários p
     const data = document.getElementById("date").value;
     const hora = document.getElementById("time").value;
 
-    document.getElementById("nam").innerHTML = nome;
-    document.getElementById("emai").innerHTML = email;
-    document.getElementById("ca").innerHTML = model;
-    document.getElementById("dat").innerHTML = data;
-    document.getElementById("tim").innerHTML = hora;
+    await fetch('orcamento',{
+        method:'POST',
+        headers:{'Content-Type': 'application/json'},
+        body: JSON.stringify({nome, email, model, data, hora})
+    });
+
+
+    // document.getElementById("nam").innerHTML = nome;
+    // document.getElementById("emai").innerHTML = email;
+    // document.getElementById("ca").innerHTML = model;
+    // document.getElementById("dat").innerHTML = data;
+    // document.getElementById("tim").innerHTML = hora;
 
 }
+
+
+
 
 
 // nav
