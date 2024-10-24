@@ -716,10 +716,6 @@ button {
     display: flex;
     justify-content: space-around;
     margin-right: 2rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .m_nav_ul li{
@@ -728,7 +724,7 @@ button {
     font-size: x-large;
     color: aliceblue;
     background-color: var(--cor_1);
-    align-items: center;
+    padding: 1rem;
     padding-left: 5rem;
     padding-right: 5rem;
     font-family: "Shrikhand", serif;
@@ -741,8 +737,6 @@ button {
 
 .m_nav_ul a{
     text-decoration: none;
-    display: flex;
-    justify-content: center;
 }
 
 .m_nav_ul li:hover{
@@ -765,7 +759,7 @@ button {
 .m_nav2_a{
     text-decoration: none;
     color: aliceblue;
-    font-family: "Shrikhand", "serif";
+    font-family: "Shrikhand", serif;
     text-shadow: 
     -2px -2px 0 #000000,  
      2px -2px 0 #000000,
@@ -778,7 +772,6 @@ button {
 
 .m_nav2_a:hover{
     background-color: #882323;
-    height: 48px;
 }
 
 .a_li_inicio{
@@ -788,7 +781,7 @@ button {
     font-size: large;
     text-decoration: none;
     color: rgb(255, 255, 255);
-    font-family: "Shrikhand", "serif";
+    font-family: "Shrikhand", serif;
     padding-left: 4rem;
     padding-right: 4rem;
     padding-bottom: 2px;
@@ -806,7 +799,7 @@ button {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    margin-top: 221px;
+    margin-top: 15rem;
     background-color: var(--cor_1);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -818,7 +811,7 @@ button {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    margin-top: 141px;
+    margin-top: 9.9rem;
     background-color: var(--cor_1);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
