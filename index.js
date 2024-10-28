@@ -16,18 +16,19 @@ const db = new sqlite3.Database('banco_de_dados/alpha.db');
 
 // Criar as tabelas se não existirem
 db.serialize(() => {
-    // Criar a tabela alunos
-    db.run(`
+        db.run(`
         CREATE TABLE IF NOT EXISTS clientes (
-            ID_cliente INTEGER PRIMARY key AUTOINCREMENT NOT NULL UNIQUE,
-            Nome varchar(100),
-            CPF integer unique ,
-            Fone integer,
-            CEP varchar(20),
-            Bairro varchar(20),
-            Rua varchar(20),
-            Numero varchar(5)
-        )
+            ID_cliente INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+            Nome TEXT, 
+            Email TEXT,
+            Fone INTEGER,                 
+            CEP TEXT,
+            CPF INTEGER UNIQUE,     
+            Bairro TEXT,  
+            Rua TEXT,    
+            Numero TEXT,
+            Complemento TEXT
+        );
     `, (err) => {
         if (err) {
             console.error('Erro ao criar tabela clientes:', err);
@@ -40,8 +41,8 @@ db.serialize(() => {
 
 //CADASTRAR CLIENTE
     app.post('/cadastrar-clientes', (req, res) => {
-        const { nome, email, telefone, cpf, cep, bairro, rua, complemento} = req.body;
-        db.run("INSERT INTO clientes (ID_cliente, Nome , CPF , Fone, CEP, Bairro, Rua, Numero) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [nome, email, telefone, cpf, cep, bairro, rua, complemento], function(err) {
+        const { nome, email, telefone, cep, cpf, bairro, rua, numero, complemento} = req.body;
+        db.run("INSERT INTO clientes ( Nome, Email, Fone, CEP, CPF, Bairro, Rua, Numero, Complemento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", [nome, email, telefone, cep, cpf, bairro, rua, numero, complemento], function(err) {
             if (err) {
                 console.error('Erro ao cadastrar:', err);
                 res.status(500).send('Erro ao cadastrar');
