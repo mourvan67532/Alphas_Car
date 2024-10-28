@@ -133,6 +133,88 @@
     width: 5rem;
 }
 
+
+
+
+/* CLIENTES */
+
+.m_titulo{
+    text-align: center;
+    color: aliceblue;
+}
+
+.m_pesquisa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.m_pesquisa img{
+    width: 2rem;
+    padding: 5px;
+    filter: invert(100%);
+}
+#m_barra{
+    width: 40rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border: 5px solid rgb(82, 0, 0);
+}
+
+.m_ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.m_ul .m_li_cliente{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    border: 3px solid black;
+    border-radius: 1rem;
+    padding: 0.4rem;
+    width: 80%;
+}
+.m_ul .m_li_cliente:hover{
+    border: red 3px solid;
+    background-color: #e7e7e7;
+}
+.m_li_nome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.m_li_nome img{
+    width: 5rem;
+}
+#m_seta{
+    width: 5rem;
+}
+
+.m_ul .m_tabela{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.4rem;
+    width: 80%;
+    padding-left: 5rem;
+    background-color: #292929;
+    color: aliceblue;
+}
+.m_ul .m_tabela .m_tabela_cpf{
+    margin-left: 3rem;
+}
+.m_ul .m_tabela .m_tabela_fone{
+    margin-right: 3rem;
+}
+.m_ul .m_tabela .m_tabela_ponto{
+    color: #292929;
+}
+
+
 /* FORENCEDORES */
 
 .v_m_header_1, .v_m_header_2 {
@@ -186,7 +268,7 @@
     color: #fff;
 }
 
-/* cadastrar */
+/******************************** cadastrar **********************************/
 
 .a_main{
     display: flex;
@@ -323,7 +405,7 @@ b{
     text-decoration: none;
 }
 
-/* Preço */
+/***************************************** Preço ********************************************/
 
 .k_li_preco {
     background-color: aliceblue;
@@ -349,7 +431,7 @@ b{
     position: relative;
 }
 
-/* define a do inputbox */
+/*define a  do inputbox*/
 
 .k_box {
     color: beige;
@@ -480,6 +562,54 @@ button {
 
 .m_body_index{
     margin: 0%;
+    background: linear-gradient(45deg, rgba(41,41,41,1) 0%, rgba(89,89,97,1) 50%, rgba(153,169,172,1) 100%);
+    font-family:'Poppins';
+
+}
+.m_body_index main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.m_inicio ul{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+/* INDEX */
+    
+    list-style: none;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 7rem;
+    padding: 6rem;
+}
+.m_inicio ul a{
+    color: black;
+    text-decoration: none;
+}
+.m_li_inicio{
+    background-color: aliceblue;
+    border: black 7px solid;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    width: 30rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150%;
+    margin-bottom: 7rem;
+}
+.m_li_inicio:hover{
+    border: red 7px solid;
+    background-color: #e7e7e7;
+}
+/******************************************** INDEX ************************************************/
+
+.m_body_index{
+    margin: 0%;
     background: linear-gradient(45deg, rgb(29, 28, 28) 0%, rgb(52, 52, 56) 50%, rgb(172, 177, 179) 100%);
     font-family:'poppins';
 
@@ -522,7 +652,7 @@ button {
     background-color: #e7e7e7;
 }
 
-/* ORDEM DE SERVICO */
+/********************* ORDEM DE SERVICO *********************/
 
 .a_tabelona{
     display: flex;
@@ -585,7 +715,7 @@ button {
 }
 
 
-/* NAV */
+/* ******************** NAV ************************* */
 
 .m_nav_ul{
     display: flex;
@@ -711,7 +841,7 @@ button {
     padding-right: 4rem;
     color: #000000;
 }
-/* ARRUMANDO O KAUAN */
+/* *********************ARRUMANDO O KAUAN***************************************** */
 .m_tabela{
     display: flex;
     justify-content: center;
