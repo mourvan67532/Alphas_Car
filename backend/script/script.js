@@ -13,7 +13,7 @@ async function cadastro_cliente(){ // função do cadastro do cliente, recebe e 
     await fetch('/cadastar-cliente',{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({nome, email, telefone, cpfm cpf, cep, bairro, rua, complemento})
+        body: JSON.stringify({nome, email, telefone, cpfm, cpf, cep, bairro, rua, complemento})
 
     });
 
