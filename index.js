@@ -52,7 +52,24 @@ db.serialize(() => {
         });
     });
     
+// consultar
 
+app.get('/consultar-clientes', (req, res) => {
+    const nome_cliente = req.query.Nome || ''; 
+
+    // Consulta ao banco de dados para buscar clientes com base no nome
+    const query = `SELECT * FROM clientes WHERE nome LIKE ?`;
+    const params = [`%${nome_cliente}%`];
+
+    db.all(query, params, (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).json({ error: 'Erro ao consultar clientes' });
+        } else {
+            res.json(rows);
+        }
+    });
+});
 
 
 

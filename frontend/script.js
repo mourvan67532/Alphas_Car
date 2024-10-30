@@ -112,6 +112,15 @@ async function orcamento(){ // função do orcamento, recebe e os dados necessá
 
 
 //KAUAN NÃO MEXA, NIGUEM MEXA DAQUI PARA BAIXO
+
+
+
+
+
+
+
+
+
 // nav
 let m_var = 0;
 function m_cad(){
@@ -147,9 +156,52 @@ function m_cad_p(){
 }
 
 // clientes
-function m_lupa(){
+async function m_lupa(){
     const m_buscar = document.getElementById("m_barra").value;
     document.getElementById("m_pesq").innerHTML = m_buscar;
+    // consulta clientes
+    const m_barra = document.getElementById('m_barra').value;
+    const queryParams = new URLSearchParams();
+
+    if (m_barra) queryParams.append('Nome', m_buscar);
+
+    const response = await fetch(`/consultar-clientes?${queryParams.toString()}`);
+
+    if (!response.ok) {
+        console.error('Erro ao consultar:', response.statusText);
+        return;
+    }
+
+    const m_var4 = await response.json();
+    const listaClientes = document.getElementById('listaClientes');
+
+    // Limpa a lista antes de preencher com novos dados
+    listaClientes.innerHTML = `
+        <li class="m_tabela">
+            <h2>Nome</h2>
+            <h2 class="m_tabela_cpf">CPF</h2>
+            <h2 class="m_tabela_fone">Telefone</h2>
+            <h2 class="m_tabela_ponto">.</h2>
+        </li>
+    `;
+
+    console.log('retornados:', m_var4);
+
+
+    m_var4.forEach(cliente => {
+        const li = document.createElement('li');
+        li.className = 'm_li_cliente';
+        li.innerHTML = `
+            <div class="m_li_nome">
+                <img src="../img/m_avatar.png" alt="avatar">
+                <h3>${cliente.Nome}</h3>
+            </div>
+            <h3>${cliente.CPF}</h3>
+            <h3>${cliente.Fone}</h3>
+            <img src="../img/m_seta.png" alt="seta" id="m_seta">
+        `;
+        listaClientes.appendChild(li);
+    });
 };
 
 
