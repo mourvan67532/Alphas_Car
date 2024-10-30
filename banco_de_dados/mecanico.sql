@@ -20,9 +20,12 @@ CREATE TABLE cliente(
 );
 
 CREATE TABLE mecanico(
-	cpf INTEGER PRIMARY key AUTOINCREMENT NOT NULL UNIQUE,
-    nome VARCHAR(100),
-    especializacoes TEXT NOT NULL
+  ID_mecanico INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+  Nome varchar(50), 
+  Fone INTEGER,                 
+  CEP varchar(20),
+  CPF INTEGER UNIQUE NOT NULL,     
+  Bairro varchar(20)  
 );
 
 CREATE TABLE orcamento(
