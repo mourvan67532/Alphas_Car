@@ -37,6 +37,24 @@ db.serialize(() => {
         }
     });
 });
+db.serialize(() => {
+        db.run(`
+        CREATE TABLE IF NOT EXISTS mecanico (
+            ID_mecanico INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+            Nome TEXT, 
+            Fone INTEGER,                 
+            CEP TEXT,
+            CPF INTEGER UNIQUE,     
+            Bairro TEXT  
+        );
+    `, (err) => {
+        if (err) {
+            console.error('Erro ao criar tabela mecanico:', err);
+        } else {
+            console.log('Tabela mecanico criada com sucesso (ou já existe).');
+        }
+    });
+});
 
 
 //CADASTRAR CLIENTE
@@ -52,6 +70,19 @@ db.serialize(() => {
         });
     });
     
+//CADASTRAR MECÂNICO
+    app.post('/cadastrar-mecanico', (req, res) => {
+        const { nome, telefone, cep, cpf, bairro} = req.body;
+        db.run("INSERT INTO mecanico ( Nome, Fone, CEP, CPF, Bairro) VALUES (?, ?, ?, ?, ?)", [nome, telefone, cep, cpf, bairro], function(err) {
+            if (err) {
+                console.error('Erro ao cadastrar:', err);
+                res.status(500).send('Erro ao cadastrar');
+            } else {
+                res.send('cadastrado com sucesso!');
+            }
+        });
+    });
+
 // consultar
 
 app.get('/consultar-clientes', (req, res) => {
@@ -65,6 +96,23 @@ app.get('/consultar-clientes', (req, res) => {
         if (err) {
             console.error(err.message);
             res.status(500).json({ error: 'Erro ao consultar clientes' });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+app.get('/consultar-mecanico', (req, res) => {
+    const nome_mecanico = req.query.Nome || ''; 
+
+    // Consulta ao banco de dados para buscar clientes com base no nome
+    const query = `SELECT * FROM mecanico WHERE nome LIKE ?`;
+    const params = [`%${nome_mecanico}%`];
+
+    db.all(query, params, (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).json({ error: 'Erro ao consultar mecanicos' });
         } else {
             res.json(rows);
         }
