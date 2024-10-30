@@ -45,7 +45,7 @@ async function cadastro_mecanico(){ // função do cadastro do cliente, recebe e
     await fetch('/cadastrar-mecanico', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({nome, telefone, cpf, cep, bairro})
+        body: JSON.stringify({nome_m, telefone_m, cpf_m, cep_m, bairro_m})
     });
 
     alert('Mecânico cadastrado com sucesso!');
