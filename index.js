@@ -36,15 +36,13 @@ db.serialize(() => {
             console.log('Tabela clientes criada com sucesso (ou já existe).');
         }
     });
-});
-db.serialize(() => {
         db.run(`
         CREATE TABLE IF NOT EXISTS mecanico (
             ID_mecanico INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
             Nome TEXT, 
             Fone INTEGER,                 
             CEP TEXT,
-            CPF INTEGER UNIQUE,     
+            CPF TEXT UNIQUE,     
             Bairro TEXT  
         );
     `, (err) => {
@@ -72,13 +70,14 @@ db.serialize(() => {
     
 //CADASTRAR MECÂNICO
     app.post('/cadastrar-mecanico', (req, res) => {
-        const {nome_m, telefone_m, cep_m, cpf_m, bairro_m} = req.body;
-        db.run("INSERT INTO mecanico ( Nome, Fone, CEP, CPF, Bairro) VALUES (?, ?, ?, ?, ?)", [nome_m, telefone_m, cep_m, cpf_m, bairro_m], function(err) {
+        const { nome_m, telefone_m, cep_m, cpf_m, bairro_m } = req.body;
+        db.run("INSERT INTO mecanico (Nome, Fone, CEP, CPF, Bairro) VALUES (?, ?, ?, ?, ?)", 
+        [nome_m, telefone_m, cep_m, cpf_m, bairro_m], function(err) {
             if (err) {
-                console.error('Erro ao cadastrar:', err);
-                res.status(500).send('Erro ao cadastrar');
+                console.error('Erro ao cadastrar mecânico:', err); // Log do erro
+                res.status(500).send('Erro ao cadastrar mecânico');
             } else {
-                res.send('cadastrado com sucesso!');
+                res.send('Mecânico cadastrado com sucesso!');
             }
         });
     });
