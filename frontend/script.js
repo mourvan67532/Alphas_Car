@@ -33,14 +33,41 @@ async function cadastro_cliente(){ // função do cadastro do cliente, recebe e 
 
 };
 
+async function cadastro_mecanico(){ // função do cadastro do cliente, recebe e envia de volta os dados até o momento //
+    
+    const nome_m = document.getElementById("nome_mecanico").value;
+    const telefone_m = document.getElementById("celular").value;
+    const cpf_m = document.getElementById("cpf").value;
+    const cep_m = document.getElementById("endereco_cep").value;
+    const bairro_m = document.getElementById("bairro").value;
+
+    // Envio das informações para o banco de dados
+    await fetch('/cadastrar-mecanico', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({nome, telefone, cpf, cep, bairro})
+    });
+
+    alert('Mecânico cadastrado com sucesso!');
+
+
+
+    // document.getElementById("nome_mecan").innerText = nome;
+    // document.getElementById("celula").innerText = telefone;
+    // document.getElementById("cp").innerText = cpf;
+    // document.getElementById("endereco_ce").innerText = cep;
+    // document.getElementById("bairr").innerText = bairro;
+
+};
+
 async function cadastro_veiculo(){ // função do cadastro do veiculo, recebe e envia de volta os dados até o momento //
 
-    const modelo = document.getElementById("modelo").value;
-    const cor = document.getElementById("cor").value;
-    const ano = document.getElementById("ano").value;
-    const cpf = document.getElementById("cpf").value;
-    const n_chassi = document.getElementById("n_chas").value;
-    const placa = document.getElementById("placa").value;
+    const modelo_v = document.getElementById("modelo").value;
+    const cor_v = document.getElementById("cor").value;
+    const ano_v = document.getElementById("ano").value;
+    const cpf_v = document.getElementById("cpf").value;
+    const n_chassi_v = document.getElementById("n_chas").value;
+    const placa_v = document.getElementById("placa").value;
 
     await fetch('/cadastrar-veiculo',{
         method: 'POST',
@@ -66,7 +93,7 @@ async function cadastro_fornecedor(){ // função do cadastro do fornecedor, rec
     const email_forn = document.getElementById("e-mail").value;
     const telefone_forn = document.getElementById("celular").value;
     const cnpj = document.getElementById("cnpj").value;
-    const cep = document.getElementById("endereco_cep").value;
+    const cep_f = document.getElementById("endereco_cep").value;
 
 
 
