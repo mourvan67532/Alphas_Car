@@ -72,8 +72,8 @@ db.serialize(() => {
     
 //CADASTRAR MECÂNICO
     app.post('/cadastrar-mecanico', (req, res) => {
-        const { nome, telefone, cep, cpf, bairro} = req.body;
-        db.run("INSERT INTO mecanico ( Nome, Fone, CEP, CPF, Bairro) VALUES (?, ?, ?, ?, ?)", [nome, telefone, cep, cpf, bairro], function(err) {
+        const {nome_m, telefone_m, cep_m, cpf_m, bairro_m} = req.body;
+        db.run("INSERT INTO mecanico ( Nome, Fone, CEP, CPF, Bairro) VALUES (?, ?, ?, ?, ?)", [nome_m, telefone_m, cep_m, cpf_m, bairro_m], function(err) {
             if (err) {
                 console.error('Erro ao cadastrar:', err);
                 res.status(500).send('Erro ao cadastrar');
@@ -139,7 +139,7 @@ app.get('/', (req, res) => {
     res.send('Servidor no Replit está rodando e tabelas criadas!');
 });
 
-// Iniciando o servidor
+// Iniciando o servidornome, telefone, cep, cpf, bairro
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
