@@ -79,17 +79,16 @@ async function cadastro_veiculo(){ // função do cadastro do veiculo, recebe e 
 async function cadastro_fornecedor(){ // função do cadastro do fornecedor, recebe e envia de volta os dados até o momento //
 
     const nome_fornecedor = document.getElementById("nome_fornecedor").value;
-    const email_forn = document.getElementById("e-mail").value;
-    const telefone_forn = document.getElementById("celular").value;
-    const cnpj = document.getElementById("cnpj").value;
+    const email_f = document.getElementById("e-mail").value;
+    const fone_f = document.getElementById("fone_f").value;
+    const cnpj_f = document.getElementById("cnpj").value;
     const cep_f = document.getElementById("endereco_cep").value;
 
-
-
+    
     await fetch('/cadastrar-fornecedor',{
         method:'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({nome_fornecedor, email_forn, telefone_forn, cnpj, cep })       
+        body: JSON.stringify({nome_fornecedor, email_f, fone_f, cnpj_f, cep_f })       
     });
 
     alert('Fornecedor cadastrado com sucesso!');

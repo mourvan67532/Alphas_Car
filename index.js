@@ -16,6 +16,7 @@ const db = new sqlite3.Database('banco_de_dados/alpha.db');
 
 // Criar as tabelas se não existirem
 db.serialize(() => {
+        // Mourvan
         db.run(`
         CREATE TABLE IF NOT EXISTS clientes (
             ID_cliente INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
@@ -36,6 +37,7 @@ db.serialize(() => {
             console.log('Tabela clientes criada com sucesso (ou já existe).');
         }
     });
+        // Abner
         db.run(`
         CREATE TABLE IF NOT EXISTS mecanico (
             ID_mecanico INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
@@ -52,7 +54,8 @@ db.serialize(() => {
             console.log('Tabela mecanico criada com sucesso (ou já existe).');
         }
     });
-    db.run(`
+        // João
+        db.run(`
         CREATE TABLE IF NOT EXISTS veiculo (
             ID_veiculo INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
             Modelo TEXT, 
@@ -61,7 +64,7 @@ db.serialize(() => {
             CPF INTEGER UNIQUE, 
             Número_do_chassi TEXT,   
             Placa TEXT
-        );
+         );
     `, (err) => {
         if (err) {
             console.error('Erro ao criar tabela veículo:', err);
@@ -69,6 +72,24 @@ db.serialize(() => {
             console.log('Tabela veículo criada com sucesso (ou já existe).');
         }
     });
+        // Victor
+        db.run(`
+        CREATE TABLE IF NOT EXISTS veiculo (
+            ID_Fornecedor INTEGER PRIMARY key AUTOINCREMENT UNIQUE, 
+            Nome TEXT,
+            Email TEXT,
+            Telefone INTEGER,
+            CNPJ TEXT,
+            CEP TEXT	
+        );
+    `, (err) => {
+        if (err) {
+            console.error('Erro ao criar tabela forncedor:', err);
+        } else {
+            console.log('Tabela fornecedor criada com sucesso (ou já existe).');
+        }
+    });
+
 });
 
 
@@ -111,6 +132,20 @@ app.post('/cadastrar-veiculo', (req, res) => {
         }
     });
 });
+
+//CADASTRAR FORNECEDOR
+app.post('/cadastrar-fornecedor', (req, res) => {
+    const { nome_fornecedor, email_f, fone_f, cnpj_f, cep_f } = req.body;
+    db.run("INSERT INTO forncedor ( nome_fornecedor, e-mail, fone_f, cnpj, endereco_cep) VALORES (?, ?, ?, ?, ?)", [ nome_fornecedor , email_f, fone_f, cnpj_f, cep_f], function(err) { 
+        if (err){
+            console.error('Erro ao cadastrar:', err);
+            res.status(500).send('Erro ao cadastrar veiculo');
+        } else { 
+            res.send('cadastratado com successo!');
+        }
+    })
+});
+
 // consultar
 
 app.get('/consultar-clientes', (req, res) => {
