@@ -32,34 +32,6 @@ async function cadastro_cliente(){ // função do cadastro do cliente, recebe e 
 
 };
 
-async function cadastro_mecanico(){ // função do cadastro do cliente, recebe e envia de volta os dados até o momento //
-    
-    const nome = document.getElementById("nome_mecanico").value;
-    const telefone = document.getElementById("celular").value;
-    const cpf = document.getElementById("cpf").value;
-    const cep = document.getElementById("endereco_cep").value;
-    const bairro = document.getElementById("bairro").value;
-
-    // Envio das informações para o banco de dados
-    await fetch('/cadastrar-mecanico', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({nome, telefone, cpf, cep, bairro})
-    });
-
-    alert('Mecânico cadastrado com sucesso!');
-
-
-
-    // document.getElementById("nome_mecan").innerText = nome;
-    // document.getElementById("celula").innerText = telefone;
-    // document.getElementById("cp").innerText = cpf;
-    // document.getElementById("endereco_ce").innerText = cep;
-    // document.getElementById("bairr").innerText = bairro;
-
-};
-
-
 async function cadastro_veiculo(){ // função do cadastro do veiculo, recebe e envia de volta os dados até o momento //
 
     const modelo = document.getElementById("modelo").value;
