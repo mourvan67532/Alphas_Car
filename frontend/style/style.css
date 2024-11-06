@@ -215,7 +215,14 @@
     color: #292929;
 }
 
+.m_li_cliente div h3{
+    width: 8rem;
+    display:inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
+}
 /* FORENCEDORES */
 
 .v_m_header_1, .v_m_header_2 {
@@ -461,7 +468,7 @@ b{
 }
 
 #k_vi:hover {
-    border: 3px solid red;
+    border: 3px solid red;.m_li_cliente
     background-color: rgb(105, 105, 105);
     color: aliceblue;
 }

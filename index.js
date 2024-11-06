@@ -16,6 +16,7 @@ const db = new sqlite3.Database('banco_de_dados/alpha.db');
 
 // Criar as tabelas se não existirem
 db.serialize(() => {
+        // Mourvan
         db.run(`
         CREATE TABLE IF NOT EXISTS clientes (
             ID_cliente INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
@@ -36,6 +37,7 @@ db.serialize(() => {
             console.log('Tabela clientes criada com sucesso (ou já existe).');
         }
     });
+        // Abner
         db.run(`
         CREATE TABLE IF NOT EXISTS mecanico (
             ID_mecanico INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
@@ -52,6 +54,42 @@ db.serialize(() => {
             console.log('Tabela mecanico criada com sucesso (ou já existe).');
         }
     });
+        // João
+        db.run(`
+        CREATE TABLE IF NOT EXISTS veiculo (
+            ID_veiculo INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+            Modelo TEXT, 
+            Cor TEXT,
+            Ano TEXT,                 
+            CPF INTEGER UNIQUE, 
+            Número_do_chassi TEXT,   
+            Placa TEXT
+         );
+    `, (err) => {
+        if (err) {
+            console.error('Erro ao criar tabela veículo:', err);
+        } else {
+            console.log('Tabela veículo criada com sucesso (ou já existe).');
+        }
+    });
+        // Victor
+        db.run(`
+        CREATE TABLE IF NOT EXISTS veiculo (
+            ID_Fornecedor INTEGER PRIMARY key AUTOINCREMENT UNIQUE, 
+            Nome TEXT,
+            Email TEXT,
+            Telefone INTEGER,
+            CNPJ TEXT,
+            CEP TEXT	
+        );
+    `, (err) => {
+        if (err) {
+            console.error('Erro ao criar tabela forncedor:', err);
+        } else {
+            console.log('Tabela fornecedor criada com sucesso (ou já existe).');
+        }
+    });
+
 });
 
 
@@ -81,6 +119,32 @@ db.serialize(() => {
             }
         });
     });
+
+//CADASTRAR VEICULO
+app.post('/cadastrar-veiculo', (req, res) => {
+    const { modelo_v, cor_v, ano_v, cpf_v, n_chassi_v, placa_v } = req.body;
+    db.run("INSERT INTO veiculo ( Modelo, Cor, Ano, CPF, Número_do_chassi, Placa,) VALUES (?, ?, ?, ?, ?, ?,)", [ modelo_v, cor_v, ano_v, cpf_v, n_chassi_v, placa_v], function(err) {
+        if (err) {
+            console.error('Erro ao cadastrar:', err);
+            res.status(500).send('Erro ao cadastrar veiculo');
+        } else {
+            res.send('cadastrado com sucesso!');
+        }
+    });
+});
+
+//CADASTRAR FORNECEDOR
+app.post('/cadastrar-fornecedor', (req, res) => {
+    const { nome_fornecedor, email_f, fone_f, cnpj_f, cep_f } = req.body;
+    db.run("INSERT INTO forncedor ( nome_fornecedor, e-mail, fone_f, cnpj, endereco_cep) VALORES (?, ?, ?, ?, ?)", [ nome_fornecedor , email_f, fone_f, cnpj_f, cep_f], function(err) { 
+        if (err){
+            console.error('Erro ao cadastrar:', err);
+            res.status(500).send('Erro ao cadastrar veiculo');
+        } else { 
+            res.send('cadastratado com successo!');
+        }
+    })
+});
 
 // consultar
 
@@ -112,6 +176,19 @@ app.get('/consultar-mecanico', (req, res) => {
         if (err) {
             console.error(err.message);
             res.status(500).json({ error: 'Erro ao consultar mecanicos' });
+        } else {
+            res.json(rows);
+        }
+    });
+    
+    // Consulta ao banco de dados para buscar clientes com base no nome
+    const j_ve = `SELECT * FROM veiculo WHERE nome LIKE ?`;
+    const j_cr = [`%${modelo_veiculo}%`];
+
+    db.all(j_ve, j_cr, (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).json({ error: 'Erro ao consultar veiculos' });
         } else {
             res.json(rows);
         }
