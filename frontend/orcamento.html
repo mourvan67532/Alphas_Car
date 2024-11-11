@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <title>Orçamento</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script.js"></script>
+</head>
+
+<body class="m_body">
+    <header>
+        <div class="m_header_1">
+            <figure>
+                <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
+            </figure>
+        </div>
+        <div class="m_header_2">
+            <h2>Alpha's Car</h2>
+        </div>
+    </header>
+    <main class="a_main">
+        <div id="a_cadastro">
+            <div class="a_titulo">
+                <h1>Orçamento</h1>
+            </div>
+
+            <div class="a_c2">
+                <div class="a_tabelinha">
+                    <label for="name"><b>Nome do Cliente</b></label>
+                    <input type="text" id="name">
+                </div>
+                <span id="nam"></span>
+                <div class="a_tabelinha">
+                    <label for="cpf_o"><b>CPF</b></label>
+                    <input type="text" id="Cpf_o">
+                </div>
+                <span id="cp_o"></span>
+
+                <!-- Retire esse comentário após ser criado a tabela de seleção dos carros do cliente através do cpf -->
+                
+                <div class="a_tabelinha">
+                    <label for="valor"><b>Valor</b></label>
+                    <input type="text" id="valor">
+                </div>
+                <span id="val"></span>
+                <div class="a_tabelinha">
+                    <label for="servic1">Serviços:</label>
+                    <select name="servic1" id="servic1">
+                        <option selected disabled value="">Selecione</option>
+                        <option>Alinhamento e Balanceamento</option>
+                        <option>Carga de Gás</option>
+                        <option>Higienização por Ozônio</option>
+                        <option>Limpeza de Bicos Injetores</option>
+                        <option>Limpeza do Arrefecimento</option>
+                        <option>Manutenção de Embreagem</option>
+                        <option>Revisão de Freios</option>
+                        <option>Sistema de Arrefecimento</option>
+                        <option>Troca de Filtros</option>
+                        <option>Troca de Lâmpada</option>
+                        <option>Troca de Óleo do Motor</option>
+                        <option>Troca de Pastilhas de Freio</option>
+                    </select>
+                </div>
+                <div class="a_tabelinha">
+                    <label for="servic2">Serviços(Opcional):</label>
+                    <select name="servic2" id="servic2">
+                        <option selected disabled value="">Selecione</option>
+                        <option>Alinhamento e Balanceamento</option>
+                        <option>Carga de Gás</option>
+                        <option>Higienização por Ozônio</option>
+                        <option>Limpeza de Bicos Injetores</option>
+                        <option>Limpeza do Arrefecimento</option>
+                        <option>Manutenção de Embreagem</option>
+                        <option>Revisão de Freios</option>
+                        <option>Sistema de Arrefecimento</option>
+                        <option>Troca de Filtros</option>
+                        <option>Troca de Lâmpada</option>
+                        <option>Troca de Óleo do Motor</option>
+                        <option>Troca de Pastilhas de Freio</option>
+                    </select>
+                </div>
+                <div class="a_tabelinha">
+                    <label for="servic3">Serviços(opicional):</label>
+                    <select name="servic3" id="servic3">
+                        <option selected disabled value="">Selecione</option>
+                        <option>Alinhamento e Balanceamento</option>
+                        <option>Carga de Gás</option>
+                        <option>Higienização por Ozônio</option>
+                        <option>Limpeza de Bicos Injetores</option>
+                        <option>Limpeza do Arrefecimento</option>
+                        <option>Manutenção de Embreagem</option>
+                        <option>Revisão de Freios</option>
+                        <option>Sistema de Arrefecimento</option>
+                        <option>Troca de Filtros</option>
+                        <option>Troca de Lâmpada</option>
+                        <option>Troca de Óleo do Motor</option>
+                        <option>Troca de Pastilhas de Freio</option>
+                    </select>
+                </div>
+
+                <br><br>
+                
+                <button id="a_abner_vi" onclick="orcamento()"><b>Enviar</b></button>
+            </div>
+        </div>
+    </main>
+    <footer class="m_footer">
+        <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
+    </footer>
+
+</body>
+
+</html>

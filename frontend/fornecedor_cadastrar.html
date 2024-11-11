@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <title>Cadastro fornecedor</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script.js"></script>
+</head>
+<body class="m_body">
+    <header >
+        <div class="m_header_1">
+            <figure>
+                <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
+            </figure>
+        </div>
+        <div class="m_header_2">
+            <h2>Alpha's Car</h2>
+        </div>
+    </header>
+    <main class="a_main">
+        <div id="a_cadastro">
+            <div class="a_titulo">
+                <h1>Cadastrar Fornecedor</h1>
+            </div>
+            <div class="a_c2">
+                <div class="a_tabelinha">
+                    <label for="nome_fornecedor"><b>Nome</b></label>
+                    <input type="text" id="nome_fornecedor">
+                </div>
+                <span id="nome_forn"></span>
+                <div class="a_tabelinha">
+                    <label for="e-mail"><b>E-mail</b></label>
+                    <input type="text" id="e-mail">
+                </div>
+                <span id="e-mai"></span>
+                <div class="a_tabelinha">
+                    <label for="fone_f"><b>Telefone</b></label>
+                    <input type="text" id="fone_f">
+                </div>
+                <span id="fone_f"></span>
+                <div class="a_tabelinha">
+                    <label for="cnpj"><b>CNPJ</b></label>
+                    <input type="text" id="cnpj">
+                </div>
+                <span id="cnp"></span>
+                <div class="a_tabelinha">
+                    <label for="endereco_cep"><b>CEP</b></label>
+                    <input type="text" id="endereco_cep">
+                </div>
+                <span id="endereco_ce"></span>
+                <br>
+                <br>
+                <button id="a_abner_vi" onclick="cadastro_fornecedor()"><b>Cadastrar</b></button>
+
+            </div>
+        </div>
+    </main>
+    <footer class="m_footer">
+        <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
+    </footer>
+       
+</body>
+</html>
