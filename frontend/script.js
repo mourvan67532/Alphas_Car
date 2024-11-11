@@ -125,38 +125,65 @@ async function cadastro_pecas(){ // função do cadastro da pecas, recebe e envi
 
 async function orcamento(){ // função do orcamento, recebe e os dados necessários para preencher o orçamento //
 
-    const nome = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const model = document.getElementById("car").value;
-    const data = document.getElementById("date").value;
-    const hora = document.getElementById("time").value;
+    const nome_orça = document.getElementById("name").value;
+    const cpf_o = document.getElementById("cpf_o").value;
+    const valor = document.getElementById("valor").value;
+    const servico = document.getElementById("servic1").value;
+    const servico_op1 = document.getElementById("servic2").value;
+    const servico_op2 = document.getElementById("servic3").value;
 
     await fetch('orcamento',{
         method:'POST',
         headers:{'Content-Type': 'application/json'},
-        body: JSON.stringify({nome, email, model, data, hora})
+        body: JSON.stringify({nome_orça, cpf_o, valor, servico, servico_op1, servico_op2})
     });
 
     alert('Orçamento cadastrado com sucesso!');
     // document.getElementById("nam").innerHTML = nome;
-    // document.getElementById("emai").innerHTML = email;
-    // document.getElementById("ca").innerHTML = model;
+    // document.getElementById("cp_o").innerHTML = cpf_o;
+    // document.getElementById("val").innerHTML = valor;
+
+
+}
+
+async function agendamento(){ // função do agendamento, recebe e os dados necessários para confirmar o orçamento, e gerar a ordem de serviço //
+
+    const nome_agenda = document.getElementById("name_a").value;
+    const cpf_a = document.getElementById("cpf_a").value;
+    const data = document.getElementById("date").value;
+    const hora = document.getElementById("time").value;
+
+    await fetch('agendamento',{
+        method:'POST',
+        headers:{'Content-Type': 'application/json'},
+        body: JSON.stringify({nome_agenda, cpf_a, data, hora})
+    });
+
+    alert('Agendamento cadastrado com sucesso!');
+    // document.getElementById("nam").innerHTML = nome;
+    // document.getElementById("cp_a").innerHTML = cpf_a;
     // document.getElementById("dat").innerHTML = data;
     // document.getElementById("tim").innerHTML = hora;
 
 }
 
+async function cadastra_servico(){ 
 
+    const nome_s = document.getElementById("nome_servico").value;
+    const preco_s = document.getElementById("preco").value;
+    const ferramenta_s = document.getElementById("ferramenta").value;
+        
+    await fetch('cadastra_servico',{
+        method:'POST',
+        headers:{'Content-Type': 'application/json'},
+        body: JSON.stringify({nome_s, preco_s, ferramenta_s})
+    });
+
+    alert('Serviço cadastrado com sucesso!');
+}
 
 
 //KAUAN NÃO MEXA, NIGUEM MEXA DAQUI PARA BAIXO
-
-
-
-
-
-
-
 
 
 // nav
@@ -238,6 +265,7 @@ async function m_lupa(){
             <h3>${cliente.Fone}</h3>
             <img src="../img/m_seta.png" alt="seta" id="m_seta">
         `;
+        
         listaClientes.appendChild(li);
     });
 };

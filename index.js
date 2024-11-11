@@ -37,6 +37,21 @@ db.serialize(() => {
             console.log('Tabela clientes criada com sucesso (ou já existe).');
         }
     });
+    // Kau :3
+    db.run(`
+    CREATE TABLE IF NOT EXISTS pecas(
+        ID_pecas INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+        Nome_peca TEXT,
+        Preco_pecas TEXT,
+        Modelo_pecas TEXT
+    );
+    `, (err) => {
+    if (err) {
+        console.error('Erro ao criar tabela peças:', err);
+    } else {
+        console.log('Tabela peças criada com sucesso (ou já existe).');
+    }
+    });
         // Abner
         db.run(`
         CREATE TABLE IF NOT EXISTS mecanico (
@@ -67,14 +82,14 @@ db.serialize(() => {
          );
     `, (err) => {
         if (err) {
-            console.error('Erro ao criar tabela veículo:', err);
+            console.error('Erro ao criar tabela veiculo:', err);
         } else {
-            console.log('Tabela veículo criada com sucesso (ou já existe).');
+            console.log('Tabela veiculo criada com sucesso (ou já existe).');
         }
     });
         // Victor
         db.run(`
-        CREATE TABLE IF NOT EXISTS veiculo (
+        CREATE TABLE IF NOT EXISTS fornecedor (
             ID_Fornecedor INTEGER PRIMARY key AUTOINCREMENT UNIQUE, 
             Nome TEXT,
             Email TEXT,
@@ -90,6 +105,20 @@ db.serialize(() => {
         }
     });
 
+        db.run(`
+        CREATE TABLE IF NOT EXISTS servico (
+            ID_Serviço INTEGER PRIMARY key AUTOINCREMENT UNIQUE,
+            Nome_Serviço TEXT,
+            Ferramentas TEXT,
+            Tempo INTEGERT	
+        );
+    `, (err) => {
+        if (err) {
+            console.error('Erro ao criar tabela servico:', err);
+        } else {
+            console.log('Tabela servico criada com sucesso (ou já existe).');
+        }
+    });
 });
 
 
@@ -105,7 +134,20 @@ db.serialize(() => {
             }
         });
     });
-    
+
+//CADASTRAR PECAS
+app.post('/cadastrar-pecas', (req, res) => {
+    const {nome_pecas, preco_pecas, modelo_pe} = req.body;
+    db.run("INSERT INTO pecas (Nome_peca, Preco_pecas, Modelo_pecas) VALUES (?, ?, ?)", [nome_pecas, preco_pecas, modelo_pe], function(err) {
+        if (err) {
+            console.error('Erro ao cadastrar:', err);
+            res.status(500).send('Erro ao cadastrar');
+        } else {
+            res.send('cadastrado com sucesso!');
+        }
+    });
+});
+
 //CADASTRAR MECÂNICO
     app.post('/cadastrar-mecanico', (req, res) => {
         const { nome_m, telefone_m, cep_m, cpf_m, bairro_m } = req.body;
@@ -123,7 +165,7 @@ db.serialize(() => {
 //CADASTRAR VEICULO
 app.post('/cadastrar-veiculo', (req, res) => {
     const { modelo_v, cor_v, ano_v, cpf_v, n_chassi_v, placa_v } = req.body;
-    db.run("INSERT INTO veiculo ( Modelo, Cor, Ano, CPF, Número_do_chassi, Placa,) VALUES (?, ?, ?, ?, ?, ?,)", [ modelo_v, cor_v, ano_v, cpf_v, n_chassi_v, placa_v], function(err) {
+    db.run("INSERT INTO veiculo ( Modelo, Cor, Ano, CPF, Número_do_chassi, Placa,) VALUES (?, ?, ?, ?, ?, ?)", [ modelo_v, cor_v, ano_v, cpf_v, n_chassi_v, placa_v], function(err) {
         if (err) {
             console.error('Erro ao cadastrar:', err);
             res.status(500).send('Erro ao cadastrar veiculo');
@@ -136,7 +178,7 @@ app.post('/cadastrar-veiculo', (req, res) => {
 //CADASTRAR FORNECEDOR
 app.post('/cadastrar-fornecedor', (req, res) => {
     const { nome_fornecedor, email_f, fone_f, cnpj_f, cep_f } = req.body;
-    db.run("INSERT INTO forncedor ( nome_fornecedor, e-mail, fone_f, cnpj, endereco_cep) VALORES (?, ?, ?, ?, ?)", [ nome_fornecedor , email_f, fone_f, cnpj_f, cep_f], function(err) { 
+    db.run("INSERT INTO forncedor (Nome , Email, Telefone, CNPJ, CEP) VALORES (?, ?, ?, ?, ?)", [ nome_fornecedor , email_f, fone_f, cnpj_f, cep_f], function(err) { 
         if (err){
             console.error('Erro ao cadastrar:', err);
             res.status(500).send('Erro ao cadastrar veiculo');
@@ -145,6 +187,20 @@ app.post('/cadastrar-fornecedor', (req, res) => {
         }
     })
 });
+
+//CADASTRAR SERVICO
+app.post('/cadastrar-servico', (req, res) => {
+    const { nome_s, preco_s, ferramenta_s } = req.body;
+    db.run("INSERT INTO servico ( Nome, Preco, Ferramentas) VALORES (?, ?, ?)", [ nome_s, preco_s, ferramenta_s], function(err) { 
+        if (err){
+            console.error('Erro ao cadastrar:', err);
+            res.status(500).send('Erro ao cadastrar veiculo');
+        } else { 
+            res.send('cadastratado com successo!');
+        }
+    })
+});
+
 
 // consultar
 

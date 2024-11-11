@@ -81,6 +81,7 @@
     border-radius: 1rem;
     padding: 0.4rem;
     width: 80%;
+    margin-bottom: 1rem;
 }
 .m_ul .m_li_cliente:hover{
     border: red 3px solid;
