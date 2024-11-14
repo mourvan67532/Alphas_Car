@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@1,200&family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
 .m_body{
     margin: 0%;
     background-color: #292929;
@@ -53,12 +52,6 @@
     padding: 5px;
     filter: invert(100%);
     cursor: pointer;
-}
-#m_barra{
-    width: 40rem;
-    height: 2rem;
-    border-radius: 1rem;
-    border: 5px solid rgb(82, 0, 0);
 }
 .m_pesquisou{
     color: #fff;
@@ -161,14 +154,18 @@
     border-radius: 1rem;
     border: 5px solid rgb(82, 0, 0);
 }
-
+#m_barrak{
+    
+}
 .m_ul{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
+.m_li_cliente{
+    cursor: pointer;
+}
 .m_ul .m_li_cliente{
     display: flex;
     justify-content: space-around;
@@ -469,7 +466,7 @@ b{
 }
 
 #k_vi:hover {
-    border: 3px solid red;.m_li_cliente
+    border: 3px solid red;
     background-color: rgb(105, 105, 105);
     color: aliceblue;
 }
@@ -729,7 +726,7 @@ button {
 .m_nav_ul{
     display: flex;
     justify-content: space-around;
-    margin-right: 2rem;
+    margin-right: 8rem;
 }
 
 .m_nav_ul li{
@@ -739,8 +736,8 @@ button {
     color: aliceblue;
     background-color: var(--cor_1);
     padding: 1rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
     font-family: "Shrikhand", serif;
     text-shadow: 
     -2px -2px 0 #000000,  
@@ -813,7 +810,7 @@ button {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    margin-top: 15rem;
+    margin-top: 14.7rem;
     background-color: var(--cor_1);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -844,51 +841,176 @@ button {
     display: none;
     margin: 0.5rem;
 }
+
 .m_nav3_a_p:hover{
     background-color: #bf7373;
     padding-left: 4rem;
     padding-right: 4rem;
     color: #000000;
 }
-/* *********************ARRUMANDO O KAUAN***************************************** */
-.m_tabela{
+
+.a_nav_3_c{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    position: absolute;
+    margin-top: 9.5rem;
+    background-color: var(--cor_1);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding-bottom: 0.3rem;
+    z-index: 10;
 }
 
-.m_coluna1{
-    width: 40rem;
-    border: 3px solid black;
-    border-left: 5px solid black;
+.a_nav3_a_c{
+    font-size: large;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: "Shrikhand", serif;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 2px;
+    display: none;
 }
-.m_coluna2{
-    width: 40rem;
-    border: 3px solid black;
-    border-right: 5px solid black;
-}
-.m_linha2{
-    border: 3px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-left: none;
-    border-right: none;
-    background-color: aliceblue;
-}
-.m_linha1{
-    border: 3px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-left: none;
-    border-right: none;
+
+.a_nav3_a_c:hover{
     background-color: #bf7373;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    color: #000000;
 }
+
+/* arrumando o kauan */
+.m_linhakk{
+    display: flex;
+    background-color: #ff8585;
+}
+.m_colunakk{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    width: 50rem;
+    height: 4rem;
+    font-size: 150%;
+}
+.m_linhak{
+    display: flex;
+    background-color: #ffffff;
+}
+.m_colunak{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    width: 50rem;
+    height: 4rem;
+    font-size: 150%;
+}
+
+
+
+
+
 /* ***************************ROOT********************** */
 /*Não mexam nessa parte para baixo, Kauan fique longe*/
 :root{
     --cor_1: #d8010f; 
     --cor_2: #EA202E;
     --cor_3: black;
+}
+
+
+
+
+
+
+/* novo dados do cliente */
+
+.m_dados{
+    background-color: #ffffff;
+    width: 75%;
+    height: 10rem;
+    margin-top: -1rem;
+    padding: 1rem;
+    border: 3px solid black;
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    display: none;
+}
+
+.m_dados h3{
+    width: 24rem;
+    display:inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 99%;
+    border: 2px solid black;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+}
+
+#m_apaga_dados{
+    border: 3px solid rgb(134, 0, 0);
+    border-radius: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(134, 0, 0);
+    width: 7rem;
+}
+#m_apaga_dados:hover{
+    background-color: #fab3b3;
+    cursor: pointer;
+}
+#m_busca_carro{
+    border: 3px solid rgb(0, 134, 31);
+    border-radius: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(2, 134, 0);
+    width: 7rem;
+}
+#m_busca_carro:hover{
+    background-color: #c6ffb6;
+    cursor: pointer;
+}
+
+.m_carros{
+    background-color: #ffffff;
+    width: 70%;
+    height: 10rem;
+    padding: 1rem;
+    padding-top: 3rem;
+    border: 3px solid black;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    display: none;
+}
+.m_carros_1{
+    position: absolute;
+    margin-top: -12rem;
+    font-size: 180%;
+}
+.m_carros h3{
+    width: 24rem;
+    display:inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 99%;
+    border: 2px solid black;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
 }

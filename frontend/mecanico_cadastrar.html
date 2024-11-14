@@ -7,17 +7,16 @@
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <title>Cadastro cliente</title>
     <link rel="stylesheet" href="style/style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body class="m_body">
-    <header >
+    <header>
         <div class="m_header_1">
             <figure>
                 <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
             </figure>
         </div>
         <div class="m_header_2">
-            
             <h2>Alpha's Car</h2>
         </div>
     </header>
@@ -49,10 +48,15 @@
                 </div>
                 <span id="endereco_ce"></span>
                 <div class="a_tabelinha">
-                    <label for="bairro_m"><b>Especialidade</b></label>
+                    <label for="bairro_m"><b>Bairro</b></label>
                     <input type="text" id="bairro_m">
                 </div>
                 <span id="bairr"></span>
+                <div class="a_tabelinha">
+                    <label for="bairro_m"><b>Especialidade</b></label>
+                    <input type="text" id="especialidade">
+                </div>
+                <span id="especiali"></span>
                 <br>
                 <br>
                 <button id="a_abner_vi" onclick="cadastro_mecanico()"><b>Cadastrar</b></button>
