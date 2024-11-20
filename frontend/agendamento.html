@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
-    <title>Cadastro cliente</title>
+    <title>Cadastro Itens</title>
     <link rel="stylesheet" href="style/style.css">
     <script src="script.js"></script>
 </head>
+
 <body class="m_body">
     <header>
         <div class="m_header_1">
@@ -53,34 +55,52 @@
     <main class="a_main">
         <div id="a_cadastro">
             <div class="a_titulo">
-                <h1>Cadastrar Peça</h1>
+                <h1>Agendamento</h1>
             </div>
 
             <div class="a_c2">
                 <div class="a_tabelinha">
-                    <label for="nome_pecas"><b>Nome</b></label>
-                    <input type="text" id="nome_pecas">
+                    <label for="name_a"><b>Nome do Cliente</b></label>
+                    <input type="text" id="name_a">
                 </div>
-                <span id="nome_client"></span>
-                <div class="a_tabelinha">
-                    <label for="preco_pecas"><b>Preço</b></label>
-                    <input type="text" id="preco_pecas">
+                <span id="nam"></span>
+                <div class="m_tabelinha">
+                    <label for="a_cpf_orc"><b>CPF</b></label>
+                    <input type="text" id="a_cpf_orc">
+                    <button id="a_buscar_orcaid" onclick="a_buscarorca()">Buscar</button>
                 </div>
-                <span id="e-mai"></span>
-                <div class="a_tabelinha">
-                    <label for="modelo_pe"><b>Modelo</b></label>
-                    <input type="text" id="modelo_pe">
-                </div>
-                <span id="pe_modelo"></span>
-                <br>
-                <br>
-                <button id="a_abner_vi" onclick="cadastro_pecas()"><b>Cadastrar</b></button>
-            </div>
+                <!-- section para buscar orcamento -->
+                <div class="m_option">
+                    <label for="a_orcselecionado">Orçamento Selecionado:</label>
+                    <select id="a_orcselecionado" name="a_orcselecionado" required>
+                        <option value="">Selecione um orçamento do cliente</option>
 
+                    </select>
+
+                <!-- Retire esse comentário após ser criado a tabela de seleção dos orçamentos do cliente através do cpf -->
+                
+                <div class="a_tabelinha">
+                    <label for="data"><b>Data</b></label>
+                    <input type="date" id="date">
+                </div>
+                <span id="dat"></span>
+                <div class="a_tabelinha">
+                    <label for="time"><b>Horário</b></label>
+                    <input type="time" id="time">
+                </div>
+                <br>
+                <input type="hidden" id="acpf_selecionado_orca">
+                    <br>
+                <br>
+
+                <button id="a_abner_vi" onclick="agendamento()"><b>Enviar</b></button>
+            </div>
         </div>
     </main>
     <footer class="m_footer">
         <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
     </footer>
+
 </body>
+
 </html>

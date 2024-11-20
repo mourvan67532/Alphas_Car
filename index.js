@@ -16,7 +16,7 @@ const db = new sqlite3.Database('banco_de_dados/alpha.db');
 
 // Criar as tabelas se não existirem
 db.serialize(() => {
-        // Mourvan
+        // Cliente
         db.run(`
         CREATE TABLE IF NOT EXISTS clientes (
             ID_cliente INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
@@ -24,7 +24,7 @@ db.serialize(() => {
             Email TEXT,
             Fone INTEGER,                 
             CEP TEXT,
-            CPF INTEGER UNIQUE,     
+            CPF TEXT UNIQUE,     
             Bairro TEXT,  
             Rua TEXT,    
             Numero TEXT,
@@ -37,7 +37,22 @@ db.serialize(() => {
             console.log('Tabela clientes criada com sucesso (ou já existe).');
         }
     });
-        // Abner
+    // Peças
+    db.run(`
+    CREATE TABLE IF NOT EXISTS pecas(
+        ID_pecas INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+        Nome_peca TEXT,
+        Preco_pecas TEXT,
+        Modelo_pecas TEXT
+    );
+    `, (err) => {
+    if (err) {
+        console.error('Erro ao criar tabela peças:', err);
+    } else {
+        console.log('Tabela peças criada com sucesso (ou já existe).');
+    }
+    });
+        //Mecanico 
         db.run(`
         CREATE TABLE IF NOT EXISTS mecanico (
             ID_mecanico INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
@@ -45,7 +60,8 @@ db.serialize(() => {
             Fone INTEGER,                 
             CEP TEXT,
             CPF TEXT UNIQUE,     
-            Bairro TEXT  
+            Bairro TEXT, 
+            Especialidade TEXT
         );
     `, (err) => {
         if (err) {
@@ -54,27 +70,61 @@ db.serialize(() => {
             console.log('Tabela mecanico criada com sucesso (ou já existe).');
         }
     });
-        // João
+        //Orçamento
+        db.run(`
+            CREATE TABLE IF NOT EXISTS orcamento (
+                ID_Orcamento INTEGER PRIMARY key AUTOINCREMENT UNIQUE,
+                Nome TEXT,
+                CPF TEXT,
+                Servico TEXT,
+                Servicoop1 TEXT,
+                Servicoop2 TEXT
+            );
+        `, (err) => {
+            if (err) {
+                console.error('Erro ao criar tabela orcamento:', err);
+            } else {
+                console.log('Tabela orcamento criada com sucesso (ou já existe).');
+            }
+        });
+            //Agendamento
+            db.run(`
+            CREATE TABLE IF NOT EXISTS agendamento (
+                ID_Agendamento INTEGER PRIMARY key AUTOINCREMENT UNIQUE,
+                Nome TEXT,
+                CPF TEXT,
+                Data DATE,
+                Horario TEXT
+            );
+        `, (err) => {
+            if (err) {
+                console.error('Erro ao criar tabela agendamento:', err);
+            }  else {
+                console.log('Tabela agendamento criada com sucesso (ou já existe).');
+            }  
+        });
+        //Veiculo
         db.run(`
         CREATE TABLE IF NOT EXISTS veiculo (
             ID_veiculo INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
             Modelo TEXT, 
             Cor TEXT,
             Ano TEXT,                 
-            CPF INTEGER UNIQUE, 
+            CPF TEXT, 
             Número_do_chassi TEXT,   
             Placa TEXT
-         );
+        );
+        
     `, (err) => {
         if (err) {
-            console.error('Erro ao criar tabela veículo:', err);
+            console.error('Erro ao criar tabela veiculo:', err);
         } else {
-            console.log('Tabela veículo criada com sucesso (ou já existe).');
+            console.log('Tabela veiculo criada com sucesso (ou já existe).');
         }
     });
-        // Victor
+        //Fornecedor
         db.run(`
-        CREATE TABLE IF NOT EXISTS veiculo (
+        CREATE TABLE IF NOT EXISTS fornecedor (
             ID_Fornecedor INTEGER PRIMARY key AUTOINCREMENT UNIQUE, 
             Nome TEXT,
             Email TEXT,
@@ -89,7 +139,21 @@ db.serialize(() => {
             console.log('Tabela fornecedor criada com sucesso (ou já existe).');
         }
     });
-
+        //Serviços 
+        db.run(`
+        CREATE TABLE IF NOT EXISTS servico (
+            ID_Serviço INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+            Nome_Serviço TEXT,
+            Preco TEXT,
+            Ferramentas TEXT
+        );
+    `, (err) => {
+        if (err) {
+            console.error('Erro ao criar tabela servico:', err);
+        } else {
+            console.log('Tabela servico criada com sucesso (ou já existe).');
+        }
+    });
 });
 
 
@@ -105,25 +169,38 @@ db.serialize(() => {
             }
         });
     });
-    
-//CADASTRAR MECÂNICO
-    app.post('/cadastrar-mecanico', (req, res) => {
-        const { nome_m, telefone_m, cep_m, cpf_m, bairro_m } = req.body;
-        db.run("INSERT INTO mecanico (Nome, Fone, CEP, CPF, Bairro) VALUES (?, ?, ?, ?, ?)", 
-        [nome_m, telefone_m, cep_m, cpf_m, bairro_m], function(err) {
-            if (err) {
-                console.error('Erro ao cadastrar mecânico:', err); // Log do erro
-                res.status(500).send('Erro ao cadastrar mecânico');
-            } else {
-                res.send('Mecânico cadastrado com sucesso!');
-            }
-        });
+
+//CADASTRAR PECAS
+app.post('/cadastrar-pecas', (req, res) => {
+    const {nome_pecas, preco_pecas, modelo_pe} = req.body;
+    db.run("INSERT INTO pecas (Nome_peca, Preco_pecas, Modelo_pecas) VALUES (?, ?, ?)", [nome_pecas, preco_pecas, modelo_pe], function(err) {
+        if (err) {
+            console.error('Erro ao cadastrar:', err);
+            res.status(500).send('Erro ao cadastrar');
+        } else {
+            res.send('cadastrado com sucesso!');
+        }
     });
+});
+
+//CADASTRAR MECÂNICO
+app.post('/cadastrar-mecanico', (req, res) => {
+    const { nome_m, telefone_m, cpf_m, cep_m, bairro_m, especialidade } = req.body;
+    db.run("INSERT INTO mecanico (Nome, Fone, CPF, CEP, Bairro, Especialidade) VALUES (?, ?, ?, ?, ?, ?)", 
+    [nome_m, telefone_m, cep_m, cpf_m, bairro_m, especialidade], function(err) {
+        if (err) {
+            console.error('Erro ao cadastrar mecânico:', err); // Log do erro
+            res.status(500).send('Erro ao cadastrar mecânico');
+        } else {
+            res.send('Mecânico cadastrado com sucesso!');
+        }
+    });
+});
 
 //CADASTRAR VEICULO
 app.post('/cadastrar-veiculo', (req, res) => {
     const { modelo_v, cor_v, ano_v, cpf_v, n_chassi_v, placa_v } = req.body;
-    db.run("INSERT INTO veiculo ( Modelo, Cor, Ano, CPF, Número_do_chassi, Placa,) VALUES (?, ?, ?, ?, ?, ?,)", [ modelo_v, cor_v, ano_v, cpf_v, n_chassi_v, placa_v], function(err) {
+    db.run("INSERT INTO veiculo ( Modelo, Cor, Ano, CPF, Número_do_chassi, Placa) VALUES (?, ?, ?, ?, ?, ?)", [modelo_v, cor_v, ano_v, cpf_v, n_chassi_v, placa_v ], function(err) {
         if (err) {
             console.error('Erro ao cadastrar:', err);
             res.status(500).send('Erro ao cadastrar veiculo');
@@ -136,22 +213,145 @@ app.post('/cadastrar-veiculo', (req, res) => {
 //CADASTRAR FORNECEDOR
 app.post('/cadastrar-fornecedor', (req, res) => {
     const { nome_fornecedor, email_f, fone_f, cnpj_f, cep_f } = req.body;
-    db.run("INSERT INTO forncedor ( nome_fornecedor, e-mail, fone_f, cnpj, endereco_cep) VALORES (?, ?, ?, ?, ?)", [ nome_fornecedor , email_f, fone_f, cnpj_f, cep_f], function(err) { 
+    db.run("INSERT INTO forncedor (Nome , Email, Telefone, CNPJ, CEP) VALUES (?, ?, ?, ?, ?)", [ nome_fornecedor , email_f, fone_f, cnpj_f, cep_f], function(err) { 
         if (err){
             console.error('Erro ao cadastrar:', err);
-            res.status(500).send('Erro ao cadastrar veiculo');
+            res.status(500).send('Erro ao cadastrar fornecedor');
         } else { 
-            res.send('cadastratado com successo!');
+            res.send('cadastrado com sucesso!');
         }
     })
 });
 
+//CADASTRAR SERVICO
+app.post('/cadastrar-servico', (req, res) => {
+    const { nome_s, preco_s, ferramenta_s } = req.body;
+    db.run("INSERT INTO servico ( Nome_Serviço, Preco, Ferramentas) VALUES (?, ?, ?)", [ nome_s, preco_s, ferramenta_s], function(err) { 
+        if (err){
+            console.error('Erro ao cadastrar:', err);
+            res.status(500).send('Erro ao cadastrar servico');
+        } else { 
+            res.send('cadastrado com sucesso!');
+        }
+    })
+});
+
+app.post('/orcamento', (req, res) => {
+    const { nome_orça, cpf_o, valor, servico, servico_op1, servico_op2 } = req.body;
+    db.run("INSERT INTO orcamento ( Nome, CPF, Valor, Servico, Servicoop1, Servicoop2) VALORES (?, ?, ?, ?, ?, ?)", [ nome_orça, cpf_o, valor, servico, servico_op1, servico_op2], function(err) {
+        if (err){
+            console.error('Erro ao cadastrar:', err);
+            res.status(500).send('Erro ao cadastrar orcamento');
+        } else {
+            res.send('cadastrado com sucesso!');
+        }
+    })
+});
+
+//CADASTRAR AGENDAMENTO
+app.post('/agendamento', (req, res) => {
+    const { name_a, cpf_a , data, time } = req.body;
+    db.run("INSERT INTO orcamento ( Nome, CPF, Data, Hora) VALORES (?, ?, ?, ?)", [ name_a, cpf_a , data, time], function(err) {
+        if (err){
+            console.error('Erro ao cadastrar:', err);
+            res.status(500).send('Erro ao cadastrar agendamento');
+        } else {
+            res.send('cadastrado com sucesso!');
+        }
+    })
+});
+
+app.get('/consultar-servico', (req, res) => {
+    const nome_servico = req.query.Nome_Serviço || ''; 
+
+
+    const query_k = `SELECT * FROM servico WHERE Nome_Serviço LIKE ?`;
+    const params_k = [`%${nome_servico}%`];
+
+    db.all(query_k, params_k, (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).json({ error: 'Erro ao consultar serviços' });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
 // consultar
 
+
+app.get('/consultar-mecanico', (req, res) => {
+    const nome_mecanico = req.query.Nome || ''; // Recupera o nome do mecânico ou uma string vazia
+
+    // Consulta ao banco de dados para buscar mecânicos com base no nome
+    const query = `SELECT * FROM mecanico WHERE Nome LIKE ?`;
+    const params = [`%${nome_mecanico}%`];
+
+    db.all(query, params, (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).json({ error: 'Erro ao consultar mecânicos' });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+
+
+// buscar orcamento
+app.get('/buscar-orcamento', (req, res) => {
+    const av_query = req.query.query;
+
+
+    db.all("SELECT * FROM orcamento WHERE CPF LIKE ?", [`%${av_query}%`], (err, rows) => {
+        if (err) {
+            console.error('Erro ao buscar orçamento:', err);
+            res.status(500).send('Erro ao buscar orçamento');
+        } else {
+            res.json(rows);
+        }
+    });
+});
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Cliente♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Cliente♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Cliente♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+// ♦♦♦♦♦♦♦♦�Consultar Veiculo♦♦♦♦♦♦♦♦�
+app.get('/consultar-veiculo', (req, res) => {
+    const id_veiculo = req.query.ID_veiculo || ''; 
+
+    const query = `SELECT * FROM veiculo WHERE ID_veiculo LIKE ?`;
+    const params = [`%${id_veiculo}%`];
+
+    db.all(query, params, (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).json({ error: 'Erro ao consultar veículo' });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+// buscar veiculo
+app.get('/buscar-veiculo', (req, res) => {
+    const mv_query = req.query.query;
+
+
+    db.all("SELECT * FROM veiculo WHERE CPF LIKE ?", [`%${mv_query}%`], (err, rows) => {
+        if (err) {
+            console.error('Erro ao buscar veiculo:', err);
+            res.status(500).send('Erro ao buscar veiculo');
+        } else {
+            res.json(rows);
+        }
+    });
+});
+// ♦♦♦♦♦♦♦�Consultar Cliente♦♦♦♦♦♦♦�
 app.get('/consultar-clientes', (req, res) => {
     const nome_cliente = req.query.Nome || ''; 
 
-    // Consulta ao banco de dados para buscar clientes com base no nome
     const query = `SELECT * FROM clientes WHERE nome LIKE ?`;
     const params = [`%${nome_cliente}%`];
 
@@ -164,46 +364,74 @@ app.get('/consultar-clientes', (req, res) => {
         }
     });
 });
+app.put('/atualizar-cliente/:id', (m_update, res) => {
+    const clienteId = m_update.params.id;
+    const { Nome, Email, Fone, CEP, CPF, Bairro, Rua, Numero, Complemento } = m_update.body;
 
-app.get('/consultar-mecanico', (req, res) => {
-    const nome_mecanico = req.query.Nome || ''; 
+    if (!Nome || !Email || !Fone || !CEP || !CPF || !Bairro || !Rua || !Numero || !Complemento) {
+        return res.status(400).send('Todos os dados devem ser fornecidos');
+    }
 
-    // Consulta ao banco de dados para buscar clientes com base no nome
-    const query = `SELECT * FROM mecanico WHERE nome LIKE ?`;
-    const params = [`%${nome_mecanico}%`];
+    db.run(
+        `UPDATE clientes 
+         SET 
+            Nome = ?, 
+            Email = ?, 
+            Fone = ?, 
+            CEP = ?, 
+            CPF = ?, 
+            Bairro = ?, 
+            Rua = ?, 
+            Numero = ?, 
+            Complemento = ? 
+         WHERE ID_cliente = ?`,
+        [Nome, Email, Fone, CEP, CPF, Bairro, Rua, Numero, Complemento, clienteId], 
+        function(err) {
+            if (err) {
+                console.error('Erro ao atualizar cliente:', err);
+                return res.status(500).send('Erro ao atualizar cliente');
+            } else if (this.changes === 0) {
+                return res.status(404).send('Cliente não encontrado');
+            } else {
+                return res.send('Cliente atualizado com sucesso');
+            }
+        }
+    );
+});
 
-    db.all(query, params, (err, rows) => {
+
+//excluir cliente
+app.delete('/excluir-cliente/:id', (m_delete, res) => {
+    const clienteId = m_delete.params.id;
+
+    db.run("DELETE FROM clientes WHERE ID_cliente = ?", [clienteId], function(err) {
         if (err) {
-            console.error(err.message);
-            res.status(500).json({ error: 'Erro ao consultar mecanicos' });
+            console.error('Erro ao excluir cliente:', err);
+            res.status(500).send('Erro ao excluir cliente');
+        } else if (this.changes === 0) {
+            res.status(404).send('Cliente não encontrado');
         } else {
-            res.json(rows);
+            res.send('Cliente excluído com sucesso');
         }
     });
-    
-    // Consulta ao banco de dados para buscar clientes com base no nome
-    const j_ve = `SELECT * FROM veiculo WHERE nome LIKE ?`;
-    const j_cr = [`%${modelo_veiculo}%`];
+});
+// buscar cliente e aparecer no option
+app.get('/buscar-cliente', (req, res) => {
+    const mb_query = req.query.query;
 
-    db.all(j_ve, j_cr, (err, rows) => {
+
+    db.all("SELECT * FROM clientes WHERE CPF LIKE ? OR Nome LIKE ?", [`%${mb_query}%`, `%${mb_query}%`], (err, rows) => {
         if (err) {
-            console.error(err.message);
-            res.status(500).json({ error: 'Erro ao consultar veiculos' });
+            console.error('Erro ao buscar cliente:', err);
+            res.status(500).send('Erro ao buscar cliente');
         } else {
             res.json(rows);
         }
     });
 });
-
-
-
-
-
-
-
-
-
-
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 
 
 
@@ -215,7 +443,7 @@ app.get('/', (req, res) => {
     res.send('Servidor no Replit está rodando e tabelas criadas!');
 });
 
-// Iniciando o servidornome, telefone, cep, cpf, bairro
+// Iniciando o servidor
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });

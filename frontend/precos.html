@@ -13,113 +13,67 @@
 <body class="m_body_index">
     <header>
         <div class="m_header_1">
-            <figure>
-                <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
-            </figure>
+           <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
         </div>
         <div class="m_header_2">
             <h2>Alpha's Car</h2>
+        </div>
+        <div class="m_nav">
+            <ul class="m_nav_ul">
+                <a href="orcamento.html" ><li>Orçamento</li></a>
+                <a href="agendamento.html"><li>Agendamento</li></a>
+                <div class="a_nav_2">
+                    <div onclick="m_cad()" class="m_nav2_a"><li>Cadastrar</li></div>
+                    <div class="m_nav_3">
+                                <a href="cliente_cadastrar.html" class="m_nav3_a">Clientes</a>
+                                <a href="fornecedor_cadastrar.html" class="m_nav3_a">Fornecedores</a>
+                                <a href="veiculo_cadastrar.html" class="m_nav3_a">Veículos</a>
+                                <a href="cadastrar_serv.html" class="m_nav3_a">Serviços</a>
+                                <a href="mecanico_cadastrar.html" class="m_nav3_a">Mecânicos</a>
+                                <a href="pecas_cadastrar.html" class="m_nav3_a">Peças</a>
+                    </div>
+                </div>
+                <div class="a_nav_2">
+                    <div onclick="m_cad_p()" class="m_nav2_a"><li>Preços</li></div>
+                    <div class="m_nav_3_p">
+                                <a href="cad_itens_forn.html" class="m_nav3_a_p">Peças</a>
+                                <a href="precos.html" class="m_nav3_a_p">Serviços</a>
+                    </div>
+                </div>
+                <div class="a_nav_2">
+                    <div onclick="a_cad_c()" class="m_nav2_a"><li>Consultas</li></div>
+                    <div class="a_nav_3_c">
+                                <a href="fornecedores.html" class="a_nav3_a_c">Fornecedores</a>
+                                <a href="clientes.html" class="a_nav3_a_c">Clientes</a>
+                                <a href="mecanicos.html" class="a_nav3_a_c">Mecânicos</a>
+                    </div> 
+                </div>
+            </ul>
         </div>
     </header>
     <main class="k_main">
         <div class="m_titulo">
             <h3>Preços <span id="m_pesq"></span></h3>
             <div class="m_pesquisa">
-                <input type="text" name="m_pesquisa" id="m_barra">
-                <img src="../img/m_lupa.png" alt="lupa" onclick="m_lupa()">
+                <input type="text" name="m_pesquisa" id="m_barrak">
+                <img src="../img/m_lupa.png" alt="lupa" onclick="m_lupak()">
             </div>
             <div class="m_pesquisou">
-                <h3>Buscou por: <span id="m_pesq"></span></h3>
+                <h3>Buscou por: <span id="m_pesqk"></span></h3>
             </div>
         </div>
-        <div class="k_inicio">
-            <div class="m_tabela">
-                <div class="m_coluna1">
-                    <div class="m_linha1">
-                        <h2>Serviço</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>Alinhamento e balanceamento</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>Carga de gás</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>Higienização por ozônio</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>Limpeza de bicos injetores</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>Limpeza do arrefecimento</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>Manutenção de embreagem</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>Revisão de freios</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>Sistema de arrefecimento</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>Troca de filtros</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>Troca de lâmpada</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>Troca de óleo do motor</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>Troca de pastilhas de freio</h2>
-                    </div>
-                </div>
-                <div class="m_coluna2">
-                    <div class="m_linha1">
-                        <h2>Valor</h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>R$<span>95,00</span></h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>R$<span>150,00</span></h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>R$<span>70,00</span></h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>R$<span>150,00</span></h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>R$<span>60,00</span></h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>R$<span>350,00</span></h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>R$<span>145,00</span></h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>R$<span>115,00</span></h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>R$<span>135,00</span></h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>R$<span>75,00</span></h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>R$<span>75,00</span></h2>
-                    </div>
-                    <div class="m_linha2">
-                        <h2>R$<span>85,00</span></h2>
-                    </div>
-                </div>
+        <div class="k_inicio" id="listaservico"">
+            <div class="m_linhakk">
+                <div class="m_colunakk">Serviço</div>
+                 <div class="m_colunakk">Preço</div>
             </div>
-            <br>
-            <br>
+            <div class="m_linhak">
+                <div class="m_colunak"> Alinhamento</div>
+                 <div class="m_colunak"><span>R$</span>40<span>,00</span> </div>
+            </div>
         </div>
+        <br>
+        <br>
     </main>
     <footer class="m_footer">
         <img src="../img/logo.png" alt="logo">

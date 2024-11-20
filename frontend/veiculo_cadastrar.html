@@ -10,14 +10,44 @@
     <script src="script.js"></script>
 </head>
 <body class="m_body">
-    <header >
+    <header>
         <div class="m_header_1">
-            <figure>
-                <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
-            </figure>
+           <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
         </div>
         <div class="m_header_2">
             <h2>Alpha's Car</h2>
+        </div>
+        <div class="m_nav">
+            <ul class="m_nav_ul">
+                <a href="orcamento.html" ><li>Orçamento</li></a>
+                <a href="agendamento.html"><li>Agendamento</li></a>
+                <div class="a_nav_2">
+                    <div onclick="m_cad()" class="m_nav2_a"><li>Cadastrar</li></div>
+                    <div class="m_nav_3">
+                                <a href="cliente_cadastrar.html" class="m_nav3_a">Clientes</a>
+                                <a href="fornecedor_cadastrar.html" class="m_nav3_a">Fornecedores</a>
+                                <a href="veiculo_cadastrar.html" class="m_nav3_a">Veículos</a>
+                                <a href="cadastrar_serv.html" class="m_nav3_a">Serviços</a>
+                                <a href="mecanico_cadastrar.html" class="m_nav3_a">Mecânicos</a>
+                                <a href="pecas_cadastrar.html" class="m_nav3_a">Peças</a>
+                    </div>
+                </div>
+                <div class="a_nav_2">
+                    <div onclick="m_cad_p()" class="m_nav2_a"><li>Preços</li></div>
+                    <div class="m_nav_3_p">
+                                <a href="cad_itens_forn.html" class="m_nav3_a_p">Peças</a>
+                                <a href="precos.html" class="m_nav3_a_p">Serviços</a>
+                    </div>
+                </div>
+                <div class="a_nav_2">
+                    <div onclick="a_cad_c()" class="m_nav2_a"><li>Consultas</li></div>
+                    <div class="a_nav_3_c">
+                                <a href="fornecedores.html" class="a_nav3_a_c">Fornecedores</a>
+                                <a href="clientes.html" class="a_nav3_a_c">Clientes</a>
+                                <a href="mecanicos.html" class="a_nav3_a_c">Mecânicos</a>
+                    </div> 
+                </div>
+            </ul>
         </div>
     </header>
     <main class="a_main">
@@ -28,8 +58,8 @@
 
             <div class="a_c2">
                 <div class="a_tabelinha">
-                    <label for="modelo"><b>Modelo</b></label>
-                    <input type="text" id="modelo">
+                    <label for="modelo_vei"><b>Modelo</b></label>
+                    <input type="text" id="modelo_vei">
                 </div>
                 <span id="model"></span>
                 <div class="a_tabelinha">
@@ -42,9 +72,18 @@
                     <input type="text" id="ano">
                 </div>
                 <span id="car_ano"></span>
-                <div class="a_tabelinha">
-                    <label for="cpf"><b>CPF</b></label>
-                    <input type="text" id="cpf">
+                <div class="m_tabelinha">
+                    <label for="cpf_vei"><b>CPF</b></label>
+                    <input type="text" id="cpf_vei">
+                    <button id="m_buscarclienteid" onclick="m_buscarcliente()">Buscar</button>
+                </div>
+                <!-- section para buscar cliente -->
+                <div class="m_option">
+                    <label for="clienteselecionado">Cliente Selecionado:</label>
+                    <select id="clienteselecionado" name="clienteselecionado" required>
+                        <option value="">Selecione um cliente</option>
+
+                    </select>
                 </div>
                 <span id="cp"></span>
                 <div class="a_tabelinha">
@@ -58,6 +97,7 @@
                 </div>
                 <span id="plac"></span>
                 <br>
+                <input type="hidden" id="cpf_selecionado_veiculo">
                 <br>
                 <button id="a_abner_vi" onclick="cadastro_veiculo()"><b>Cadastrar</b></button>
             </div>
