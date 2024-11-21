@@ -6,20 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
-    <title>Cadastro Itens</title>
-    <link rel="stylesheet" href="../frontend/style/style.css">
+    <title>Orçamento</title>
+    <link rel="stylesheet" href="style/style.css">
     <script src="script.js"></script>
 </head>
 
 <body class="m_body">
     <header>
         <div class="m_header_1">
-            <figure>
-                <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
-            </figure>
+           <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
         </div>
         <div class="m_header_2">
             <h2>Alpha's Car</h2>
+        </div>
+        <div class="m_nav">
+            <ul class="m_nav_ul">
+                <a href="orcamento.html" ><li>Orçamento</li></a>
+                <a href="agendamento.html"><li>Agendamento</li></a>
+                <div class="a_nav_2">
+                    <div onclick="m_cad()" class="m_nav2_a"><li>Cadastrar</li></div>
+                    <div class="m_nav_3">
+                                <a href="cliente_cadastrar.html" class="m_nav3_a">Clientes</a>
+                                <a href="fornecedor_cadastrar.html" class="m_nav3_a">Fornecedores</a>
+                                <a href="veiculo_cadastrar.html" class="m_nav3_a">Veículos</a>
+                                <a href="cadastrar_serv.html" class="m_nav3_a">Serviços</a>
+                                <a href="mecanico_cadastrar.html" class="m_nav3_a">Mecânicos</a>
+                                <a href="pecas_cadastrar.html" class="m_nav3_a">Peças</a>
+                    </div>
+                </div>
+                <div class="a_nav_2">
+                    <div onclick="m_cad_p()" class="m_nav2_a"><li>Preços</li></div>
+                    <div class="m_nav_3_p">
+                                <a href="cad_itens_forn.html" class="m_nav3_a_p">Peças</a>
+                                <a href="precos.html" class="m_nav3_a_p">Serviços</a>
+                    </div>
+                </div>
+                <div class="a_nav_2">
+                    <div onclick="a_cad_c()" class="m_nav2_a"><li>Consultas</li></div>
+                    <div class="a_nav_3_c">
+                                <a href="fornecedores.html" class="a_nav3_a_c">Fornecedores</a>
+                                <a href="clientes.html" class="a_nav3_a_c">Clientes</a>
+                                <a href="mecanicos.html" class="a_nav3_a_c">Mecânicos</a>
+                    </div> 
+                </div>
+            </ul>
         </div>
     </header>
     <main class="a_main">
@@ -33,32 +63,25 @@
                     <label for="name"><b>Nome do Cliente</b></label>
                     <input type="text" id="name">
                 </div>
-                <span id="nam"></span>
-                <div class="a_tabelinha">
-                    <label for="email"><b>E-mail</b></label>
-                    <input type="text" id="email">
-                </div>
-                <span id="emai"></span>
-                <div class="a_tabelinha">
-                    <label for="car"><b>Modelo do Carro</b></label>
-                    <input type="text" id="car">
-                </div>
-                <span id="ca"></span>
-                <div class="a_tabelinha">
-                    <label for="data"><b>Data</b></label>
-                    <input type="date" id="date">
-                </div>
-                <span id="dat"></span>
-                <div class="a_tabelinha">
-                    <label for="time"><b>Horário</b></label>
-                    <input type="time" id="time">
-                </div>
-                <span id="tim"></span>
                 <div class="a_tabelinha">
                     <label for="valor"><b>Valor</b></label>
                     <input type="text" id="valor">
                 </div>
-                <span id="val"></span>
+                <div class="m_tabelinha">
+                    <label for="a_cpf_vei"><b>CPF</b></label>
+                    <input type="text" id="a_cpf_vei">
+                    <button id="a_buscarveiculoid" onclick="a_buscarveiculo()">Buscar</button>
+                </div>
+                <br>
+                <!-- section para buscar veiculo -->
+                <div class="m_option">
+                    <label for="a_veicselecionado">Veículo Selecionado:</label>
+                    <select id="a_veicselecionado" name="a_veicselecionado" required>
+                        <option value="">Selecione um veículo do cliente</option>
+
+                    </select>
+                </div>
+                
                 <div class="a_tabelinha">
                     <label for="servic1">Serviços:</label>
                     <select name="servic1" id="servic1">
@@ -114,7 +137,9 @@
                     </select>
                 </div>
 
-                <br><br>
+                <br>
+                <input type="hidden" id="acpf_selecionado_veiculo">
+                <br>
                 
                 <button id="a_abner_vi" onclick="orcamento()"><b>Enviar</b></button>
             </div>

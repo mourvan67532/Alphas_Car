@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
-    <title>Clientes</title>
+    <title>Mecânicos</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body class="m_body">
@@ -51,20 +51,18 @@
     </header>
     <main>
         <div class="m_titulo">
-            <h1>Clientes</h1>
+            <h1>Mecânicos</h1>
         </div>
         <div class="m_pesquisa">
-            <input type="text" name="m_pesquisa" id="m_barra">
-            <img src="../img/m_lupa.png" alt="lupa" onclick="m_lupa()">
+            <input type="text" name="m_pesquisa" id="v_barra">
+            <img src="../img/m_lupa.png" alt="lupa" onclick="v_lupa()">
         </div>
         <div class="m_pesquisou">
             <h3>Buscou por: <span id="m_pesq"></span></h3>
         </div>
         <div class="m_lista">
+            <ul class="m_ul" id="listaMecanicos"></ul>
             
-            <ul class="m_ul" id="listaClientes">
-                
-            </ul>
         </div>
     </main>
     <footer class="m_footer">

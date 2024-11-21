@@ -1,6 +1,33 @@
-//cadastro
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Index♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Index♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Index♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+function m_data_index(){
+    const m_data_real = new Date();
+
+    const m_dia = String(m_data_real.getDate()).padStart(2, '0');
+    const m_mes = String(m_data_real.getMonth() + 1).padStart(2, '0');
+    const m_ano = m_data_real.getFullYear();
+
+     document.getElementById('m_dia').textContent = m_dia;
+     document.getElementById('m_mes').textContent = m_mes;
+     document.getElementById('m_ano').textContent = m_ano;
+
+}
+
+
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+window.onload = function() {
+    m_lupa();
+    m_lupak();
+    m_lupakp();
+    m_data_index();
+};
+//Cadastra Cliente
 async function cadastro_cliente(){ // função do cadastro do cliente, recebe e envia de volta os dados até o momento //
-    
+
     const nome = document.getElementById("nome_cliente").value;
     const email = document.getElementById("e-mail").value;
     const telefone = document.getElementById("celular").value;
@@ -20,43 +47,36 @@ async function cadastro_cliente(){ // função do cadastro do cliente, recebe e 
 
     alert('Cliente cadastrado com sucesso!');
 
-
-
-    // document.getElementById("nome_client").innerText = nome;
-    // document.getElementById("e-mai").innerText = email;
-    // document.getElementById("celula").innerText = telefone;
-    // document.getElementById("cp").innerText = cpf;
-    // document.getElementById("endereco_ce").innerText = cep;
-    // document.getElementById("bairr").innerText = bairro;
-    // document.getElementById("ru").innerText = rua;
-    // document.getElementById("complement").innerText = complemento;
-
 };
 
+// Cadastras Mecanico
 async function cadastro_mecanico() {
     const nome_m = document.getElementById("nome_mecanico").value;
     const telefone_m = document.getElementById("celular_m").value;
     const cpf_m = document.getElementById("cpf_m").value;
     const cep_m = document.getElementById("endereco_cep_m").value;
     const bairro_m = document.getElementById("bairro_m").value;
+    const especialidade = document.getElementById("especialidade").value;
+
 
     await fetch('/cadastrar-mecanico', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome_m, telefone_m, cpf_m, cep_m, bairro_m })
+        body: JSON.stringify({ nome_m, telefone_m, cpf_m, cep_m, bairro_m, especialidade })
     });
-
     alert('Mecânico cadastrado com sucesso!');
-}
+};
 
+//Cadastra veiculo
 async function cadastro_veiculo(){ // função do cadastro do veiculo, recebe e envia de volta os dados até o momento //
 
-    const modelo_v = document.getElementById("modelo").value;
+    const modelo_v = document.getElementById("modelo_vei").value;
     const cor_v = document.getElementById("cor").value;
     const ano_v = document.getElementById("ano").value;
-    const cpf_v = document.getElementById("cpf").value;
+    const cpf_v = document.getElementById("cpf_selecionado_veiculo").value;;
     const n_chassi_v = document.getElementById("n_chas").value;
     const placa_v = document.getElementById("placa").value;
+
 
     await fetch('/cadastrar-veiculo',{
         method: 'POST',
@@ -66,25 +86,19 @@ async function cadastro_veiculo(){ // função do cadastro do veiculo, recebe e 
 
     alert('Veiculo cadastrado com sucesso!');
 
-
-    // document.getElementById("model").innerText = modelo;
-    // document.getElementById("color").innerText = cor;
-    // document.getElementById("car_ano").innerText = ano;
-    // document.getElementById("cp").innerText = cpf;
-    // document.getElementById("chassi").innerText = n_chassi;
-    // document.getElementById("plac").innerText = placa;
-
 }
 
-async function cadastro_fornecedor(){ // função do cadastro do fornecedor, recebe e envia de volta os dados até o momento //
+
+// Cadastra Fornecedor//
+async function cadastro_fornecedor(){ 
 
     const nome_fornecedor = document.getElementById("nome_fornecedor").value;
-    const email_f = document.getElementById("e-mail").value;
+    const email_f = document.getElementById("e_mail_f").value;
     const fone_f = document.getElementById("fone_f").value;
-    const cnpj_f = document.getElementById("cnpj").value;
+    const cnpj_f = document.getElementById("cnpj_f").value;
     const cep_f = document.getElementById("endereco_cep").value;
 
-    
+
     await fetch('/cadastrar-fornecedor',{
         method:'POST',
         headers: {'Content-Type': 'application/json'},
@@ -92,14 +106,11 @@ async function cadastro_fornecedor(){ // função do cadastro do fornecedor, rec
     });
 
     alert('Fornecedor cadastrado com sucesso!');
-    // document.getElementById("nome_forn").innerText = nome_fornecedor;
-    // document.getElementById("e-mai").innerText = email;
-    // document.getElementById("celula").innerText = telefone;
-    // document.getElementById("cnp").innerText = cnpj;
-    // document.getElementById("endereco_ce").innerText = cep;
 
 }
 
+
+//Cadastra peças
 async function cadastro_pecas(){ // função do cadastro da pecas, recebe e envia de volta os dados até o momento //
 
     const nome_pecas = document.getElementById("nome_pecas").value;
@@ -115,51 +126,69 @@ async function cadastro_pecas(){ // função do cadastro da pecas, recebe e envi
     });
 
     alert('Peças cadastrado com sucesso!');
-    // document.getElementById("nome_forn").innerText = nome_fornecedor;
-    // document.getElementById("e-mai").innerText = email;
-    // document.getElementById("celula").innerText = telefone;
-    // document.getElementById("cnp").innerText = cnpj;
-    // document.getElementById("endereco_ce").innerText = cep;
+
 
 }
 
+//cadastra orçamento
 async function orcamento(){ // função do orcamento, recebe e os dados necessários para preencher o orçamento //
 
-    const nome = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const model = document.getElementById("car").value;
-    const data = document.getElementById("date").value;
-    const hora = document.getElementById("time").value;
+    const nome_orça = document.getElementById("name").value;
+    const cpf_o = document.getElementById("acpf_selecionado_veiculo").value;
+    const valor = document.getElementById("valor").value;
+    const servico = document.getElementById("servic1").value;
+    const servico_op1 = document.getElementById("servic2").value;
+    const servico_op2 = document.getElementById("servic3").value;
 
-    await fetch('orcamento',{
+    await fetch('/orcamento',{
         method:'POST',
         headers:{'Content-Type': 'application/json'},
-        body: JSON.stringify({nome, email, model, data, hora})
+        body: JSON.stringify({nome_orça, cpf_o, valor, servico, servico_op1, servico_op2})
     });
 
     alert('Orçamento cadastrado com sucesso!');
-    // document.getElementById("nam").innerHTML = nome;
-    // document.getElementById("emai").innerHTML = email;
-    // document.getElementById("ca").innerHTML = model;
-    // document.getElementById("dat").innerHTML = data;
-    // document.getElementById("tim").innerHTML = hora;
+
 
 }
 
+//Cadastra agendamento
+async function agendamento(){ // função do agendamento, recebe e os dados necessários para confirmar o orçamento, e gerar a ordem de serviço //
 
+    const nome_agenda = document.getElementById("name_a").value;
+    const cpf_a = document.getElementById("cpf_a").value;
+    const data = document.getElementById("date").value;
+    const hora = document.getElementById("time").value;
 
+    await fetch('/agendamento',{
+        method:'POST',
+        headers:{'Content-Type': 'application/json'},
+        body: JSON.stringify({nome_agenda, cpf_a, data, hora})
+    });
 
-//KAUAN NÃO MEXA, NIGUEM MEXA DAQUI PARA BAIXO
+    alert('Agendamento cadastrado com sucesso!');
 
+}
 
+//Cadastra serviço
+async function cadastra_servico(){ 
 
+    const nome_s = document.getElementById("nome_servico").value;
+    const preco_s = document.getElementById("kpreco").value;
+    const ferramenta_s = document.getElementById("kferramenta").value;
 
+    await fetch('/cadastrar-servico',{
+        method:'POST',
+        headers:{'Content-Type': 'application/json'},
+        body: JSON.stringify({nome_s, preco_s, ferramenta_s})
+    });
 
+    alert('Serviço cadastrado com sucesso!');
+}
 
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Nav♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Nav♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Nav♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 
-
-
-// nav
 let m_var = 0;
 function m_cad(){
     let m_nav = document.getElementsByClassName('m_nav3_a');
@@ -191,29 +220,207 @@ function m_cad_p(){
         }
         m_var_p = 1;
     }
+};
+let a_var_c = 0;
+function a_cad_c(){
+    let a_nav_c = document.getElementsByClassName('a_nav3_a_c')
+    if (a_var_c == 1){
+        for (let i = 0; i < a_nav_c.length; i++) {
+            a_nav_c[i].style.cssText = 'display: none;';
+        }
+        a_var_c = 0;
+    }
+    else{
+        for (let i = 0; i < a_nav_c.length; i++) {
+            a_nav_c[i].style.cssText = 'display: flex;';
+        }
+        a_var_c = 1;
+    }
+}
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do peça♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do peça♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do peça♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+async function m_lupakp() {
+  const inputp = document.getElementById("m_pecaspesq");
+  if (!inputp) {
+    console.error('Elemento "m_barrakp" não encontrado!');
+    return;
+  }
+  const m_buscarkp = inputp.value;
+  document.getElementById("m_pesqkp").innerHTML = m_buscarkp;
+
+  const queryParamskp = new URLSearchParams();
+  if (m_buscarkp) queryParamskp.append('Nome_peca', m_buscarkp);
+
+  try {
+
+    const responsekp = await fetch(`/consultar-pecas?${queryParamskp.toString()}`);
+    if (!responsekp.ok) {
+      throw new Error(`Erro HTTP! Status: ${responsekp.status}`);
+    }
+
+    const m_var4kp = await responsekp.json();
+
+    const listaspecas = document.getElementById('listaspecas');
+    if (!listaspecas) {
+      console.error('Elemento "listapecas" não encontrado!');
+      return;
+    }
+    listaspecas.innerHTML = `
+      <div class="m_linhakk">
+        <div class="m_colunakk">Serviço</div>
+        <div class="m_colunakk">Preço</div>
+      </div>
+    `;
+    m_var4kp.forEach(pecas => {
+      const lip = document.createElement('div');
+      lip.className = 'm_linhak';
+      lip.innerHTML = `
+        <div class="m_colunak">${pecas.Nome_peca}</div>
+        <div class="m_colunak"><span>R$</span>${pecas.Preco_pecas}<span>,00</span></div>
+      `;
+      listaspecas.appendChild(lip);
+    });
+  } catch (error) {
+    console.error('Erro ao buscar peças:', error);
+    const listaspecas = document.getElementById('listaspecas');
+    if (listaspecas) {
+      listaspecas.innerHTML = `<p style="color: white;"> A página está em manutenção no momento. Por favor, tente novamente mais tarde. Pedimos desculpas pelo inconveniente e agradecemos pela compreensão.</p>
+`;
+    }
+  }
+}
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do serviço♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do serviço♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do serviço♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+
+// arrumando o kau
+async function m_lupak() {
+  const input = document.getElementById("m_barrak");
+  if (!input) {
+    console.error('Elemento "m_barrak" não encontrado!');
+    return;
+  }
+
+  const m_buscark = input.value;
+  document.getElementById("m_pesqk").innerHTML = m_buscark;
+
+  const queryParamsk = new URLSearchParams();
+  if (m_buscark) queryParamsk.append('Nome_Serviço', m_buscark);
+
+  try {
+    const responsek = await fetch(`/consultar-servico?${queryParamsk.toString()}`);
+      
+    if (!responsek.ok) {
+      throw new Error(`Erro HTTP! Status: ${responsek.status}`);
+    }
+
+    const m_var4k = await responsek.json();
+
+    const listaservico = document.getElementById('listaservico');
+    if (!listaservico) {
+      console.error('Elemento "listaservico" não encontrado!');
+      return;
+    }
+
+    listaservico.innerHTML = `
+      <div class="m_linhakk">
+        <div class="m_colunakk">Serviço</div>
+        <div class="m_colunakk">Preço</div>
+      </div>
+    `;
+
+    m_var4k.forEach(servico => {
+      const li = document.createElement('div');
+      li.className = 'm_linhak';
+      li.innerHTML = `
+        <div class="m_colunak">${servico.Nome_Serviço}</div>
+        <div class="m_colunak"><span>R$</span>${servico.Preco}<span>,00</span></div>
+      `;
+      listaservico.appendChild(li);
+    });
+  } catch (error) {
+    console.error('Erro ao buscar serviços:', error);
+    const listaservico = document.getElementById('listaservico');
+    if (listaservico) {
+      listaservico.innerHTML = `<p>Erro ao buscar serviços. Tente novamente mais tarde.</p>`;
+    }
+  }
+}
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do clientes♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do clientes♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do clientes♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+async function m_buscarcliente() { 
+  const m_cliente_b = document.getElementById('cpf_vei').value;
+
+  // Se o campo de busca estiver vazio, não faz nada
+  if (m_cliente_b === '') return;
+
+  // Faz a busca no servidor
+  const mb_response = await fetch(`/buscar-cliente?query=${m_cliente_b}`);
+
+  // Verifica se a resposta foi bem-sucedida
+  if (mb_response.ok) {
+      const cliente_veiculo = await mb_response.json();
+
+
+      const m_clienteselecionado = document.getElementById('clienteselecionado');
+          m_clienteselecionado.innerHTML = '<option value="">Selecione um Cliente</option>';
+
+      // Preenche o dropdown com os resultados da busca
+      cliente_veiculo.forEach(cliente => {
+          const option = document.createElement('option');
+          option.value = cliente.CPF;
+          option.textContent = `${cliente.Nome} (CPF: ${cliente.CPF})`;
+          m_clienteselecionado.appendChild(option);
+      });
+      m_clienteselecionado.addEventListener('change', () => {
+        const cpfSelecionado = m_clienteselecionado.value;
+        document.getElementById('cpf_selecionado_veiculo').value = cpfSelecionado;
+      });
+
+  } else {
+      alert('Erro ao buscar clientes. Tente novamente.');
+  }
 }
 
-// clientes
+
 async function m_lupa(){
+
     const m_buscar = document.getElementById("m_barra").value;
     document.getElementById("m_pesq").innerHTML = m_buscar;
     // consulta clientes
     const m_barra = document.getElementById('m_barra').value;
-    const queryParams = new URLSearchParams();
+    const m_queryParams = new URLSearchParams();
 
-    if (m_barra) queryParams.append('Nome', m_buscar);
+    if (m_barra) m_queryParams.append('Nome', m_buscar);
 
-    const response = await fetch(`/consultar-clientes?${queryParams.toString()}`);
+    const m_resposta = await fetch(`/consultar-clientes?${m_queryParams.toString()}`);
 
-    if (!response.ok) {
-        console.error('Erro ao consultar:', response.statusText);
+    if (!m_resposta.ok) {
+        console.error('Erro ao consultar:', m_resposta.statusText);
         return;
     }
 
-    const m_var4 = await response.json();
+    const m_var4 = await m_resposta.json();
     const listaClientes = document.getElementById('listaClientes');
 
-    // Limpa a lista antes de preencher com novos dados
+
+    // colunas da tabela e apaga o resto
     listaClientes.innerHTML = `
         <li class="m_tabela">
             <h2>Nome</h2>
@@ -229,6 +436,10 @@ async function m_lupa(){
     m_var4.forEach(cliente => {
         const li = document.createElement('li');
         li.className = 'm_li_cliente';
+        li.onclick = () => {
+            m_mais_dados_cliente(cliente.ID_cliente, cliente.CPF);
+            m_buscarveiculo(cliente.CPF);
+        };
         li.innerHTML = `
             <div class="m_li_nome">
                 <img src="../img/m_avatar.png" alt="avatar">
@@ -238,15 +449,435 @@ async function m_lupa(){
             <h3>${cliente.Fone}</h3>
             <img src="../img/m_seta.png" alt="seta" id="m_seta">
         `;
+        // colocar veiculo
+        const m_colocar_aqui = document.createElement('div');
+        m_colocar_aqui.id = `carros-${cliente.CPF}`;
+        // -----------------------------------------[
+
+        const m_div = document.createElement('div');
+        m_div.className = 'm_dados';
+        m_div.id = `dados-${cliente.ID_cliente}`;
+        m_div.innerHTML = `
+            <div class="m_dados_nome">
+                <h3>ID:ㅤ <span>${cliente.ID_cliente}</span></h3>
+                <h3>Email:ㅤ <span>${cliente.Email}</span></h3>
+                <h3>Rua:ㅤ <span>${cliente.Rua}</span> </h3>
+                <h3>Bairro:ㅤ <span>${cliente.Bairro}</span></h3>
+                <h3>Número:ㅤ <span>${cliente.Numero}</span></h3>
+                <h3>Complemento:ㅤ <span>${cliente.Complemento}</span></h3>
+            </div>
+            <div class="m_option2">
+                <div class="m_option4">
+                    <h3 id="m_apaga_dados" onclick="atualiza_cliente(${cliente.ID_cliente})">Editar</h3>
+                    <h3 id="m_apaga_dados2" onclick="excluir_cliente(${cliente.ID_cliente})">Excluir</h3>
+
+                </div>
+                <div class="m_option3">
+                    <label for="veiculo_selecionado">Veiculo Selecionado:</label>
+                    <select id="veiculo_selecionado-${cliente.CPF}" class="veiculo_selecionado" name="veiculo_selecionado" required>
+                        <option value="">Selecione um cliente</option>
+                </select>
+                <h3 id="m_busca_carro" onclick="m_buscar_carro(${cliente.CPF})">Veículos</h3>
+                </div>
+
+                <input type="hidden" id="m_vei_sec-${cliente.CPF}">
+            </div>
+        `;
+
         listaClientes.appendChild(li);
+        listaClientes.appendChild(m_div);
+        listaClientes.appendChild(m_colocar_aqui);
     });
+
 };
+//!!!!!!!!!!!!!!!!!!!!!!!!! apagar cliente do banco de dados!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+async function excluir_cliente(clienteId) {
+    let m_res_apaga = prompt('Cliente ID número: ' + clienteId + ' será deletado. Digite "s" para continuar ou "n" para cancelar.'); //verificar se quer apagar o cliente
+    if (m_res_apaga == 's'){
+        alert('Cliente deletado!');
+    }
+    else{
+        alert('Cliente não deletado!');
+        return
+    }
 
+    try {
+        const response = await fetch(`/excluir-cliente/${clienteId}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
+        });
+        if (!response.ok) {
+            throw new Error('Falha ao excluir cliente');
+        }
 
+    } catch (error) {
+        console.error('Erro:', error); 
+    }
+    location.reload();
+};
+async function atualiza_cliente(clienteId) {
+    // Prompt para obter os dados
+    const tnome = prompt('Digite o novo nome do cliente:');
+    const temail = prompt('Digite o novo e-mail do cliente:');
+    const tfone = prompt('Digite o novo telefone do cliente:');
+    const tcep = prompt('Digite o novo CEP do cliente:');
+    const tcpf = prompt('Digite o novo CPF do cliente:');
+    const tbairro = prompt('Digite o novo bairro do cliente:');
+    const trua = prompt('Digite a nova rua do cliente:');
+    const tnumero = prompt('Digite o novo número do cliente:');
+    const tcomplemento = prompt('Digite o novo complemento do cliente:');
 
+    // Verifica se todos os dados foram preenchidos
+    if (!tnome || !temail || !tfone || !tcep || !tcpf || !tbairro || !trua || !tnumero || !tcomplemento) {
+        alert('Todos os dados devem ser preenchidos!');
+        return;
+    }
+
+    try {
+        // Envia os dados para o servidor via POST
+        const response = await fetch(`/atualizar-cliente/${clienteId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                Nome: tnome,
+                Email: temail,
+                Fone: tfone,
+                CEP: tcep,
+                CPF: tcpf,
+                Bairro: tbairro,
+                Rua: trua,
+                Numero: tnumero,
+                Complemento: tcomplemento
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Erro ao atualizar cliente');
+        }
+
+        // Sucesso
+        alert('Cliente atualizado com sucesso!');
+        location.reload(); // Recarrega a página
+    } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao tentar atualizar o cliente. Tente novamente.');
+    }
+}
 
 document.getElementById("m_barra").addEventListener("keydown", function(m_enter) {
     if (m_enter.key === "Enter") {
       m_lupa();
 }
 });
+
+// ------------------------------------outros dados do cliente----------------------------------------
+function m_mais_dados_cliente(clienteId, clientecpf) {
+    let m_div = document.getElementById(`dados-${clienteId}`);
+    let m_div_v = document.getElementById(`carros-${clientecpf}`)
+    if (m_div.style.display === 'none') {
+        m_div.style.display = 'flex';
+    } else {
+        m_div.style.display = 'none';
+        m_div_v.style.display = 'none';
+    }
+};
+
+//--------------------------------- buscar veiculo-------------------------------
+async function m_buscarveiculo(cpf_veiculo) {
+  const m_veiculo_b = cpf_veiculo;
+
+  // Se o campo de busca estiver vazio, não faz nada
+  if (m_veiculo_b === '') return;
+
+  // Faz a busca no servidor
+  const mv_response = await fetch(`/buscar-veiculo?query=${m_veiculo_b}`);
+
+  // Verifica se a resposta foi bem-sucedida
+  if (mv_response.ok) {
+      const mv_veiculo = await mv_response.json();
+
+
+      const m_veiculo_selecionado = document.getElementById(`veiculo_selecionado-${cpf_veiculo}`);
+      m_veiculo_selecionado.innerHTML = '<option value="">Selecione um Veiculo</option>';
+
+      // Preenche o dropdown com os resultados da busca
+        mv_veiculo.forEach(veiculo => {
+          const v_option = document.createElement('option');
+          v_option.value = veiculo.ID_veiculo;
+          v_option.textContent = `${veiculo.Modelo} (PLACA: ${veiculo.Placa})`;
+          m_veiculo_selecionado.appendChild(v_option);
+      });
+        let m_vei_aux = '';
+        m_veiculo_selecionado.addEventListener('change', () => {
+            const m_vei_sec = m_veiculo_selecionado.value;
+            document.getElementById(`m_vei_sec-${cpf_veiculo}`).value = parseInt(m_vei_sec);
+
+            if (m_vei_aux !== m_vei_sec) {
+                m_buscar_carro(cpf_veiculo)
+            }
+            m_vei_aux = m_vei_sec;
+        });
+  } else {
+      alert('Erro ao buscar veiculos. Tente novamente.');
+  }
+
+};
+// ============================================================================================================
+    async function m_buscar_carro(cpf_veiculo) {
+      let m_div_v = document.getElementById(`carros-${cpf_veiculo}`);
+
+      // Alterna a exibição do div para o cliente correto
+      if (m_div_v.style.display === 'none' || m_div_v.style.display === '') {
+        m_div_v.style.display = 'flex'; 
+      } else {
+        m_div_v.style.display = 'none'; 
+      }
+
+      const m_veiculo_2 = document.getElementById(`m_vei_sec-${cpf_veiculo}`);
+      // Verifica se o campo de busca está vazio
+      if (!m_veiculo_2.value) {
+        alert('Escolha um veiculo para consultar!!!!!!!');
+        return;
+      }
+
+      try {
+        // Faz a busca no servidor
+        const m_var_veiculo_response = await fetch(`/consultar-veiculo?ID_veiculo=${m_veiculo_2.value}`);
+
+        // Verifica se a resposta foi bem-sucedida
+        if (!m_var_veiculo_response.ok) {
+          alert('Erro ao buscar veículos. Tente novamente.');
+          return;
+        }
+
+        let m_var_veiculo = await m_var_veiculo_response.json();
+
+        // Atualiza a lista de veículos
+        m_var_veiculo.forEach((veiculo) => {
+          const li_v = document.getElementById(`carros-${cpf_veiculo}`);
+          li_v.className = 'm_carros';
+          li_v.innerHTML = `
+            <div class="m_car_consulta">
+              <h3>ID:ㅤ <span>${veiculo.ID_veiculo}</span></h3>
+              <h3>Modelo:ㅤ <span>${veiculo.Modelo}</span></h3>
+              <h3>Ano:ㅤ <span>${veiculo.Ano}</span></h3>
+              <h3>Cor:ㅤ <span>${veiculo.Cor}</span></h3>
+              <h3>Chassi:ㅤ <span>${veiculo.Número_do_chassi}</span></h3>
+              <h3>Placa:ㅤ <span>${veiculo.Placa}</span></h3>
+            </div>
+          `;
+        });
+      } catch (error) {
+        alert('Ocorreu um erro ao buscar veículos.');
+        console.error(error);
+      }
+    }
+
+
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+// *************************************mecanico************************************************
+
+async function v_lupa(){
+
+    const v_buscar = document.getElementById("v_barra").value;
+    document.getElementById("m_pesq").innerHTML = v_buscar;
+    // consulta Mecanico
+    const v_barra = document.getElementById('v_barra').value;
+    const v_queryParams = new URLSearchParams();
+
+    if (v_barra) v_queryParams.append('Nome', v_buscar);
+
+    const v_resposta = await fetch(`/consultar-mecanico?${v_queryParams.toString()}`);
+
+    if (!v_resposta.ok) {
+        console.error('Erro ao consultar:', v_resposta.statusText);
+        return;
+    }
+
+    const v_var = await v_resposta.json();
+    const listaClientes = document.getElementById('listaMecanicos');
+
+
+    // colunas da tabela e apaga o resto
+    listaClientes.innerHTML = `
+        <li class="m_tabela">
+            <h2>Nome</h2>
+            <h2 class="m_tabela_fone">Telefone</h2>
+            <h2 class="m_tabela_ponto">Especialidades</h2>
+        </li>
+    `;
+
+    console.log('retornados:', v_var);
+
+
+    v_var.forEach(mecanico => {
+        const li = document.createElement('li');
+        li.className = 'm_li_cliente';
+        v_mecanico_nome = mecanico.Nome;
+        li.innerHTML = `
+            <div class="m_li_nome">
+                    <img src="../img/m_avatar.png" alt="avatar">
+                    <h3>${mecanico.Nome}</h3>
+                <h3>${mecanico.Fone}</h3>
+                <h3>${mecanico.Especialidades}</h3>
+            </div>
+            <img src="../img/m_seta.png" alt="seta" id="m_seta">
+        `
+    })};
+
+// ORÇAMENTO *********************
+async function a_buscarveiculo() { 
+  const a_veiculo_b = document.getElementById('a_cpf_vei').value;
+
+  // Se o campo de busca estiver vazio, não faz nada
+  if (a_veiculo_b === '') return;
+
+  // Faz a busca no servidor
+  const ab_response = await fetch(`/buscar-veiculo?query=${a_veiculo_b}`);
+
+  // Verifica se a resposta foi bem-sucedida
+  if (ab_response.ok) {
+      const a_cliente_veiculo = await ab_response.json();
+
+
+      const a_veicselecionado = document.getElementById('a_veicselecionado');
+              a_veicselecionado.innerHTML = '<option value="">Selecione um veículo do cliente</option>';
+
+      // Preenche o dropdown com os resultados da busca
+      a_cliente_veiculo.forEach(veiculo => {
+          const a_option = document.createElement('option');
+          a_option.value = veiculo.CPF;
+          a_option.textContent = `${veiculo.Modelo} (PLACA: ${veiculo.Placa})`;
+          a_veicselecionado.appendChild(a_option);
+      });
+      a_veicselecionado.addEventListener('change', () => {
+        const a_cpfSelecionado = a_veicselecionado.value;
+        document.getElementById('acpf_selecionado_veiculo').value = a_cpfSelecionado;
+      });
+
+  } else {
+      alert('Erro ao buscar veiculos. Tente novamente.');
+  }
+}
+
+//AGENDAMENTO ******************************
+async function a_buscarorca() { 
+  const a_orcamento_b = document.getElementById('a_cpf_orc').value;
+
+  // Se o campo de busca estiver vazio, não faz nada
+  if (a_orcamento_b === '') return;
+
+  // Faz a busca no servidor
+  const aob_response = await fetch(`/buscar-cliente?query=${a_orcamento_b}`);
+    // Verifica se a resposta foi bem-sucedida
+  if (aob_response.ok) {
+      const a_cliente_orcamento = await aob_response.json();
+
+
+      const a_orcselecionado = document.getElementById('a_orcselecionado');
+              a_orcselecionado.innerHTML = '<option value="">Selecione um orçamento do cliente</option>';
+
+      // Preenche o dropdown com os resultados da busca
+      a_cliente_orcamento.forEach(cliente => {
+          const ao_option = document.createElement('option');
+          ao_option.value = cliente.CPF;
+          ao_option.textContent = `${cliente.Nome} CPF: (${cliente.CPF})`;
+          a_orcselecionado.appendChild(ao_option);
+      });
+      a_orcselecionado.addEventListener('change', () => {
+        const a_cpfSelecionado = a_orcselecionado.value;
+        document.getElementById('acpf_selecionado_orca').value = a_cpfSelecionado;
+      });
+
+  } else {
+      alert('Erro ao buscar orçamentos. Tente novamente.');
+  }
+}
+
+
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Fornecedor♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do fornecedor♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do fornecedor♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+// Função para consultar fornecedores
+async function consultarFornecedores() {
+    try {
+        // Faz uma requisição GET ao backend
+        const response = await fetch('/consultar-fornecedores');
+
+        if (!response.ok) {
+            throw new Error("Erro ao consultar fornecedores");
+        }
+
+        // Converte a resposta para JSON
+        const fornecedores = await response.json();
+
+        // Atualiza o HTML com os fornecedores
+        const listaFornecedores = document.getElementById("listaFornecedores");
+        listaFornecedores.innerHTML = ""; // Limpa a lista
+
+        fornecedores.forEach(fornecedor => {
+            const li = document.createElement("li");
+            li.className = "fornecedor-item";
+
+            li.innerHTML = `
+            <div class="fornecedor-item">
+                <div class="fornecedor-info">
+                    <p><strong>Nome:</strong> ${fornecedor.Nome}</p>
+                    <p><strong>Email:</strong> ${fornecedor.Email}</p>
+                    <p><strong>Telefone:</strong> ${fornecedor.Telefone}</p>
+                    <p><strong>CNPJ:</strong> ${fornecedor.CNPJ}</p>
+                    <p><strong>CEP:</strong> ${fornecedor.CEP}</p>
+                </div>
+            </div>    
+            `;
+
+            listaFornecedores.appendChild(li);
+        });
+
+        // Exibe um alerta informando o sucesso e a quantidade de fornecedores carregados
+        alert(`Fornecedores carregados com sucesso! Total: ${fornecedores.length}`);
+
+    } catch (error) {
+        console.error(error);
+        console.log("Erro ao consultar fornecedores. Verifique o console para mais detalhes.");
+    }
+}
+
+
+
+// Chama a função quando a página é carregada
+document.addEventListener("DOMContentLoaded", consultarFornecedores);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦João♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦João♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Victor♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Victor♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Abner♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Abner♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Mourvan♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Mourvan♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Kauan♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Kauan♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
