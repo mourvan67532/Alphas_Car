@@ -37,20 +37,20 @@ db.serialize(() => {
             console.log('Tabela clientes criada com sucesso (ou já existe).');
         }
     });
-    // Peças
-    db.run(`
-    CREATE TABLE IF NOT EXISTS pecas(
-        ID_pecas INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
-        Nome_peca TEXT,
-        Preco_pecas TEXT,
-        Modelo_pecas TEXT
-    );
-    `, (err) => {
-    if (err) {
-        console.error('Erro ao criar tabela peças:', err);
-    } else {
-        console.log('Tabela peças criada com sucesso (ou já existe).');
-    }
+        // Peças
+        db.run(`
+        CREATE TABLE IF NOT EXISTS pecas(
+            ID_pecas INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+            Nome_peca TEXT,
+            Preco_pecas TEXT,
+            Modelo_pecas TEXT
+        );
+        `, (err) => {
+        if (err) {
+            console.error('Erro ao criar tabela peças:', err);
+        } else {
+            console.log('Tabela peças criada com sucesso (ou já existe).');
+        }
     });
         //Mecanico 
         db.run(`
@@ -72,37 +72,37 @@ db.serialize(() => {
     });
         //Orçamento
         db.run(`
-            CREATE TABLE IF NOT EXISTS orcamento (
-                ID_Orcamento INTEGER PRIMARY key AUTOINCREMENT UNIQUE,
-                Nome TEXT,
-                CPF TEXT,
-                Servico TEXT,
-                Servicoop1 TEXT,
-                Servicoop2 TEXT
-            );
-        `, (err) => {
-            if (err) {
-                console.error('Erro ao criar tabela orcamento:', err);
-            } else {
-                console.log('Tabela orcamento criada com sucesso (ou já existe).');
-            }
-        });
-            //Agendamento
-            db.run(`
-            CREATE TABLE IF NOT EXISTS agendamento (
-                ID_Agendamento INTEGER PRIMARY key AUTOINCREMENT UNIQUE,
-                Nome TEXT,
-                CPF TEXT,
-                Data DATE,
-                Horario TEXT
-            );
-        `, (err) => {
-            if (err) {
-                console.error('Erro ao criar tabela agendamento:', err);
-            }  else {
-                console.log('Tabela agendamento criada com sucesso (ou já existe).');
-            }  
-        });
+        CREATE TABLE IF NOT EXISTS orcamento (
+            ID_Orcamento INTEGER PRIMARY key AUTOINCREMENT UNIQUE,
+            Nome TEXT,
+            CPF TEXT,
+            Servico TEXT,
+            Servicoop1 TEXT,
+            Servicoop2 TEXT
+        );
+    `, (err) => {
+        if (err) {
+            console.error('Erro ao criar tabela orcamento:', err);
+        } else {
+            console.log('Tabela orcamento criada com sucesso (ou já existe).');
+        }
+    });
+        //Agendamento
+        db.run(`
+        CREATE TABLE IF NOT EXISTS agendamento (
+            ID_Agendamento INTEGER PRIMARY key AUTOINCREMENT UNIQUE,
+            Nome TEXT,
+            CPF TEXT,
+            Data DATE,
+            Horario TEXT
+        );
+    `, (err) => {
+        if (err) {
+            console.error('Erro ao criar tabela agendamento:', err);
+        }  else {
+            console.log('Tabela agendamento criada com sucesso (ou já existe).');
+        }  
+    });
         //Veiculo
         db.run(`
         CREATE TABLE IF NOT EXISTS veiculo (
@@ -114,7 +114,7 @@ db.serialize(() => {
             Número_do_chassi TEXT,   
             Placa TEXT
         );
-        
+
     `, (err) => {
         if (err) {
             console.error('Erro ao criar tabela veiculo:', err);
@@ -157,7 +157,7 @@ db.serialize(() => {
 });
 
 
-//CADASTRAR CLIENTE
+// ♦♦♦♦♦♦♦♦�Cadastra Clientes♦♦♦♦♦♦♦♦�
     app.post('/cadastrar-clientes', (req, res) => {
         const { nome, email, telefone, cep, cpf, bairro, rua, numero, complemento} = req.body;
         db.run("INSERT INTO clientes ( Nome, Email, Fone, CEP, CPF, Bairro, Rua, Numero, Complemento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", [nome, email, telefone, cep, cpf, bairro, rua, numero, complemento], function(err) {
@@ -170,7 +170,7 @@ db.serialize(() => {
         });
     });
 
-//CADASTRAR PECAS
+// ♦♦♦♦♦♦♦♦�Cadastra Pecas♦♦♦♦♦♦♦♦�
 app.post('/cadastrar-pecas', (req, res) => {
     const {nome_pecas, preco_pecas, modelo_pe} = req.body;
     db.run("INSERT INTO pecas (Nome_peca, Preco_pecas, Modelo_pecas) VALUES (?, ?, ?)", [nome_pecas, preco_pecas, modelo_pe], function(err) {
@@ -183,7 +183,7 @@ app.post('/cadastrar-pecas', (req, res) => {
     });
 });
 
-//CADASTRAR MECÂNICO
+// ♦♦♦♦♦♦♦♦�Cadastra Mecanico♦♦♦♦♦♦♦♦�
 app.post('/cadastrar-mecanico', (req, res) => {
     const { nome_m, telefone_m, cpf_m, cep_m, bairro_m, especialidade } = req.body;
     db.run("INSERT INTO mecanico (Nome, Fone, CPF, CEP, Bairro, Especialidade) VALUES (?, ?, ?, ?, ?, ?)", 
@@ -197,7 +197,7 @@ app.post('/cadastrar-mecanico', (req, res) => {
     });
 });
 
-//CADASTRAR VEICULO
+// ♦♦♦♦♦♦♦♦�Cadastra Veiculo♦♦♦♦♦♦♦♦�
 app.post('/cadastrar-veiculo', (req, res) => {
     const { modelo_v, cor_v, ano_v, cpf_v, n_chassi_v, placa_v } = req.body;
     db.run("INSERT INTO veiculo ( Modelo, Cor, Ano, CPF, Número_do_chassi, Placa) VALUES (?, ?, ?, ?, ?, ?)", [modelo_v, cor_v, ano_v, cpf_v, n_chassi_v, placa_v ], function(err) {
@@ -213,7 +213,7 @@ app.post('/cadastrar-veiculo', (req, res) => {
 //CADASTRAR FORNECEDOR
 app.post('/cadastrar-fornecedor', (req, res) => {
     const { nome_fornecedor, email_f, fone_f, cnpj_f, cep_f } = req.body;
-    db.run("INSERT INTO forncedor (Nome , Email, Telefone, CNPJ, CEP) VALUES (?, ?, ?, ?, ?)", [ nome_fornecedor , email_f, fone_f, cnpj_f, cep_f], function(err) { 
+    db.run("INSERT INTO fornecedor (Nome , Email, Telefone, CNPJ, CEP) VALUES (?, ?, ?, ?, ?)", [nome_fornecedor , email_f, fone_f, cnpj_f, cep_f], function(err) { 
         if (err){
             console.error('Erro ao cadastrar:', err);
             res.status(500).send('Erro ao cadastrar fornecedor');
@@ -223,7 +223,7 @@ app.post('/cadastrar-fornecedor', (req, res) => {
     })
 });
 
-//CADASTRAR SERVICO
+// ♦♦♦♦♦♦♦♦�Cadastra Servico♦♦♦♦♦♦♦♦�
 app.post('/cadastrar-servico', (req, res) => {
     const { nome_s, preco_s, ferramenta_s } = req.body;
     db.run("INSERT INTO servico ( Nome_Serviço, Preco, Ferramentas) VALUES (?, ?, ?)", [ nome_s, preco_s, ferramenta_s], function(err) { 
@@ -236,6 +236,7 @@ app.post('/cadastrar-servico', (req, res) => {
     })
 });
 
+// ♦♦♦♦♦♦♦♦�Cadastra Orcamento♦♦♦♦♦♦♦♦�
 app.post('/orcamento', (req, res) => {
     const { nome_orça, cpf_o, valor, servico, servico_op1, servico_op2 } = req.body;
     db.run("INSERT INTO orcamento ( Nome, CPF, Valor, Servico, Servicoop1, Servicoop2) VALORES (?, ?, ?, ?, ?, ?)", [ nome_orça, cpf_o, valor, servico, servico_op1, servico_op2], function(err) {
@@ -248,7 +249,7 @@ app.post('/orcamento', (req, res) => {
     })
 });
 
-//CADASTRAR AGENDAMENTO
+// ♦♦♦♦♦♦♦♦�Cadastra Agendamento♦♦♦♦♦♦♦♦�
 app.post('/agendamento', (req, res) => {
     const { name_a, cpf_a , data, time } = req.body;
     db.run("INSERT INTO orcamento ( Nome, CPF, Data, Hora) VALORES (?, ?, ?, ?)", [ name_a, cpf_a , data, time], function(err) {
@@ -261,6 +262,25 @@ app.post('/agendamento', (req, res) => {
     })
 });
 
+// ♦♦♦♦♦♦♦♦�Consulta♦♦♦♦♦♦♦♦�♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦�Busca♦♦♦♦♦♦♦♦�
+
+// consulta peças
+app.get('/consultar-pecas', (req, res) => {
+    const Nome_peca = req.query.Nome_peca || ''; 
+
+    const query_kp = `SELECT * FROM pecas WHERE Nome_peca LIKE ?`;
+    const params_kp = [`%${Nome_peca}%`];
+
+    db.all(query_kp, params_kp, (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: 'Erro ao consultar peças' });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+// ♦♦♦♦♦♦♦♦�Consulta Servico♦♦♦♦♦♦♦♦�
 app.get('/consultar-servico', (req, res) => {
     const nome_servico = req.query.Nome_Serviço || ''; 
 
@@ -278,9 +298,7 @@ app.get('/consultar-servico', (req, res) => {
     });
 });
 
-// consultar
-
-
+// ♦♦♦♦♦♦♦♦�Consultar Mecanico♦♦♦♦♦♦♦♦�
 app.get('/consultar-mecanico', (req, res) => {
     const nome_mecanico = req.query.Nome || ''; // Recupera o nome do mecânico ou uma string vazia
 
@@ -300,7 +318,7 @@ app.get('/consultar-mecanico', (req, res) => {
 
 
 
-// buscar orcamento
+// ♦♦♦♦♦♦♦♦�Busca orcamento♦♦♦♦♦♦♦♦�
 app.get('/buscar-orcamento', (req, res) => {
     const av_query = req.query.query;
 
@@ -314,6 +332,8 @@ app.get('/buscar-orcamento', (req, res) => {
         }
     });
 });
+
+
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Cliente♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Cliente♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Cliente♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
@@ -334,7 +354,8 @@ app.get('/consultar-veiculo', (req, res) => {
         }
     });
 });
-// buscar veiculo
+
+// ♦♦♦♦♦♦♦♦�Buscar veiculo♦♦♦♦♦♦♦♦�
 app.get('/buscar-veiculo', (req, res) => {
     const mv_query = req.query.query;
 
@@ -348,6 +369,7 @@ app.get('/buscar-veiculo', (req, res) => {
         }
     });
 });
+
 // ♦♦♦♦♦♦♦�Consultar Cliente♦♦♦♦♦♦♦�
 app.get('/consultar-clientes', (req, res) => {
     const nome_cliente = req.query.Nome || ''; 
@@ -364,6 +386,8 @@ app.get('/consultar-clientes', (req, res) => {
         }
     });
 });
+
+// ♦♦♦♦♦♦♦♦�Atualiza Cliente♦♦♦♦♦♦♦♦�
 app.put('/atualizar-cliente/:id', (m_update, res) => {
     const clienteId = m_update.params.id;
     const { Nome, Email, Fone, CEP, CPF, Bairro, Rua, Numero, Complemento } = m_update.body;
@@ -400,7 +424,7 @@ app.put('/atualizar-cliente/:id', (m_update, res) => {
 });
 
 
-//excluir cliente
+// ♦♦♦♦♦♦♦♦�Exclui Veiculo♦♦♦♦♦♦♦♦�
 app.delete('/excluir-cliente/:id', (m_delete, res) => {
     const clienteId = m_delete.params.id;
 
@@ -415,7 +439,8 @@ app.delete('/excluir-cliente/:id', (m_delete, res) => {
         }
     });
 });
-// buscar cliente e aparecer no option
+
+// ♦♦♦♦♦♦♦♦�Busca Cliente♦♦♦♦♦♦♦♦�
 app.get('/buscar-cliente', (req, res) => {
     const mb_query = req.query.query;
 
@@ -429,10 +454,33 @@ app.get('/buscar-cliente', (req, res) => {
         }
     });
 });
+
+
+
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 
+
+// ♦♦♦♦♦♦♦�Consultar fornecedores♦♦♦♦♦♦♦�
+// Endpoint para consultar fornecedores
+app.get('/consultar-fornecedores', async (req, res) => {
+    try {
+        // Consulta ao banco SQLite para obter os fornecedores
+        db.all('SELECT * FROM fornecedor', [], (err, rows) => {
+            if (err) {
+                console.error("Erro ao consultar fornecedores:", err);
+                res.status(500).json({ message: "Erro ao consultar fornecedores" });
+            } else {
+                // Retorna os fornecedores encontrados
+                res.status(200).json(rows);
+            }
+        });
+    } catch (error) {
+        console.error("Erro ao consultar fornecedores:", error);
+        res.status(500).json({ message: "Erro interno do servidor" });
+    }
+});
 
 
 

@@ -52,7 +52,7 @@
             </ul>
         </div>
     </header>
-    <main class="a_main">
+     <main class="a_main">
         <div id="a_cadastro">
             <div class="a_titulo">
                 <h1>Agendamento</h1>
@@ -69,6 +69,7 @@
                     <input type="text" id="a_cpf_orc">
                     <button id="a_buscar_orcaid" onclick="a_buscarorca()">Buscar</button>
                 </div>
+                <br>
                 <!-- section para buscar orcamento -->
                 <div class="m_option">
                     <label for="a_orcselecionado">Orçamento Selecionado:</label>
@@ -76,7 +77,7 @@
                         <option value="">Selecione um orçamento do cliente</option>
 
                     </select>
-
+                </div>
                 <!-- Retire esse comentário após ser criado a tabela de seleção dos orçamentos do cliente através do cpf -->
                 
                 <div class="a_tabelinha">
@@ -88,10 +89,8 @@
                     <label for="time"><b>Horário</b></label>
                     <input type="time" id="time">
                 </div>
-                <br>
                 <input type="hidden" id="acpf_selecionado_orca">
-                    <br>
-                <br>
+
 
                 <button id="a_abner_vi" onclick="agendamento()"><b>Enviar</b></button>
             </div>

@@ -55,14 +55,82 @@
     </header>
     <main>
         <div class="m_inicio">
-            <ul>
-                <a href="agendamento.html"><li class="m_li_inicio"><h2>Agendamento</h2></li></a>
-                <a href="aba.html"><li class="m_li_inicio"><h2>Cadastrar</h2></li></a>
-                <a href="precos.html"><li class="m_li_inicio"><h2>Preços</h2></li></a>
-                <a href="fornecedores.html"><li class="m_li_inicio"><h2>Fornecedor</h2></li></a>
-                <a href="clientes.html"><li class="m_li_inicio"><h2>Clientes</h2></li></a>
-                <a href="#"><li class="m_li_inicio"><h2>Serviço</h2></li></a>
-            </ul>
+            <div class="m_data_real">
+                <span id="m_dia">00</span><span>/</span><span id="m_mes">00</span><span>/</span><span id="m_ano">0000</span>
+            </div>
+            <div class="m_quadrados_inicio">
+                <div class="m_espera">
+                    <h1>Aguardando</h1>
+                    <div class="m_espera_q">
+                        <span id="m_aguardando">0</span>
+                    </div>
+                </div>
+                <div class="m_andamento">
+                    <h1>Andamento</h1>
+                    <div class="m_andamento_q">
+                        <span id="m_andamento">0</span>
+                    </div>
+                </div>
+                <div class="m_finalizado">
+                    <h1>Finalizado</h1>
+                    <div class="m_finalizado_q">
+                        <span id="m_finalizado">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="m_ag_lista">
+                <h2>Aguardando</h2>
+                <ul id="m_ag_ul">
+                    <li id="m_ag_li">
+                        <span id="m_ag_veiculo">VW Gol(AHB3J45)</span>
+                        <button id="m_ag_button">Começar</button>
+                    </li>
+                    <li id="m_ag_li">
+                        <span id="m_ag_veiculo">VW Gol(AHB3J45)</span>
+                        <button id="m_ag_button">Começar</button>
+                    </li>
+                    <li id="m_ag_li">
+                        <span id="m_ag_veiculo">VW Gol(AHB3J45)</span>
+                        <button id="m_ag_button">Começar</button>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="m_an_lista">
+                <h2>Andamento</h2>
+                <ul id="m_an_ul">
+                    <li id="m_an_li">
+                        <span id="m_an_veiculo">VW Gol(AHB3J45)</span>
+                        <button id="m_an_button">Finalizar</button>
+                    </li>
+                    <li id="m_an_li">
+                        <span id="m_an_veiculo">VW Gol(AHB3J45)</span>
+                        <button id="m_an_button">Finalizar</button>
+                    </li>
+                    <li id="m_an_li">
+                        <span id="m_an_veiculo">VW Gol(AHB3J45)</span>
+                        <button id="m_an_button">Finalizar</button>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="m_ag_lista">
+                <h2>Finalizados</h2>
+                <ul id="m_ag_ul">
+                    <li id="m_ag_li">
+                        <span id="m_ag_veiculo">VW Gol(AHB3J45)</span>
+                        <button id="m_an_button">Retirado</button>
+                    </li>
+                    <li id="m_ag_li">
+                        <span id="m_ag_veiculo">VW Gol(AHB3J45)</span>
+                        <button id="m_an_button">Retirado</button>
+                    </li>
+                    <li id="m_ag_li">
+                        <span id="m_ag_veiculo">VW Gol(AHB3J45)</span>
+                        <button id="m_an_button">Retirado</button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </main>
     <footer class="m_footer">

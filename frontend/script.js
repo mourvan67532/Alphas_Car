@@ -1,7 +1,33 @@
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Index♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Index♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Index♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+function m_data_index(){
+    const m_data_real = new Date();
 
+    const m_dia = String(m_data_real.getDate()).padStart(2, '0');
+    const m_mes = String(m_data_real.getMonth() + 1).padStart(2, '0');
+    const m_ano = m_data_real.getFullYear();
+
+     document.getElementById('m_dia').textContent = m_dia;
+     document.getElementById('m_mes').textContent = m_mes;
+     document.getElementById('m_ano').textContent = m_ano;
+
+}
+
+
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+window.onload = function() {
+    m_lupa();
+    m_lupak();
+    m_lupakp();
+    m_data_index();
+};
 //Cadastra Cliente
 async function cadastro_cliente(){ // função do cadastro do cliente, recebe e envia de volta os dados até o momento //
-    
+
     const nome = document.getElementById("nome_cliente").value;
     const email = document.getElementById("e-mail").value;
     const telefone = document.getElementById("celular").value;
@@ -50,7 +76,7 @@ async function cadastro_veiculo(){ // função do cadastro do veiculo, recebe e 
     const cpf_v = document.getElementById("cpf_selecionado_veiculo").value;;
     const n_chassi_v = document.getElementById("n_chas").value;
     const placa_v = document.getElementById("placa").value;
-    
+
 
     await fetch('/cadastrar-veiculo',{
         method: 'POST',
@@ -62,15 +88,17 @@ async function cadastro_veiculo(){ // função do cadastro do veiculo, recebe e 
 
 }
 
-async function cadastro_fornecedor(){ // função do cadastro do fornecedor, recebe e envia de volta os dados até o momento //
+
+// Cadastra Fornecedor//
+async function cadastro_fornecedor(){ 
 
     const nome_fornecedor = document.getElementById("nome_fornecedor").value;
-    const email_f = document.getElementById("e-mail").value;
+    const email_f = document.getElementById("e_mail_f").value;
     const fone_f = document.getElementById("fone_f").value;
-    const cnpj_f = document.getElementById("cnpj").value;
+    const cnpj_f = document.getElementById("cnpj_f").value;
     const cep_f = document.getElementById("endereco_cep").value;
 
-    
+
     await fetch('/cadastrar-fornecedor',{
         method:'POST',
         headers: {'Content-Type': 'application/json'},
@@ -80,6 +108,7 @@ async function cadastro_fornecedor(){ // função do cadastro do fornecedor, rec
     alert('Fornecedor cadastrado com sucesso!');
 
 }
+
 
 //Cadastra peças
 async function cadastro_pecas(){ // função do cadastro da pecas, recebe e envia de volta os dados até o momento //
@@ -146,7 +175,7 @@ async function cadastra_servico(){
     const nome_s = document.getElementById("nome_servico").value;
     const preco_s = document.getElementById("kpreco").value;
     const ferramenta_s = document.getElementById("kferramenta").value;
-        
+
     await fetch('/cadastrar-servico',{
         method:'POST',
         headers:{'Content-Type': 'application/json'},
@@ -212,6 +241,63 @@ function a_cad_c(){
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do peça♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do peça♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do peça♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+async function m_lupakp() {
+  const inputp = document.getElementById("m_pecaspesq");
+  if (!inputp) {
+    console.error('Elemento "m_barrakp" não encontrado!');
+    return;
+  }
+  const m_buscarkp = inputp.value;
+  document.getElementById("m_pesqkp").innerHTML = m_buscarkp;
+
+  const queryParamskp = new URLSearchParams();
+  if (m_buscarkp) queryParamskp.append('Nome_peca', m_buscarkp);
+
+  try {
+
+    const responsekp = await fetch(`/consultar-pecas?${queryParamskp.toString()}`);
+    if (!responsekp.ok) {
+      throw new Error(`Erro HTTP! Status: ${responsekp.status}`);
+    }
+
+    const m_var4kp = await responsekp.json();
+
+    const listaspecas = document.getElementById('listaspecas');
+    if (!listaspecas) {
+      console.error('Elemento "listapecas" não encontrado!');
+      return;
+    }
+    listaspecas.innerHTML = `
+      <div class="m_linhakk">
+        <div class="m_colunakk">Serviço</div>
+        <div class="m_colunakk">Preço</div>
+      </div>
+    `;
+    m_var4kp.forEach(pecas => {
+      const lip = document.createElement('div');
+      lip.className = 'm_linhak';
+      lip.innerHTML = `
+        <div class="m_colunak">${pecas.Nome_peca}</div>
+        <div class="m_colunak"><span>R$</span>${pecas.Preco_pecas}<span>,00</span></div>
+      `;
+      listaspecas.appendChild(lip);
+    });
+  } catch (error) {
+    console.error('Erro ao buscar peças:', error);
+    const listaspecas = document.getElementById('listaspecas');
+    if (listaspecas) {
+      listaspecas.innerHTML = `<p style="color: white;"> A página está em manutenção no momento. Por favor, tente novamente mais tarde. Pedimos desculpas pelo inconveniente e agradecemos pela compreensão.</p>
+`;
+    }
+  }
+}
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do serviço♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do serviço♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do serviço♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
@@ -233,6 +319,7 @@ async function m_lupak() {
 
   try {
     const responsek = await fetch(`/consultar-servico?${queryParamsk.toString()}`);
+      
     if (!responsek.ok) {
       throw new Error(`Erro HTTP! Status: ${responsek.status}`);
     }
@@ -276,6 +363,7 @@ async function m_lupak() {
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do clientes♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do clientes♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do clientes♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
 async function m_buscarcliente() { 
   const m_cliente_b = document.getElementById('cpf_vei').value;
 
@@ -382,7 +470,7 @@ async function m_lupa(){
                 <div class="m_option4">
                     <h3 id="m_apaga_dados" onclick="atualiza_cliente(${cliente.ID_cliente})">Editar</h3>
                     <h3 id="m_apaga_dados2" onclick="excluir_cliente(${cliente.ID_cliente})">Excluir</h3>
-                    
+
                 </div>
                 <div class="m_option3">
                     <label for="veiculo_selecionado">Veiculo Selecionado:</label>
@@ -586,9 +674,7 @@ async function m_buscarveiculo(cpf_veiculo) {
     }
 
 
-window.onload = function() {
-    m_lupa();
-};
+
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
@@ -659,7 +745,7 @@ async function a_buscarveiculo() {
 
 
       const a_veicselecionado = document.getElementById('a_veicselecionado');
-              a_veicselecionado.innerHTML = '<option value="">Selecione um veículo do cliente13</option>';
+              a_veicselecionado.innerHTML = '<option value="">Selecione um veículo do cliente</option>';
 
       // Preenche o dropdown com os resultados da busca
       a_cliente_veiculo.forEach(veiculo => {
@@ -686,25 +772,24 @@ async function a_buscarorca() {
   if (a_orcamento_b === '') return;
 
   // Faz a busca no servidor
-  const aob_response = await fetch(`/buscar-orcamento?query=${a_orcamento_b}`);
-
-  // Verifica se a resposta foi bem-sucedida
+  const aob_response = await fetch(`/buscar-cliente?query=${a_orcamento_b}`);
+    // Verifica se a resposta foi bem-sucedida
   if (aob_response.ok) {
       const a_cliente_orcamento = await aob_response.json();
 
 
       const a_orcselecionado = document.getElementById('a_orcselecionado');
-              a_orcselecionado.innerHTML = '<option value="">Selecione um orçamento do cliente13</option>';
+              a_orcselecionado.innerHTML = '<option value="">Selecione um orçamento do cliente</option>';
 
       // Preenche o dropdown com os resultados da busca
-      a_cliente_orcamento.forEach(orcamento => {
+      a_cliente_orcamento.forEach(cliente => {
           const ao_option = document.createElement('option');
-          ao_option.value = orcamento.CPF;
-          ao_option.textContent = `${orcamento.Valor} Veiculo: (${veiculo.Mode}  ${veiculo.Placa})`;
+          ao_option.value = cliente.CPF;
+          ao_option.textContent = `${cliente.Nome} CPF: (${cliente.CPF})`;
           a_orcselecionado.appendChild(ao_option);
       });
       a_orcselecionado.addEventListener('change', () => {
-        const ao_cpfSelecionado = a_orcselecionado.value;
+        const a_cpfSelecionado = a_orcselecionado.value;
         document.getElementById('acpf_selecionado_orca').value = a_cpfSelecionado;
       });
 
@@ -712,6 +797,76 @@ async function a_buscarorca() {
       alert('Erro ao buscar orçamentos. Tente novamente.');
   }
 }
+
+
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Fornecedor♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do fornecedor♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do fornecedor♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+// Função para consultar fornecedores
+async function consultarFornecedores() {
+    try {
+        // Faz uma requisição GET ao backend
+        const response = await fetch('/consultar-fornecedores');
+
+        if (!response.ok) {
+            throw new Error("Erro ao consultar fornecedores");
+        }
+
+        // Converte a resposta para JSON
+        const fornecedores = await response.json();
+
+        // Atualiza o HTML com os fornecedores
+        const listaFornecedores = document.getElementById("listaFornecedores");
+        listaFornecedores.innerHTML = ""; // Limpa a lista
+
+        fornecedores.forEach(fornecedor => {
+            const li = document.createElement("li");
+            li.className = "fornecedor-item";
+
+            li.innerHTML = `
+            <div class="fornecedor-item">
+                <div class="fornecedor-info">
+                    <p><strong>Nome:</strong> ${fornecedor.Nome}</p>
+                    <p><strong>Email:</strong> ${fornecedor.Email}</p>
+                    <p><strong>Telefone:</strong> ${fornecedor.Telefone}</p>
+                    <p><strong>CNPJ:</strong> ${fornecedor.CNPJ}</p>
+                    <p><strong>CEP:</strong> ${fornecedor.CEP}</p>
+                </div>
+            </div>    
+            `;
+
+            listaFornecedores.appendChild(li);
+        });
+
+        // Exibe um alerta informando o sucesso e a quantidade de fornecedores carregados
+        alert(`Fornecedores carregados com sucesso! Total: ${fornecedores.length}`);
+
+    } catch (error) {
+        console.error(error);
+        console.log("Erro ao consultar fornecedores. Verifique o console para mais detalhes.");
+    }
+}
+
+
+
+// Chama a função quando a página é carregada
+document.addEventListener("DOMContentLoaded", consultarFornecedores);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦João♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦João♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 
