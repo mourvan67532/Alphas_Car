@@ -239,7 +239,7 @@ app.post('/cadastrar-servico', (req, res) => {
 // ♦♦♦♦♦♦♦♦�Cadastra Orcamento♦♦♦♦♦♦♦♦�
 app.post('/orcamento', (req, res) => {
     const { nome_orça, cpf_o, valor, servico, servico_op1, servico_op2 } = req.body;
-    db.run("INSERT INTO orcamento ( Nome, CPF, Valor, Servico, Servicoop1, Servicoop2) VALORES (?, ?, ?, ?, ?, ?)", [ nome_orça, cpf_o, valor, servico, servico_op1, servico_op2], function(err) {
+    db.run("INSERT INTO orcamento ( Nome, CPF, Valor, Servico, Servicoop1, Servicoop2) VALUES (?, ?, ?, ?, ?, ?)", [ nome_orça, cpf_o, valor, servico, servico_op1, servico_op2], function(err) {
         if (err){
             console.error('Erro ao cadastrar:', err);
             res.status(500).send('Erro ao cadastrar orcamento');
@@ -252,7 +252,7 @@ app.post('/orcamento', (req, res) => {
 // ♦♦♦♦♦♦♦♦�Cadastra Agendamento♦♦♦♦♦♦♦♦�
 app.post('/agendamento', (req, res) => {
     const { name_a, cpf_a , data, time } = req.body;
-    db.run("INSERT INTO orcamento ( Nome, CPF, Data, Hora) VALORES (?, ?, ?, ?)", [ name_a, cpf_a , data, time], function(err) {
+    db.run("INSERT INTO orcamento ( Nome, CPF, Data, Hora) VALUES (?, ?, ?, ?)", [ name_a, cpf_a , data, time], function(err) {
         if (err){
             console.error('Erro ao cadastrar:', err);
             res.status(500).send('Erro ao cadastrar agendamento');
@@ -421,23 +421,6 @@ app.put('/atualizar-cliente/:id', (m_update, res) => {
             }
         }
     );
-});
-
-
-// ♦♦♦♦♦♦♦♦�Exclui Veiculo♦♦♦♦♦♦♦♦�
-app.delete('/excluir-cliente/:id', (m_delete, res) => {
-    const clienteId = m_delete.params.id;
-
-    db.run("DELETE FROM clientes WHERE ID_cliente = ?", [clienteId], function(err) {
-        if (err) {
-            console.error('Erro ao excluir cliente:', err);
-            res.status(500).send('Erro ao excluir cliente');
-        } else if (this.changes === 0) {
-            res.status(404).send('Cliente não encontrado');
-        } else {
-            res.send('Cliente excluído com sucesso');
-        }
-    });
 });
 
 // ♦♦♦♦♦♦♦♦�Busca Cliente♦♦♦♦♦♦♦♦�

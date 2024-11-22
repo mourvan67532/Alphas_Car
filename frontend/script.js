@@ -272,6 +272,7 @@ async function m_lupakp() {
     }
     listaspecas.innerHTML = `
       <div class="m_linhakk">
+      <div class="m_colunakkd">ID</div>
         <div class="m_colunakk">Serviço</div>
         <div class="m_colunakk">Preço</div>
       </div>
@@ -280,6 +281,7 @@ async function m_lupakp() {
       const lip = document.createElement('div');
       lip.className = 'm_linhak';
       lip.innerHTML = `
+        <div class="m_colunakd">${pecas.ID_pecas}</div>
         <div class="m_colunak">${pecas.Nome_peca}</div>
         <div class="m_colunak"><span>R$</span>${pecas.Preco_pecas}<span>,00</span></div>
       `;
@@ -334,6 +336,7 @@ async function m_lupak() {
 
     listaservico.innerHTML = `
       <div class="m_linhakk">
+      <div class="m_colunakkd">ID</div>
         <div class="m_colunakk">Serviço</div>
         <div class="m_colunakk">Preço</div>
       </div>
@@ -343,6 +346,7 @@ async function m_lupak() {
       const li = document.createElement('div');
       li.className = 'm_linhak';
       li.innerHTML = `
+        <div class="m_colunakd">${servico.ID_Serviço}</div>
         <div class="m_colunak">${servico.Nome_Serviço}</div>
         <div class="m_colunak"><span>R$</span>${servico.Preco}<span>,00</span></div>
       `;
@@ -428,6 +432,7 @@ async function m_lupa(){
             <h2 class="m_tabela_fone">Telefone</h2>
             <h2 class="m_tabela_ponto">.</h2>
         </li>
+
     `;
 
     console.log('retornados:', m_var4);
@@ -468,8 +473,7 @@ async function m_lupa(){
             </div>
             <div class="m_option2">
                 <div class="m_option4">
-                    <h3 id="m_apaga_dados" onclick="atualiza_cliente(${cliente.ID_cliente})">Editar</h3>
-                    <h3 id="m_apaga_dados2" onclick="excluir_cliente(${cliente.ID_cliente})">Excluir</h3>
+                    <h3 id="m_apaga_dados" onclick='atualiza_cliente(${JSON.stringify(cliente)})'>Editar</h3>
 
                 </div>
                 <div class="m_option3">
@@ -490,78 +494,85 @@ async function m_lupa(){
     });
 
 };
-//!!!!!!!!!!!!!!!!!!!!!!!!! apagar cliente do banco de dados!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-async function excluir_cliente(clienteId) {
-    let m_res_apaga = prompt('Cliente ID número: ' + clienteId + ' será deletado. Digite "s" para continuar ou "n" para cancelar.'); //verificar se quer apagar o cliente
-    if (m_res_apaga == 's'){
-        alert('Cliente deletado!');
-    }
-    else{
-        alert('Cliente não deletado!');
-        return
+//!!!!!!!!!!!!!!!!!!!!!!!!! editacliente do banco de dados!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+function m_up_cancela(){
+    location.reload(); // Recarrega a página
+}
+async function atualiza_cliente(cliente) {
+    const { ID_cliente, Nome, Email, Fone, CPF, CEP, Bairro, Rua, Numero, Complemento } = cliente;
+
+    const m_up = document.getElementById('m_up_up'); 
+    
+    if (m_up.style.display === 'none' || m_up.style.display === '') {
+        m_up.style.display = 'flex';
     }
 
-    try {
-        const response = await fetch(`/excluir-cliente/${clienteId}`, {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' }
-        });
-        if (!response.ok) {
-            throw new Error('Falha ao excluir cliente');
-        }
+    // Preenche os inputs
+    document.getElementById('m_up_nome').value = Nome;
+    document.getElementById('m_up_email').value = Email;
+    document.getElementById('m_up_fone').value = Fone;
+    document.getElementById('m_up_cpf').value = CPF;
+    document.getElementById('m_up_cep').value = CEP;
+    document.getElementById('m_up_bairro').value = Bairro;
+    document.getElementById('m_up_rua').value = Rua;
+    document.getElementById('m_up_num').value = Numero;
+    document.getElementById('m_up_com').value = Complemento;
 
-    } catch (error) {
-        console.error('Erro:', error); 
-    }
-    location.reload();
-};
-async function atualiza_cliente(clienteId) {
-    // Prompt para obter os dados
-    const tnome = prompt('Digite o novo nome do cliente:');
-    const temail = prompt('Digite o novo e-mail do cliente:');
-    const tfone = prompt('Digite o novo telefone do cliente:');
-    const tcep = prompt('Digite o novo CEP do cliente:');
-    const tcpf = prompt('Digite o novo CPF do cliente:');
-    const tbairro = prompt('Digite o novo bairro do cliente:');
-    const trua = prompt('Digite a nova rua do cliente:');
-    const tnumero = prompt('Digite o novo número do cliente:');
-    const tcomplemento = prompt('Digite o novo complemento do cliente:');
 
-    // Verifica se todos os dados foram preenchidos
+    const tnome = document.getElementById('m_up_nome');
+    const temail = document.getElementById('m_up_email');
+    const tfone = document.getElementById('m_up_fone');
+    const tcpf = document.getElementById('m_up_cpf');
+    const tcep = document.getElementById('m_up_cep');
+    const tbairro = document.getElementById('m_up_bairro');
+    const trua = document.getElementById('m_up_rua');
+    const tnumero = document.getElementById('m_up_num');
+    const tcomplemento = document.getElementById('m_up_com');
+
+
     if (!tnome || !temail || !tfone || !tcep || !tcpf || !tbairro || !trua || !tnumero || !tcomplemento) {
         alert('Todos os dados devem ser preenchidos!');
         return;
     }
-
-    try {
-        // Envia os dados para o servidor via POST
-        const response = await fetch(`/atualizar-cliente/${clienteId}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                Nome: tnome,
-                Email: temail,
-                Fone: tfone,
-                CEP: tcep,
-                CPF: tcpf,
-                Bairro: tbairro,
-                Rua: trua,
-                Numero: tnumero,
-                Complemento: tcomplemento
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error('Erro ao atualizar cliente');
-        }
-
-        // Sucesso
-        alert('Cliente atualizado com sucesso!');
-        location.reload(); // Recarrega a página
-    } catch (error) {
-        console.error('Erro:', error);
-        alert('Erro ao tentar atualizar o cliente. Tente novamente.');
-    }
+    
+    const up_clientes = document.getElementById('m_up_fim');
+    up_clientes.onclick = () => {
+   
+        const atualizarCliente = async () => {
+            try {
+                const response = await fetch(`/atualizar-cliente/${ID_cliente}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        Nome: tnome.value,
+                        Email: temail.value,
+                        Fone: tfone.value,
+                        CEP: tcep.value,
+                        CPF: tcpf.value,
+                        Bairro: tbairro.value,
+                        Rua: trua.value,
+                        Numero: tnumero.value,
+                        Complemento: tcomplemento.value
+                    })
+                });
+    
+                if (!response.ok) {
+                    throw new Error('Erro ao atualizar cliente');
+                }
+    
+                // Sucesso
+                alert('Cliente atualizado com sucesso!');
+                location.reload(); // Recarrega a página
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao tentar atualizar o cliente. Tente novamente.');
+            }
+        };
+    
+        // Chama a função assíncrona
+        atualizarCliente();
+    };
+    
 }
 
 document.getElementById("m_barra").addEventListener("keydown", function(m_enter) {
@@ -650,7 +661,8 @@ async function m_buscarveiculo(cpf_veiculo) {
           return;
         }
 
-        let m_var_veiculo = await m_var_veiculo_response.json();
+        const m_var_veiculo = (await m_var_veiculo_response.json()).filter(veiculo => veiculo.ID_veiculo === parseInt(m_veiculo_2.value));
+
 
         // Atualiza a lista de veículos
         m_var_veiculo.forEach((veiculo) => {
@@ -679,55 +691,59 @@ async function m_buscarveiculo(cpf_veiculo) {
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 
-// *************************************mecanico************************************************
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do mecanico♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do mecanico♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do mecanico♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 
 async function v_lupa(){
 
-    const v_buscar = document.getElementById("v_barra").value;
-    document.getElementById("m_pesq").innerHTML = v_buscar;
+    const a_buscar = document.getElementById("a_barra").value;
+    document.getElementById("m_pesq").innerHTML = a_buscar;
     // consulta Mecanico
-    const v_barra = document.getElementById('v_barra').value;
-    const v_queryParams = new URLSearchParams();
+    const a_barra = document.getElementById('a_barra').value;
+    const a_queryParams = new URLSearchParams();
 
-    if (v_barra) v_queryParams.append('Nome', v_buscar);
+    if (a_barra) a_queryParams.append('Nome', a_buscar);
 
-    const v_resposta = await fetch(`/consultar-mecanico?${v_queryParams.toString()}`);
+    const a_resposta = await fetch(`/consultar-mecanico?${a_queryParams.toString()}`);
 
-    if (!v_resposta.ok) {
-        console.error('Erro ao consultar:', v_resposta.statusText);
+    if (!a_resposta.ok) {
+        console.error('Erro ao consultar:', a_resposta.statusText);
         return;
     }
 
-    const v_var = await v_resposta.json();
-    const listaClientes = document.getElementById('listaMecanicos');
+    const a_var = await a_resposta.json();
+    const listaMecanico = document.getElementById('listaMecanicos');
 
 
     // colunas da tabela e apaga o resto
-    listaClientes.innerHTML = `
-        <li class="m_tabela">
+    listaMecanico.innerHTML = `
+        <li class="a_tabela">
             <h2>Nome</h2>
-            <h2 class="m_tabela_fone">Telefone</h2>
-            <h2 class="m_tabela_ponto">Especialidades</h2>
+            <h2 class="a_tabela_cpf">CPF</h2>
+            <h2 class="a_tabela_fone">Telefone</h2>
+            <h2 class="a_tabela_ponto">.</h2>
         </li>
     `;
 
-    console.log('retornados:', v_var);
+    console.log('retornados:', a_var);
 
 
-    v_var.forEach(mecanico => {
-        const li = document.createElement('li');
-        li.className = 'm_li_cliente';
-        v_mecanico_nome = mecanico.Nome;
-        li.innerHTML = `
-            <div class="m_li_nome">
+    a_var.forEach(mecanico => {
+        const lim = document.createElement('li');
+        lim.className = 'a_li_mecanico';
+        lim.innerHTML = `
+            <div class="a_li_nome">
                     <img src="../img/m_avatar.png" alt="avatar">
                     <h3>${mecanico.Nome}</h3>
                 <h3>${mecanico.Fone}</h3>
-                <h3>${mecanico.Especialidades}</h3>
+                <h3>${mecanico.Especialidade}</h3>
             </div>
-            <img src="../img/m_seta.png" alt="seta" id="m_seta">
+            <img src="../img/m_seta.png" alt="seta" id="a_seta">
         `
-    })};
+    })
+    listaMecanico.appendChild(lim);
+};
 
 // ORÇAMENTO *********************
 async function a_buscarveiculo() { 
