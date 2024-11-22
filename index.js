@@ -158,17 +158,35 @@ db.serialize(() => {
 
 
 // ♦♦♦♦♦♦♦♦�Cadastra Clientes♦♦♦♦♦♦♦♦�
-    app.post('/cadastrar-clientes', (req, res) => {
-        const { nome, email, telefone, cep, cpf, bairro, rua, numero, complemento} = req.body;
-        db.run("INSERT INTO clientes ( Nome, Email, Fone, CEP, CPF, Bairro, Rua, Numero, Complemento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", [nome, email, telefone, cep, cpf, bairro, rua, numero, complemento], function(err) {
+app.post('/cadastrar-clientes', (req, res) => {
+    const { nome, email, telefone, cep, cpf, bairro, rua, numero, complemento } = req.body;
+
+    // Verificar se o CPF já existe
+    db.get("SELECT * FROM clientes WHERE CPF = ?", [cpf], (err, row) => {
+        if (err) {
+            console.error('Erro ao verificar CPF:', err);
+            return res.status(500).send('Erro ao verificar CPF');
+        }
+
+        if (row) {
+            // Se o CPF já existir, retorna um erro
+            return res.status(400).send('CPF já cadastrado');
+        }
+
+        // Se o CPF não existir, insere o novo cliente
+        db.run("INSERT INTO clientes (Nome, Email, Fone, CEP, CPF, Bairro, Rua, Numero, Complemento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+            [nome, email, telefone, cep, cpf, bairro, rua, numero, complemento], function(err) {
             if (err) {
                 console.error('Erro ao cadastrar:', err);
-                res.status(500).send('Erro ao cadastrar');
-            } else {
-                res.send('cadastrado com sucesso!');
+                return res.status(500).send('Erro ao cadastrar');
             }
+
+            // Cadastro bem-sucedido
+            res.send('Cliente cadastrado com sucesso!');
         });
     });
+});
+
 
 // ♦♦♦♦♦♦♦♦�Cadastra Pecas♦♦♦♦♦♦♦♦�
 app.post('/cadastrar-pecas', (req, res) => {

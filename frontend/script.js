@@ -26,8 +26,8 @@ window.onload = function() {
     m_data_index();
 };
 //Cadastra Cliente
-async function cadastro_cliente(){ // função do cadastro do cliente, recebe e envia de volta os dados até o momento //
-
+async function cadastro_cliente() {
+    // Coleta os dados do formulário
     const nome = document.getElementById("nome_cliente").value;
     const email = document.getElementById("e-mail").value;
     const telefone = document.getElementById("celular").value;
@@ -38,16 +38,31 @@ async function cadastro_cliente(){ // função do cadastro do cliente, recebe e 
     const numero = document.getElementById("numero").value;
     const complemento = document.getElementById("complemento").value;
 
-    // Envio das informações para o banco de dados
-    await fetch('/cadastrar-clientes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({nome, email, telefone, cep, cpf, bairro, rua, numero, complemento})
-    });
+    try {
+        // Envia os dados para o servidor
+        const response = await fetch('/cadastrar-clientes', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, email, telefone, cep, cpf, bairro, rua, numero, complemento })
+        });
 
-    alert('Cliente cadastrado com sucesso!');
+        if (!response.ok) {
+            const errorMessage = await response.text(); 
+            if (errorMessage === 'CPF já cadastrado') {
+                alert('CPF já cadastrado!'); 
+            } else {
+                alert('CPF já cadastrado!');
+            }
+            return; 
+        }
 
-};
+        alert('Cliente cadastrado com sucesso!');
+    } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao tentar cadastrar o cliente. Tente novamente.');
+    }
+}
+
 
 // Cadastras Mecanico
 async function cadastro_mecanico() {
@@ -565,7 +580,7 @@ async function atualiza_cliente(cliente) {
                 location.reload(); // Recarrega a página
             } catch (error) {
                 console.error('Erro:', error);
-                alert('Erro ao tentar atualizar o cliente. Tente novamente.');
+                alert('Erro ao tentar atualizar o cliente. Tente novamente. Possível erro CPF');
             }
         };
     
