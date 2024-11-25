@@ -747,20 +747,51 @@ async function v_lupa(){
     a_var.forEach(mecanico => {
         const lim = document.createElement('li');
         lim.className = 'a_li_mecanico';
+        lim.onclick = () => {
+            a_mais_dados_mecanico(mecanico.ID_mecanico, mecanico.CPF);
+        };
         lim.innerHTML = `
             <div class="a_li_nome">
-                    <img src="../img/m_avatar.png" alt="avatar">
-                    <h3>${mecanico.Nome}</h3>
-                <h3>${mecanico.Fone}</h3>
-                <h3>${mecanico.Especialidade}</h3>
-            </div>
+                <img src="../img/m_avatar.png" alt="avatar">
+                <h3>${mecanico.Nome}</h3>
+            </div>    
+            <h3>${mecanico.Fone}</h3>
+            <h3>${mecanico.Especialidade}</h3>
             <img src="../img/m_seta.png" alt="seta" id="a_seta">
-        `
-    })
-    listaMecanico.appendChild(lim);
+        `;
+        
+        const a_div = document.createElement('div');
+        a_div.className = 'a_dados';
+        a_div.id = `dados-${mecanico.ID_mecanico}`;
+        a_div.innerHTML = `
+            <div class="a_dados_nome">
+                <h3>ID:ㅤ <span>${mecanico.ID_mecanico}</span></h3>
+                <h3>CEP:ㅤ <span>${mecanico.CEP}</span> </h3>
+                <h3>Bairro:ㅤ <span>${mecanico.Bairro}</span></h3>
+                <h3>Especialidade:ㅤ <span>${mecanico.Especialidade}</span></h3>
+            </div>
+        `;
+
+        listaMecanico.appendChild(lim);
+        listaMecanico.appendChild(a_div);
+    });
+        
 };
 
-// ORÇAMENTO *********************
+function a_mais_dados_mecanico(mecanicoId, mecanicocpf) {
+    let a_div = document.getElementById(`dados-${mecanicoId}`);
+    let a_div_v = document.getElementById(`carros-${mecanicocpf}`)
+    if (a_div.style.display === 'none') {
+        a_div.style.display = 'flex';
+    } else {
+        a_div.style.display = 'none';
+        a_div_v.style.display = 'none';
+    }
+};
+
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦ ORÇAMENTO ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦ ORÇAMENTO ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦ ORÇAMENTO ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 async function a_buscarveiculo() { 
   const a_veiculo_b = document.getElementById('a_cpf_vei').value;
 
@@ -794,6 +825,98 @@ async function a_buscarveiculo() {
       alert('Erro ao buscar veiculos. Tente novamente.');
   }
 }
+
+async function m_lupa(){
+
+    const m_buscar = document.getElementById("m_barra").value;
+    document.getElementById("m_pesq").innerHTML = m_buscar;
+    // consulta clientes
+    const m_barra = document.getElementById('m_barra').value;
+    const m_queryParams = new URLSearchParams();
+
+    if (m_barra) m_queryParams.append('Nome', m_buscar);
+
+    const m_resposta = await fetch(`/consultar-clientes?${m_queryParams.toString()}`);
+
+    if (!m_resposta.ok) {
+        console.error('Erro ao consultar:', m_resposta.statusText);
+        return;
+    }
+
+    const m_var4 = await m_resposta.json();
+    const listaClientes = document.getElementById('listaClientes');
+
+
+    // colunas da tabela e apaga o resto
+    listaClientes.innerHTML = `
+        <li class="m_tabela">
+            <h2>Nome</h2>
+            <h2 class="m_tabela_cpf">CPF</h2>
+            <h2 class="m_tabela_fone">Telefone</h2>
+            <h2 class="m_tabela_ponto">.</h2>
+        </li>
+
+    `;
+
+    console.log('retornados:', m_var4);
+
+
+    m_var4.forEach(cliente => {
+        const li = document.createElement('li');
+        li.className = 'm_li_cliente';
+        li.onclick = () => {
+            m_mais_dados_cliente(cliente.ID_cliente, cliente.CPF);
+            m_buscarveiculo(cliente.CPF);
+        };
+        li.innerHTML = `
+            <div class="m_li_nome">
+                <img src="../img/m_avatar.png" alt="avatar">
+                <h3>${cliente.Nome}</h3>
+            </div>
+            <h3>${cliente.CPF}</h3>
+            <h3>${cliente.Fone}</h3>
+            <img src="../img/m_seta.png" alt="seta" id="m_seta">
+        `;
+        // colocar veiculo
+        const m_colocar_aqui = document.createElement('div');
+        m_colocar_aqui.id = `carros-${cliente.CPF}`;
+        // -----------------------------------------[
+
+        const m_div = document.createElement('div');
+        m_div.className = 'm_dados';
+        m_div.id = `dados-${cliente.ID_cliente}`;
+        m_div.innerHTML = `
+            <div class="m_dados_nome">
+                <h3>ID:ㅤ <span>${cliente.ID_cliente}</span></h3>
+                <h3>Email:ㅤ <span>${cliente.Email}</span></h3>
+                <h3>Rua:ㅤ <span>${cliente.Rua}</span> </h3>
+                <h3>Bairro:ㅤ <span>${cliente.Bairro}</span></h3>
+                <h3>Número:ㅤ <span>${cliente.Numero}</span></h3>
+                <h3>Complemento:ㅤ <span>${cliente.Complemento}</span></h3>
+            </div>
+            <div class="m_option2">
+                <div class="m_option4">
+                    <h3 id="m_apaga_dados" onclick='atualiza_cliente(${JSON.stringify(cliente)})'>Editar</h3>
+
+                </div>
+                <div class="m_option3">
+                    <label for="veiculo_selecionado">Veiculo Selecionado:</label>
+                    <select id="veiculo_selecionado-${cliente.CPF}" class="veiculo_selecionado" name="veiculo_selecionado" required>
+                        <option value="">Selecione um cliente</option>
+                </select>
+                <h3 id="m_busca_carro" onclick="m_buscar_carro(${cliente.CPF})">Veículos</h3>
+                </div>
+
+                <input type="hidden" id="m_vei_sec-${cliente.CPF}">
+            </div>
+        `;
+
+        listaClientes.appendChild(li);
+        listaClientes.appendChild(m_div);
+        listaClientes.appendChild(m_colocar_aqui);
+    });
+
+};
 
 //AGENDAMENTO ******************************
 async function a_buscarorca() { 

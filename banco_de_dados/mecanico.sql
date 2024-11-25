@@ -26,6 +26,7 @@ CREATE TABLE mecanico(
   CEP varchar(20),
   CPF INTEGER UNIQUE NOT NULL,     
   Bairro varchar(20)  
+  Especialidade varchar(100)
 );
 
 CREATE TABLE orcamento(
