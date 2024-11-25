@@ -1,41 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamento Oficina Mecânica</title>
     <link rel="stylesheet" href="style.css">
+    <title>Consulta CEP</title>
 </head>
+
 <body>
+
     <div class="container">
-        <h1>Agendamento de Oficina Mecânica</h1>
-        <form id="appointment-form">
-            <div class="form-group">
-                <label for="name">Nome:</label>
-                <input type="text" id="name" required>
+        <h2>CONSULTA CEP</h2>
+        <form>
+            <div class="frm-row">
+                <label for="cep">cep</label>
+                <input type="text" name="cep" id="cep">
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
+            <div class="frm-row">
+                <label for="rua">rua</label>
+                <input type="text" name="rua" id="rua">
             </div>
-            <div class="form-group">
-                <label for="car">Modelo do Carro:</label>
-                <input type="text" id="car" required>
+            <div class="frm-row">
+                <label for="bairro">bairro</label>
+                <input type="text" name="bairro" id="bairro">
             </div>
-            <div class="form-group">
-                <label for="date">Data:</label>
-                <input type="date" id="date" required>
+            <div class="frm-row">
+                <label for="cidade">cidade</label>
+                <input type="text" name="cidade" id="cidade">
             </div>
-            <div class="form-group">
-                <label for="time">Hora:</label>
-                <input type="time" id="time" required>
+            <div class="frm-row">
+                <label for="estado">estado</label>
+                <input type="text" name="estado" id="estado">
             </div>
-            <button type="submit">Agendar</button>
         </form>
-        <div id="confirmation" class="hidden"></div>
-        <h2>Agendamentos</h2>
-        <div class="appointments" id="appointments-container"></div>
     </div>
-    <script src="script.js"></script>
+
+
 </body>
+
 </html>
