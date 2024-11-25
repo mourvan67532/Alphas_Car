@@ -456,7 +456,60 @@ app.get('/buscar-cliente', (req, res) => {
     });
 });
 
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Mecanico♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Mecanico♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do Mecanico♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 
+// ♦♦♦♦♦♦♦♦�Consultar Mecanico♦♦♦♦♦♦♦♦�
+app.get('/consultar-mecanico', (req, res) => {
+    const nome_mecanico = req.query.Nome || ''; // Recupera o nome do mecânico ou uma string vazia
+
+    // Consulta ao banco de dados para buscar mecânicos com base no nome
+    const query = `SELECT * FROM mecanico WHERE Nome LIKE ?`;
+    const params = [`%${nome_mecanico}%`];
+
+    db.all(query, params, (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).json({ error: 'Erro ao consultar mecânicos' });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+// ♦♦♦♦♦♦♦♦�Atualiza Mecanico♦♦♦♦♦♦♦♦�
+app.put('/atualizar-mecanico/:id', (a_update, res) => {
+    const mecanicoId = a_update.params.id;
+    const { Nome, Fone, CEP, CPF, Bairro, Especialidade } = a_update.body;
+
+    if (!Nome || !Fone || !CEP || !CPF || !Bairro || Especialidade) {
+        return res.status(400).send('Todos os dados devem ser fornecidos');
+    }
+
+    db.run(
+        `UPDATE mecanicos 
+         SET 
+            Nome = ?, 
+            Fone = ?, 
+            CEP = ?, 
+            CPF = ?, 
+            Bairro = ?, 
+            Especialidade = ?, 
+         WHERE ID_mecanico = ?`,
+        [Nome, Fone, CEP, CPF, Bairro, Especialidade, mecanicoId], 
+        function(err) {
+            if (err) {
+                console.error('Erro ao atualizar mecanico:', err);
+                return res.status(500).send('Erro ao atualizar mecanico');
+            } else if (this.changes === 0) {
+                return res.status(404).send('Mecanico não encontrado');
+            } else {
+                return res.send('Mecanico atualizado com sucesso');
+            }
+        }
+    );
+});
 
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦

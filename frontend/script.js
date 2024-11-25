@@ -770,6 +770,11 @@ async function v_lupa(){
                 <h3>Bairro:ㅤ <span>${mecanico.Bairro}</span></h3>
                 <h3>Especialidade:ㅤ <span>${mecanico.Especialidade}</span></h3>
             </div>
+            <div class="a_option2">
+                <div class="a_option4">
+                    <h3 id="a_apaga_dados" onclick='atualiza_mecanico(${JSON.stringify(mecanico)})'>Editar</h3>
+
+                </div>
         `;
 
         listaMecanico.appendChild(lim);
@@ -788,6 +793,80 @@ function a_mais_dados_mecanico(mecanicoId, mecanicocpf) {
         a_div_v.style.display = 'none';
     }
 };
+
+function a_up_cancela(){
+    location.reload(); // Recarrega a página
+}
+async function atualiza_mecanico(mecanico) {
+    const { ID_mecanico, Nome, Fone, CPF, CEP, Bairro, Especialidade } = cliente;
+
+    const a_up = document.getElementById('a_up_up'); 
+
+    if (a_up.style.display === 'none' || m_up.style.display === '') {
+        a_up.style.display = 'flex';
+    }
+
+    // Preenche os inputs
+    document.getElementById('a_up_nome').value = Nome;
+    document.getElementById('a_up_fone').value = Fone;
+    document.getElementById('a_up_cpf').value = CPF;
+    document.getElementById('a_up_cep').value = CEP;
+    document.getElementById('a_up_bairro').value = Bairro;
+    document.getElementById('a_up_spe').value = Especialidade;
+
+
+    const mnome = document.getElementById('a_up_nome');
+    const mfone = document.getElementById('a_up_fone');
+    const mcpf = document.getElementById('a_up_cpf');
+    const mcep = document.getElementById('a_up_cep');
+    const mbairro = document.getElementById('a_up_bairro');
+    const mspe = document.getElementById('a_up_especialidade');
+
+
+    if (!mnome || !mfone || !mcep || !mcpf || !mbairro || !mspe) {
+        alert('Todos os dados devem ser preenchidos!');
+        return;
+    }
+
+    const up_mecanicos = document.getElementById('a_up_fim');
+    up_mecanicos.onclick = () => {
+
+        const atualizarMecanico = async () => {
+            try {
+                const response = await fetch(`/atualizar-mecanico/${ID_mecanico}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        Nome: tnome.value,
+                        Email: temail.value,
+                        Fone: tfone.value,
+                        CEP: tcep.value,
+                        CPF: tcpf.value,
+                        Bairro: tbairro.value,
+                        Rua: trua.value,
+                        Numero: tnumero.value,
+                        Complemento: tcomplemento.value
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Erro ao atualizar cliente');
+                }
+
+                // Sucesso
+                alert('Cliente atualizado com sucesso!');
+                location.reload(); // Recarrega a página
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao tentar atualizar o cliente. Tente novamente. Possível erro CPF');
+            }
+        };
+
+        // Chama a função assíncrona
+        atualizarCliente();
+    };
+
+}
 
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦ ORÇAMENTO ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦ ORÇAMENTO ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
