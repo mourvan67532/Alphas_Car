@@ -62,6 +62,36 @@ async function cadastro_cliente() {
         alert('Erro ao tentar cadastrar o cliente. Tente novamente.');
     }
 }
+// ----------------------------------CEP-------------------------------------------------------
+async function m_buscarcep() {
+    const cep = document.getElementById("endereco_cep").value.trim();
+
+    if (!cep) {
+        alert('Por favor, informe o CEP.');
+        return;
+    }
+
+    const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+    try {
+        const response = await fetch(url);
+        const endereco = await response.json();
+
+        // Verifica se o CEP retornou erro (CEP não encontrado)
+        if (endereco.erro) {
+            alert('CEP não encontrado.');
+            return;
+        }
+
+        // Preenche os campos de rua e bairro automaticamente
+        document.getElementById("rua").value = endereco.logradouro;
+        document.getElementById("bairro").value = endereco.bairro;
+    } catch (error) {
+        console.error('Erro ao buscar o endereço:', error);
+        alert('Erro ao buscar o endereço. Tente novamente.');
+    }
+}
+
 
 
 // Cadastras Mecanico
