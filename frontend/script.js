@@ -710,6 +710,26 @@ async function m_buscarveiculo(cpf_veiculo) {
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do mecanico♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina do mecanico♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 
+// Cadastra Mecanico
+async function cadastro_mecanico() {
+    const nome_m = document.getElementById("nome_mecanico").value;
+    const telefone_m = document.getElementById("celular_m").value;
+    const cpf_m = document.getElementById("cpf_m").value;
+    const cep_m = document.getElementById("endereco_cep_m").value;
+    const bairro_m = document.getElementById("bairro_m").value;
+    const rua_m = document.getElementById("rua_m").value;
+    const numero_m = document.getElementById("numero_m").value;
+    const especialidade = document.getElementById("especialidade").value;
+
+
+    await fetch('/cadastrar-mecanico', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome_m, telefone_m, cpf_m, cep_m, bairro_m, rua_m, numero_m, especialidade })
+    });
+    alert('Mecânico cadastrado com sucesso!');
+};
+
 async function v_lupa(){
 
     const a_buscar = document.getElementById("a_barra").value;
@@ -755,8 +775,8 @@ async function v_lupa(){
                 <img src="../img/m_avatar.png" alt="avatar">
                 <h3>${mecanico.Nome}</h3>
             </div>    
+            <h3>${mecanico.CPF}</h3>
             <h3>${mecanico.Fone}</h3>
-            <h3>${mecanico.Especialidade}</h3>
             <img src="../img/m_seta.png" alt="seta" id="a_seta">
         `;
         
@@ -767,6 +787,8 @@ async function v_lupa(){
             <div class="a_dados_nome">
                 <h3>ID:ㅤ <span>${mecanico.ID_mecanico}</span></h3>
                 <h3>CEP:ㅤ <span>${mecanico.CEP}</span> </h3>
+                <h3>Bairro:ㅤ <span>${mecanico.Bairro}</span></h3>
+                <h3>Bairro:ㅤ <span>${mecanico.Rua}</span></h3>
                 <h3>Bairro:ㅤ <span>${mecanico.Bairro}</span></h3>
                 <h3>Especialidade:ㅤ <span>${mecanico.Especialidade}</span></h3>
             </div>
@@ -783,14 +805,12 @@ async function v_lupa(){
         
 };
 
-function a_mais_dados_mecanico(mecanicoId, mecanicocpf) {
+function a_mais_dados_mecanico(mecanicoId) {
     let a_div = document.getElementById(`dados-${mecanicoId}`);
-    let a_div_v = document.getElementById(`carros-${mecanicocpf}`)
     if (a_div.style.display === 'none') {
         a_div.style.display = 'flex';
     } else {
         a_div.style.display = 'none';
-        a_div_v.style.display = 'none';
     }
 };
 
@@ -798,21 +818,23 @@ function a_up_cancela(){
     location.reload(); // Recarrega a página
 }
 async function atualiza_mecanico(mecanico) {
-    const { ID_mecanico, Nome, Fone, CPF, CEP, Bairro, Especialidade } = cliente;
+    const { ID_mecanico, Nome, Fone, CPF, CEP, Bairro, Rua, Numero, Especialidade } = mecanico;
 
     const a_up = document.getElementById('a_up_up'); 
 
-    if (a_up.style.display === 'none' || m_up.style.display === '') {
+    if (a_up.style.display === 'none' || a_up.style.display === '') {
         a_up.style.display = 'flex';
     }
-
+0
     // Preenche os inputs
     document.getElementById('a_up_nome').value = Nome;
     document.getElementById('a_up_fone').value = Fone;
     document.getElementById('a_up_cpf').value = CPF;
     document.getElementById('a_up_cep').value = CEP;
     document.getElementById('a_up_bairro').value = Bairro;
-    document.getElementById('a_up_spe').value = Especialidade;
+    document.getElementById('a_up_rua').value = Rua;
+    document.getElementById('a_up_num').value = Numero;
+    document.getElementById('a_up_especialidade').value = Especialidade;
 
 
     const mnome = document.getElementById('a_up_nome');
@@ -820,10 +842,12 @@ async function atualiza_mecanico(mecanico) {
     const mcpf = document.getElementById('a_up_cpf');
     const mcep = document.getElementById('a_up_cep');
     const mbairro = document.getElementById('a_up_bairro');
-    const mspe = document.getElementById('a_up_especialidade');
+    const mrua = document.getElementById('a_up_rua');
+    const mnumero = document.getElementById('a_up_num');
+    const mespecialidade = document.getElementById('a_up_especialidade');
 
 
-    if (!mnome || !mfone || !mcep || !mcpf || !mbairro || !mspe) {
+    if (!mnome || !mfone || !mcep || !mcpf || !mbairro || !mrua || !mnumero || !mespecialidade) {
         alert('Todos os dados devem ser preenchidos!');
         return;
     }
@@ -837,33 +861,32 @@ async function atualiza_mecanico(mecanico) {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        Nome: tnome.value,
-                        Email: temail.value,
-                        Fone: tfone.value,
-                        CEP: tcep.value,
-                        CPF: tcpf.value,
-                        Bairro: tbairro.value,
-                        Rua: trua.value,
-                        Numero: tnumero.value,
-                        Complemento: tcomplemento.value
+                        Nome: mnome.value,
+                        Fone: mfone.value,
+                        CEP: mcep.value,
+                        CPF: mcpf.value,
+                        Bairro: mbairro.value,
+                        Rua: mrua.value,
+                        Numero: mnumero.value,
+                        Especialidade: msespecialidade.value,
                     })
                 });
 
                 if (!response.ok) {
-                    throw new Error('Erro ao atualizar cliente');
+                    throw new Error('Erro ao atualizar mecanico');
                 }
 
                 // Sucesso
-                alert('Cliente atualizado com sucesso!');
+                alert('Mecanico atualizado com sucesso!');
                 location.reload(); // Recarrega a página
             } catch (error) {
                 console.error('Erro:', error);
-                alert('Erro ao tentar atualizar o cliente. Tente novamente. Possível erro CPF');
+                alert('Erro ao tentar atualizar o mecanico. Tente novamente. Possível erro CPF');
             }
         };
 
         // Chama a função assíncrona
-        atualizarCliente();
+        atualizarMecanico();
     };
 
 }

@@ -25,7 +25,9 @@ CREATE TABLE mecanico(
   Fone INTEGER,                 
   CEP varchar(20),
   CPF INTEGER UNIQUE NOT NULL,     
-  Bairro varchar(20)  
+  Bairro varchar(20) 
+  Rua varchar(20)
+  Numero INTEGER
   Especialidade varchar(100)
 );
 

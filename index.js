@@ -203,9 +203,9 @@ app.post('/cadastrar-pecas', (req, res) => {
 
 // ♦♦♦♦♦♦♦♦�Cadastra Mecanico♦♦♦♦♦♦♦♦�
 app.post('/cadastrar-mecanico', (req, res) => {
-    const { nome_m, telefone_m, cpf_m, cep_m, bairro_m, especialidade } = req.body;
-    db.run("INSERT INTO mecanico (Nome, Fone, CPF, CEP, Bairro, Especialidade) VALUES (?, ?, ?, ?, ?, ?)", 
-    [nome_m, telefone_m, cep_m, cpf_m, bairro_m, especialidade], function(err) {
+    const { nome_m, telefone_m, cpf_m, cep_m, bairro_m, rua_m, numero_m, especialidade } = req.body;
+    db.run("INSERT INTO mecanico (Nome, Fone, CPF, CEP, Bairro, Rua, Numero, Especialidade) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", 
+    [nome_m, telefone_m, cpf_m, cep_m, bairro_m, rua_m, numero_m, especialidade], function(err) {
         if (err) {
             console.error('Erro ao cadastrar mecânico:', err); // Log do erro
             res.status(500).send('Erro ao cadastrar mecânico');
@@ -315,26 +315,6 @@ app.get('/consultar-servico', (req, res) => {
         }
     });
 });
-
-// ♦♦♦♦♦♦♦♦�Consultar Mecanico♦♦♦♦♦♦♦♦�
-app.get('/consultar-mecanico', (req, res) => {
-    const nome_mecanico = req.query.Nome || ''; // Recupera o nome do mecânico ou uma string vazia
-
-    // Consulta ao banco de dados para buscar mecânicos com base no nome
-    const query = `SELECT * FROM mecanico WHERE Nome LIKE ?`;
-    const params = [`%${nome_mecanico}%`];
-
-    db.all(query, params, (err, rows) => {
-        if (err) {
-            console.error(err.message);
-            res.status(500).json({ error: 'Erro ao consultar mecânicos' });
-        } else {
-            res.json(rows);
-        }
-    });
-});
-
-
 
 // ♦♦♦♦♦♦♦♦�Busca orcamento♦♦♦♦♦♦♦♦�
 app.get('/buscar-orcamento', (req, res) => {
@@ -481,9 +461,9 @@ app.get('/consultar-mecanico', (req, res) => {
 // ♦♦♦♦♦♦♦♦�Atualiza Mecanico♦♦♦♦♦♦♦♦�
 app.put('/atualizar-mecanico/:id', (a_update, res) => {
     const mecanicoId = a_update.params.id;
-    const { Nome, Fone, CEP, CPF, Bairro, Especialidade } = a_update.body;
+    const { Nome, Fone, CEP, CPF, Bairro, Rua, Numero, Especialidade } = a_update.body;
 
-    if (!Nome || !Fone || !CEP || !CPF || !Bairro || Especialidade) {
+    if (!Nome || !Fone || !CEP || !CPF || !Bairro || !Rua || !Numero || !Especialidade) {
         return res.status(400).send('Todos os dados devem ser fornecidos');
     }
 
@@ -495,9 +475,11 @@ app.put('/atualizar-mecanico/:id', (a_update, res) => {
             CEP = ?, 
             CPF = ?, 
             Bairro = ?, 
+            Rua = ?,
+            Numero = ?,
             Especialidade = ?, 
          WHERE ID_mecanico = ?`,
-        [Nome, Fone, CEP, CPF, Bairro, Especialidade, mecanicoId], 
+        [Nome, Fone, CEP, CPF, Bairro, Rua, Numerator, Especialidade, mecanicoId], 
         function(err) {
             if (err) {
                 console.error('Erro ao atualizar mecanico:', err);
