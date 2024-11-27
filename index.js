@@ -57,10 +57,12 @@ db.serialize(() => {
         CREATE TABLE IF NOT EXISTS mecanico (
             ID_mecanico INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
             Nome TEXT, 
-            Fone INTEGER,                 
-            CEP TEXT,
-            CPF TEXT UNIQUE,     
-            Bairro TEXT, 
+            Fone TEXT,                 
+            CPF TEXT UNIQUE,
+            CEP TEXT,  
+            Bairro TEXT,
+            Rua TEXT,
+            Numero TEXT,
             Especialidade TEXT
         );
     `, (err) => {
