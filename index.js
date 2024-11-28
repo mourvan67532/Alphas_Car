@@ -77,6 +77,7 @@ db.serialize(() => {
         CREATE TABLE IF NOT EXISTS orcamento (
             ID_Orcamento INTEGER PRIMARY key AUTOINCREMENT UNIQUE,
             Nome TEXT,
+            Valor TEXT,
             CPF TEXT,
             Servico TEXT,
             Servicoop1 TEXT,
@@ -257,12 +258,12 @@ app.post('/cadastrar-servico', (req, res) => {
 });
 
 // ♦♦♦♦♦♦♦♦�Cadastra Orcamento♦♦♦♦♦♦♦♦�
-app.post('/orcamento', (req, res) => {
-    const { nome_orça, cpf_o, valor, servico, servico_op1, servico_op2 } = req.body;
-    db.run("INSERT INTO orcamento ( Nome, CPF, Valor, Servico, Servicoop1, Servicoop2) VALUES (?, ?, ?, ?, ?, ?)", [ nome_orça, cpf_o, valor, servico, servico_op1, servico_op2], function(err) {
+app.post('/cadastrar-orcamento', (req, res) => {
+    const { nome_orca, valor, cpf_o, servico, servico_op1, servico_op2 } = req.body;
+    db.run("INSERT INTO orcamento ( Nome, Valor, CPF, Servico, Servicoop1, Servicoop2) VALUES (?, ?, ?, ?, ?, ?)", [ nome_orca, valor, cpf_o, servico, servico_op1, servico_op2], function(err) {
         if (err){
             console.error('Erro ao cadastrar:', err);
-            res.status(500).send('Erro ao cadastrar orcamento');
+            res.status(500).send('Erro ao cadastrar orçamento');
         } else {
             res.send('cadastrado com sucesso!');
         }
@@ -495,10 +496,57 @@ app.put('/atualizar-mecanico/:id', (a_update, res) => {
     );
 });
 
-// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
-// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
-// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina Orcamento♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina Orcamento♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+// ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Pagina Orcamento♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 
+// ♦♦♦♦♦♦♦♦�Busca orcamento♦♦♦♦♦♦♦♦�
+app.get('/buscar-orcamento', (req, res) => {
+    const av_query = req.query.query;
+
+
+    db.all("SELECT * FROM orcamento WHERE CPF LIKE ?", [`%${av_query}%`], (err, rows) => {
+        if (err) {
+            console.error('Erro ao buscar orçamento:', err);
+            res.status(500).send('Erro ao buscar orçamento');
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+// ♦♦♦♦♦♦♦♦�Atualiza Orcamento♦♦♦♦♦♦♦♦�
+app.put('/atualizar-orcamento/:id', (o_update, res) => {
+    const orcamentoId = o_update.params.id;
+    const { Nome, Valor, CPF, Placa, Servico, Servicoop1, Servicoop2 } = o_update.body;
+
+    if (!Nome || !Valor || !CPF || !Placa || !Servico || !Servicoop1 || !Servicoop2) {
+        return res.status(400).send('Todos os dados devem ser fornecidos');
+    }
+
+    db.run(
+        `UPDATE orcamento 
+         SET 
+            Nome = ?, 
+            Valor = ?, 
+            CPF = ?, 
+            Servico = ?,
+            Servicoop1 = ?,
+            Servicoop2 = ?, 
+         WHERE ID_orcamento = ?`,
+        [Nome, Valor, CPF, Servico, Servicoop1, Servicoop2, orcamentoId], 
+        function(err) {
+            if (err) {
+                console.error('Erro ao atualizar orçamento:', err);
+                return res.status(500).send('Erro ao atualizar orçamento');
+            } else if (this.changes === 0) {
+                return res.status(404).send('Orçamento não encontrado');
+            } else {
+                return res.send('Orçamento atualizado com sucesso');
+            }
+        }
+    );
+});
 
 // ♦♦♦♦♦♦♦�Consultar fornecedores♦♦♦♦♦♦♦�
 // Endpoint para consultar fornecedores

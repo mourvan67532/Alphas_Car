@@ -176,19 +176,19 @@ async function cadastro_pecas(){ // função do cadastro da pecas, recebe e envi
 }
 
 //cadastra orçamento
-async function orcamento(){ // função do orcamento, recebe e os dados necessários para preencher o orçamento //
+async function cadastro_orcamento(){ // função do orcamento, recebe e os dados necessários para preencher o orçamento //
 
-    const nome_orça = document.getElementById("name").value;
-    const cpf_o = document.getElementById("acpf_selecionado_veiculo").value;
+    const nome_orca = document.getElementById("name").value;
     const valor = document.getElementById("valor").value;
+    const cpf_o = document.getElementById("acpf_selecionado_veiculo").value;
     const servico = document.getElementById("servic1").value;
     const servico_op1 = document.getElementById("servic2").value;
     const servico_op2 = document.getElementById("servic3").value;
 
-    await fetch('/orcamento',{
+    await fetch('/cadastrar-orcamento',{
         method:'POST',
         headers:{'Content-Type': 'application/json'},
-        body: JSON.stringify({nome_orça, cpf_o, valor, servico, servico_op1, servico_op2})
+        body: JSON.stringify({nome_orca, valor, cpf_o, servico, servico_op1, servico_op2})
     });
 
     alert('Orçamento cadastrado com sucesso!');
@@ -925,130 +925,191 @@ async function atualiza_mecanico(mecanico) {
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦ ORÇAMENTO ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 // ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦ ORÇAMENTO ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 async function a_buscarveiculo() { 
-  const a_veiculo_b = document.getElementById('a_cpf_vei').value;
-
-  // Se o campo de busca estiver vazio, não faz nada
-  if (a_veiculo_b === '') return;
-
-  // Faz a busca no servidor
-  const ab_response = await fetch(`/buscar-veiculo?query=${a_veiculo_b}`);
-
-  // Verifica se a resposta foi bem-sucedida
-  if (ab_response.ok) {
-      const a_cliente_veiculo = await ab_response.json();
-
-
-      const a_veicselecionado = document.getElementById('a_veicselecionado');
-              a_veicselecionado.innerHTML = '<option value="">Selecione um veículo do cliente</option>';
-
-      // Preenche o dropdown com os resultados da busca
-      a_cliente_veiculo.forEach(veiculo => {
-          const a_option = document.createElement('option');
-          a_option.value = veiculo.CPF;
-          a_option.textContent = `${veiculo.Modelo} (PLACA: ${veiculo.Placa})`;
-          a_veicselecionado.appendChild(a_option);
-      });
-      a_veicselecionado.addEventListener('change', () => {
-        const a_cpfSelecionado = a_veicselecionado.value;
-        document.getElementById('acpf_selecionado_veiculo').value = a_cpfSelecionado;
-      });
-
-  } else {
-      alert('Erro ao buscar veiculos. Tente novamente.');
-  }
-}
-
-async function m_lupa(){
-
-    const m_buscar = document.getElementById("m_barra").value;
-    document.getElementById("m_pesq").innerHTML = m_buscar;
-    // consulta clientes
-    const m_barra = document.getElementById('m_barra').value;
-    const m_queryParams = new URLSearchParams();
-
-    if (m_barra) m_queryParams.append('Nome', m_buscar);
-
-    const m_resposta = await fetch(`/consultar-clientes?${m_queryParams.toString()}`);
-
-    if (!m_resposta.ok) {
-        console.error('Erro ao consultar:', m_resposta.statusText);
-        return;
+    const a_veiculo_b = document.getElementById('a_cpf_vei').value;
+  
+    // Se o campo de busca estiver vazio, não faz nada
+    if (a_veiculo_b === '') return;
+  
+    // Faz a busca no servidor
+    const ab_response = await fetch(`/buscar-veiculo?query=${a_veiculo_b}`);
+  
+    // Verifica se a resposta foi bem-sucedida
+    if (ab_response.ok) {
+        const a_cliente_veiculo = await ab_response.json();
+  
+  
+        const a_veicselecionado = document.getElementById('a_veicselecionado');
+                a_veicselecionado.innerHTML = '<option value="">Selecione um veículo do cliente</option>';
+  
+        // Preenche o dropdown com os resultados da busca
+        a_cliente_veiculo.forEach(veiculo => {
+            const a_option = document.createElement('option');
+            a_option.value = veiculo.CPF;
+            a_option.textContent = `${veiculo.Modelo} (PLACA: ${veiculo.Placa})`;
+            a_veicselecionado.appendChild(a_option);
+        });
+        a_veicselecionado.addEventListener('change', () => {
+          const a_cpfSelecionado = a_veicselecionado.value;
+          document.getElementById('acpf_selecionado_veiculo').value = a_cpfSelecionado;
+        });
+  
+    } else {
+        alert('Erro ao buscar veiculos. Tente novamente.');
     }
-
-    const m_var4 = await m_resposta.json();
-    const listaClientes = document.getElementById('listaClientes');
-
-
-    // colunas da tabela e apaga o resto
-    listaClientes.innerHTML = `
-        <li class="m_tabela">
-            <h2>Nome</h2>
-            <h2 class="m_tabela_cpf">CPF</h2>
-            <h2 class="m_tabela_fone">Telefone</h2>
-            <h2 class="m_tabela_ponto">.</h2>
-        </li>
-
-    `;
-
-    console.log('retornados:', m_var4);
-
-
-    m_var4.forEach(cliente => {
-        const li = document.createElement('li');
-        li.className = 'm_li_cliente';
-        li.onclick = () => {
-            m_mais_dados_cliente(cliente.ID_cliente, cliente.CPF);
-            m_buscarveiculo(cliente.CPF);
-        };
-        li.innerHTML = `
-            <div class="m_li_nome">
-                <img src="../img/m_avatar.png" alt="avatar">
-                <h3>${cliente.Nome}</h3>
-            </div>
-            <h3>${cliente.CPF}</h3>
-            <h3>${cliente.Fone}</h3>
-            <img src="../img/m_seta.png" alt="seta" id="m_seta">
-        `;
-        // colocar veiculo
-        const m_colocar_aqui = document.createElement('div');
-        m_colocar_aqui.id = `carros-${cliente.CPF}`;
-        // -----------------------------------------[
-
-        const m_div = document.createElement('div');
-        m_div.className = 'm_dados';
-        m_div.id = `dados-${cliente.ID_cliente}`;
-        m_div.innerHTML = `
-            <div class="m_dados_nome">
-                <h3>ID:ㅤ <span>${cliente.ID_cliente}</span></h3>
-                <h3>Email:ㅤ <span>${cliente.Email}</span></h3>
-                <h3>Rua:ㅤ <span>${cliente.Rua}</span> </h3>
-                <h3>Bairro:ㅤ <span>${cliente.Bairro}</span></h3>
-                <h3>Número:ㅤ <span>${cliente.Numero}</span></h3>
-                <h3>Complemento:ㅤ <span>${cliente.Complemento}</span></h3>
-            </div>
-            <div class="m_option2">
-                <div class="m_option4">
-                    <h3 id="m_apaga_dados" onclick='atualiza_cliente(${JSON.stringify(cliente)})'>Editar</h3>
-
-                </div>
-                <div class="m_option3">
-                    <label for="veiculo_selecionado">Veiculo Selecionado:</label>
-                    <select id="veiculo_selecionado-${cliente.CPF}" class="veiculo_selecionado" name="veiculo_selecionado" required>
-                        <option value="">Selecione um cliente</option>
-                </select>
-                <h3 id="m_busca_carro" onclick="m_buscar_carro(${cliente.CPF})">Veículos</h3>
-                </div>
-
-                <input type="hidden" id="m_vei_sec-${cliente.CPF}">
-            </div>
-        `;
-
-        listaClientes.appendChild(li);
-        listaClientes.appendChild(m_div);
-        listaClientes.appendChild(m_colocar_aqui);
-    });
-
-};
+  }
+  
+  async function o_lupa(){
+  
+      const o_buscar = document.getElementById("m_barra").value;
+      document.getElementById("m_pesq").innerHTML = o_buscar;
+      // consulta clientes
+      const o_barra = document.getElementById('m_barra').value;
+      const o_queryParams = new URLSearchParams();
+  
+      if (o_barra) o_queryParams.append('Nome', o_buscar);
+  
+      const o_resposta = await fetch(`/consultar-clientes?${o_queryParams.toString()}`);
+  
+      if (!o_resposta.ok) {
+          console.error('Erro ao consultar:', o_resposta.statusText);
+          return;
+      }
+  
+      const o_var4 = await o_resposta.json();
+      const listaOrcamento = document.getElementById('listaOrcamentos');
+  
+  
+      // colunas da tabela e apaga o resto
+      listaOrcamento.innerHTML = `
+          <li class="o_tabela">
+              <h2>Nome</h2>
+              <h2 class="o_tabela_cpf">CPF</h2>
+              <h2 class="o_tabela_valor">Valor</h2>
+              <h2 class="o_tabela_ponto">.</h2>
+          </li>
+  
+      `;
+  
+      console.log('retornados:', o_var4);
+  
+  
+      o_var4.forEach(orcamento => {
+          const lio = document.createElement('li');
+          lio.className = 'o_li_orcamento';
+          lio.onclick = () => {
+              o_mais_dados_orcamento(orcamento.ID_orcamento, orcamento.CPF);
+          };
+          lio.innerHTML = `
+              <div class="o_li_nome">
+                  <img src="../img/m_avatar.png" alt="avatar">
+                  <h3>${orcamento.Nome}</h3>
+              </div>
+              <h3>${orcamento.CPF}</h3>
+              <h3>${orcamento.Valor}</h3>
+              <img src="../img/m_seta.png" alt="seta" id="o_seta">
+          `;
+  
+          const o_div = document.createElement('div');
+          o_div.className = 'o_dados';
+          o_div.id = `dados-${orcamento.ID_orcamento}`;
+          o_div.innerHTML = `
+              <div class="o_dados_nome">
+                  <h3>ID:ㅤ <span>${orcamento.ID_orcamento}</span></h3>
+                  <h3>Serviço:ㅤ <span>${orcamento.Servico}</span> </h3>
+                  <h3>Serviço 2:ㅤ <span>${cliente.Servicoop1}</span></h3>
+                  <h3>Serviço 3:ㅤ <span>${cliente.Servicoop2}</span></h3>
+              </div>
+              <div class="o_option2">
+                  <div class="o_option4">
+                      <h3 id="o_apaga_dados" onclick='atualiza_orcamento(${JSON.stringify(orcamento)})'>Editar</h3>
+  
+                  </div>
+          `;
+  
+          listaOrcamento.appendChild(lio);
+          listaOrcamento.appendChild(o_div);
+      });
+  
+  };
+  
+  function o_mais_dados_orcamento(orcamentoId) {
+      let o_div = document.getElementById(`dados-${orcamentoId}`);
+      if (o_div.style.display === 'none') {
+          o_div.style.display = 'flex';
+      } else {
+          o_div.style.display = 'none';
+      }
+  };
+  
+  function o_up_cancela(){
+      location.reload(); // Recarrega a página
+  }
+  async function atualiza_orcamento(orcamento) {
+      const { ID_orcamento, Nome, Valor, CPF, Servico, Servicoop1, Servicoop2 } = orcamento;
+  
+      const o_up = document.getElementById('o_up_up'); 
+  
+      if (o_up.style.display === 'none' || o_up.style.display === '') {
+          o_up.style.display = 'flex';
+      }
+  
+      // Preenche os inputs
+      document.getElementById('o_up_nome').value = Nome;
+      document.getElementById('o_up_valor').value = Valor;
+      document.getElementById('o_up_cpf').value = CPF;
+      document.getElementById('o_up_servico1').value = Servico;
+      document.getElementById('o_up_servico2').value = Servicoop1;
+      document.getElementById('o_up_servico3').value = Servicoop2;
+  
+  
+      const onome = document.getElementById('o_up_nome');
+      const ovalor = document.getElementById('o_up_valor');
+      const ocpf = document.getElementById('o_up_cpf');
+      const oservico1 = document.getElementById('o_up_servico1');
+      const oservico2 = document.getElementById('o_up_servico2');
+      const oservico3 = document.getElementById('o_up_servico3');
+  
+      if (!onome || !ovalor || !ocpf || !oservico1 || !oservico2 || !oservico3) {
+          alert('Todos os dados devem ser preenchidos!');
+          return;
+      }
+  
+      const up_orcamentos = document.getElementById('o_up_fim');
+      up_orcamentos.onclick = () => {
+  
+          const atualizarOrcamento = async () => {
+              try {
+                  const response = await fetch(`/atualizar-orcamento/${ID_orcamento}`, {
+                      method: 'PUT',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                          Nome: onome.value,
+                          Fone: ovalor.value,
+                          CPF: ocpf.value,
+                          Servico: oservico1.value,
+                          Servicoop1: oservico2.value,
+                          Servicoop2: oservico3.value,
+                      })
+                  });
+  
+                  if (!response.ok) {
+                      throw new Error('Erro ao atualizar orçamento');
+                  }
+  
+                  // Sucesso
+                  alert('Orçamento atualizado com sucesso!');
+                  location.reload(); // Recarrega a página
+              } catch (error) {
+                  console.error('Erro:', error);
+                  alert('Erro ao tentar atualizar o orçamento. Tente novamente. Possível erro CPF');
+              }
+          };
+  
+          // Chama a função assíncrona
+          atualizarOrcamento();
+      };
+  
+  }
 
 //AGENDAMENTO ******************************
 async function a_buscarorca() { 
