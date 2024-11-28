@@ -240,49 +240,55 @@
 
 }
 
+/* Container principal */
+.container-fornecedores {
+    display: flex;
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza os cards horizontalmente */
+    gap: 20px; /* Espaçamento entre os cards */
+    margin: 20px auto; /* Margem superior e inferior */
+    width: 100%; /* Ocupa a largura disponível */
+}
+
+/* Estilo do Card */
 .fornecedor-item {
-    margin-bottom: 20px;
-    padding: 20px;
+    display: flex;
+    flex-direction: row; /* Alinha logo e informações lado a lado */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: space-between; /* Espaço entre logo e informações */
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
+    padding: 20px;
+    width: 100%; /* Ocupa 80% da largura da tela */
+    max-width: 1000px; /* Tamanho máximo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    max-width: 400px;
-    margin: 15px auto; /* Centraliza os cards */
+    gap: 20px; /* Espaçamento entre os elementos do card */
 }
 
-/* Efeito de hover nos cards */
-.fornecedor-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    border-color: #bbb;
-}
 
-/* Container de informações do fornecedor */
+
+/* Seção de informações do fornecedor */
 .fornecedor-info {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    width: 100%;
+    font-family: Arial, sans-serif;
 }
 
-/* Informações com estilos mais destacados */
+/* Informações em destaque */
 .fornecedor-info p {
     margin: 0;
     font-size: 16px;
-    font-family: Arial, sans-serif;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
-/* Títulos das informações em destaque */
 .fornecedor-info p strong {
     font-weight: bold;
     color: #292929;
 }
+
 
 /******************************** MECANICOS **********************************/
 
