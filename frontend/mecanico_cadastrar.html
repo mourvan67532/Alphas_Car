@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <title>Cadastro mecânico</title>
     <link rel="stylesheet" href="style/style.css">
-    <script src="script.js" defer></script>
+
 </head>
 <body class="m_body">
     <header>
@@ -73,9 +73,10 @@
                     <input type="text" id="cpf_m">
                 </div>
                 <span id="cp"></span>
-                <div class="a_tabelinha">
-                    <label for="endereco_cep_m"><b>CEP</b></label>
-                    <input type="text" id="endereco_cep_m">
+                <div class="m_tabelinha">
+                    <label for="endereco_cep2"><b>CEP</b></label>
+                    <input type="text" id="endereco_cep2">
+                    <button id="m_buscarclienteid" onclick="m_buscarcep2()">Buscar</button>
                 </div>
                 <span id="endereco_ce"></span>
                 <div class="a_tabelinha">
@@ -107,4 +108,5 @@
         <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
     </footer>
 </body>
+    <script src="script.js"></script>
 </html>

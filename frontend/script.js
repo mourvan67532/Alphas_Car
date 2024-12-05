@@ -23,6 +23,7 @@ window.onload = function() {
     m_lupa();
     m_lupak();
     m_lupakp();
+    v_lupa();
     m_data_index();
 };
 //Cadastra Cliente
@@ -91,6 +92,36 @@ async function m_buscarcep() {
         alert('Erro ao buscar o endereço. Tente novamente.');
     }
 }
+
+async function m_buscarcep2() {
+    const cep2 = document.getElementById("endereco_cep2").value.trim();
+
+    if (!cep2) {
+        alert('Por favor, informe o CEP.');
+        return;
+    }
+
+    const url2 = `https://viacep.com.br/ws/${cep2}/json/`;
+
+    try {
+        const response = await fetch(url2);
+        const endereco2 = await response.json();
+
+        // Verifica se o CEP retornou erro (CEP não encontrado)
+        if (endereco2.erro) {
+            alert('CEP não encontrado.');
+            return;
+        }
+
+        // Preenche os campos de rua e bairro automaticamente
+        document.getElementById("rua_m").value = endereco2.logradouro;
+        document.getElementById("bairro_m").value = endereco2.bairro;
+    } catch (error) {
+        console.error('Erro ao buscar o endereço:', error);
+        alert('Erro ao buscar o endereço. Tente novamente.');
+    }
+}
+
 
 
 
@@ -190,10 +221,7 @@ async function cadastro_orcamento(){ // função do orcamento, recebe e os dados
         headers:{'Content-Type': 'application/json'},
         body: JSON.stringify({nome_orca, valor, cpf_o, servico, servico_op1, servico_op2})
     });
-
     alert('Orçamento cadastrado com sucesso!');
-
-
 }
 
 //Cadastra agendamento
@@ -762,10 +790,10 @@ async function cadastro_mecanico() {
 
 async function v_lupa(){
 
-    const a_buscar = document.getElementById("a_barra").value;
+    const a_buscar = document.getElementById("m_barra").value;
     document.getElementById("m_pesq").innerHTML = a_buscar;
     // consulta Mecanico
-    const a_barra = document.getElementById('a_barra').value;
+    const a_barra = document.getElementById('m_barra').value;
     const a_queryParams = new URLSearchParams();
 
     if (a_barra) a_queryParams.append('Nome', a_buscar);
@@ -854,8 +882,7 @@ async function atualiza_mecanico(mecanico) {
 
     if (a_up.style.display === 'none' || a_up.style.display === '') {
         a_up.style.display = 'flex';
-    }
-0
+    };
     // Preenche os inputs
     document.getElementById('a_up_nome').value = Nome;
     document.getElementById('a_up_fone').value = Fone;
@@ -1174,13 +1201,13 @@ async function consultarFornecedores() {
 
             li.innerHTML = `
             <div class="fornecedor-item">
-                <div class="fornecedor-info">
-                    <p><strong>Nome:</strong> ${fornecedor.Nome}</p>
-                    <p><strong>Email:</strong> ${fornecedor.Email}</p>
-                    <p><strong>Telefone:</strong> ${fornecedor.Telefone}</p>
-                    <p><strong>CNPJ:</strong> ${fornecedor.CNPJ}</p>
-                    <p><strong>CEP:</strong> ${fornecedor.CEP}</p>
-                </div>
+                    <div class="fornecedor-info">
+                        <h1> ${fornecedor.Nome}</h1>
+                        <p><strong>Email:</strong> ${fornecedor.Email}</p>
+                        <p><strong>Telefone:</strong> ${fornecedor.Telefone}</p>
+                        <p><strong>CNPJ:</strong> ${fornecedor.CNPJ}</p>
+                        <p><strong>CEP:</strong> ${fornecedor.CEP}</p>
+                    </div>
             </div>    
             `;
 

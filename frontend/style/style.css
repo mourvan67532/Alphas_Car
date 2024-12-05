@@ -221,7 +221,6 @@
 
 
 .f_ul .f_tabela{
-    /* display: flex; */
     justify-content: space-around;
     align-items: center;
     padding: 0.4rem;
@@ -243,30 +242,30 @@
 /* Container principal */
 .container-fornecedores {
     display: flex;
-    flex-direction: column; /* Organiza os itens em coluna */
     align-items: center; /* Centraliza os cards horizontalmente */
+    justify-content: center;
     gap: 20px; /* Espaçamento entre os cards */
     margin: 20px auto; /* Margem superior e inferior */
-    width: 100%; /* Ocupa a largura disponível */
+    flex-wrap: wrap;
 }
 
 /* Estilo do Card */
 .fornecedor-item {
     display: flex;
-    flex-direction: row; /* Alinha logo e informações lado a lado */
     align-items: center; /* Centraliza o conteúdo verticalmente */
-    justify-content: space-between; /* Espaço entre logo e informações */
+    justify-content: center; /* Espaço entre logo e informações */
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
-    width: 100%; /* Ocupa 80% da largura da tela */
+    width: 40rem; /* Ocupa 80% da largura da tela */
     max-width: 1000px; /* Tamanho máximo */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    gap: 20px; /* Espaçamento entre os elementos do card */
 }
-
+.fornecedor-item h1{
+    text-align: center;
+}
 
 
 /* Seção de informações do fornecedor */
@@ -282,6 +281,10 @@
     margin: 0;
     font-size: 16px;
     line-height: 1.5;
+    border: 2px solid ;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    width: auto;
 }
 
 .fornecedor-info p strong {
